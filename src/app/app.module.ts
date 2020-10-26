@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
+import { FlexModule } from '@angular/flex-layout';
 import { CommonSimplecontrolsModule } from './common-simplecontrols/common-simplecontrols.module';
 import { HomePageComponent } from './controls/home-page/home-page.component';
 import { TermsConditionsPanelComponent } from './controls/terms-conditions-panel/terms-conditions-panel.component';
@@ -41,10 +43,12 @@ import { SummaryPageComponent } from './controls/summary-page/summary-page.compo
     MatCardModule,
     MatDividerModule,
     MatGridListModule,
+    MatIconModule,
     MatListModule,
     MatRadioModule,
     MatStepperModule,
-    CommonSimplecontrolsModule
+    FlexModule,
+    CommonSimplecontrolsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

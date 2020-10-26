@@ -10,9 +10,13 @@ export class DownloadButtonComponent implements OnInit {
   @Input()
   public targetUrl: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  download(): void {
+    window.open(this.targetUrl, '_blank');
+  }
 }
