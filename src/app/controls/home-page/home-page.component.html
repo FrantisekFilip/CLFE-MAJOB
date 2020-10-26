@@ -1,0 +1,16 @@
+<section>
+    <h1 mat-subheader>Pojištění odpovědnosti - volba pojištění</h1>
+    <p mat-line>Způsob sjednání jsme přizpůsobili Vašim potřebám, vyberte si</p>
+    <div>
+        <mat-radio-group>
+            <mat-radio-button value="citizen-app">Pojištění odpovědnosti občanů</mat-radio-button>
+            <mat-radio-button value="employee-app">Pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <app-next-button [redirectTo]="applicationRoute"></app-next-button>
+</section>
+<mat-divider></mat-divider>
+<section>
+    <app-terms-conditions-panel></app-terms-conditions-panel>
+</section>
