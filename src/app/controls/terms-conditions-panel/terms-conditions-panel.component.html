@@ -2,64 +2,43 @@
     <mat-card-header>
         <mat-card-title>Dokumenty ke stažení</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        <mat-grid-list cols="2">
-            <mat-grid-tile>
-                <div mat-subheader min-width="80%">Pojistné podmínky
-                    <mat-grid-list cols="2">
-                        <mat-grid-tile>
-                            <mat-list-item>
-                                <a mat-button href="https://www.google.com/" target="_blank">VPP Majetku s odpovědností
-                                    občanů</a>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <a mat-button href="https://www.google.com/" target="_blank">DPP Pojištění odpovědností
-                                    občanů</a>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <a mat-button href="https://www.google.com/" target="_blank">DPP Pojištění odpovědností
-                                    zaměstnance za škodu způsobenou zaměstnavateli</a>
-                            </mat-list-item>
-                        </mat-grid-tile>
-                        <mat-grid-tile>
-                            <mat-list-item>
-                                <app-download-button targetUrl='https://www.google.com/'></app-download-button>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <app-download-button targetUrl="https://www.google.com/"></app-download-button>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <app-download-button targetUrl="https://www.google.com/"></app-download-button>
-                            </mat-list-item>
-                        </mat-grid-tile>
-                    </mat-grid-list>
+    <mat-card-content class="primary-border p-2">
+        <div fxLayout="row" fxFlexAlign="center center">
+            <div fxFlex="50">
+                <div fxLayout="column" fxFlexAlign="center center">
+                    <h3 class="text-primary">Pojistné podmínky</h3>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <app-icon-label icon="article" label="VPP Majetku s odpovědností
+                        občanů"></app-icon-label>
+                        <app-download-button></app-download-button>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <app-icon-label icon="article" label="DPP Pojištění odpovědností
+                        občanů"></app-icon-label>
+                        <app-download-button></app-download-button>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <app-icon-label icon="article" label="DPP Pojištění odpovědností
+                        zaměstnance za škodu způsobenou zaměstnavateli"></app-icon-label>
+                        <app-download-button></app-download-button>
+                    </span>
                 </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div mat-subheader min-width="80%">Informační dokument k pojistnému produktu
-                    <mat-grid-list cols="2">
-                        <mat-grid-tile>
-                            <mat-list-item>
-                                <a mat-button href="https://www.google.com/" target="_blank">Pojištění odpovědností
-                                    občanů
-                                    (IPID)</a>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <a mat-button href="https://www.google.com/" target="_blank">Pojištění odpovědností
-                                    zaměstnance za škodu způsobenou zaměstnavateli (IPID)</a>
-                            </mat-list-item>
-                        </mat-grid-tile>
-                        <mat-grid-tile>
-                            <mat-list-item>
-                                <app-download-button targetUrl="https://www.google.com/"></app-download-button>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <app-download-button targetUrl="https://www.google.com/"></app-download-button>
-                            </mat-list-item>
-                        </mat-grid-tile>
-                    </mat-grid-list>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div class="ml-2" fxFlex="50">
+                <div fxLayout="column" fxFlexAlign="center center">
+                    <h3 class="text-primary">Informační dokument k pojistnému produktu</h3>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <app-icon-label icon="article" label="Pojištění odpovědností občanů (IPID)"></app-icon-label>
+                        <app-download-button></app-download-button>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <app-icon-label icon="article" label="Pojištění odpovědností zaměstnance za škodu způsobenou
+                        zaměstnavateli (IPID)"></app-icon-label>
+                        <app-download-button></app-download-button>
+                    </span>
                 </div>
-            </mat-grid-tile>
-        </mat-grid-list>
+            </div>
+        </div>
     </mat-card-content>
 </mat-card>
