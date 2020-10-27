@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentFinalScreenComponent } from '../payment-final-screen/payment-final-screen.component';
 
 @Component({
   selector: 'app-payment-method',
