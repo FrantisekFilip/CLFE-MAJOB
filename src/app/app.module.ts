@@ -26,6 +26,7 @@ import { EmployeeCalculationFormComponent } from './controls/employee/employee-c
 import { AdditionalInfoFormComponent } from './controls/additional-info-form/additional-info-form.component';
 import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-accepted-tc-page.component';
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
+import { PaymentsModule } from './payments/payments.module';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { SummaryPageComponent } from './controls/summary-page/summary-page.compo
     FlexModule,
     CommonServicesModule,
     CommonSimplecontrolsModule,
+    PaymentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
