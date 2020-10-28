@@ -1,0 +1,57 @@
+<mat-card class="citizen-calculation-panel">
+    <mat-card-header>
+        <mat-card-title>Kalkulace</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="primary-border p-2">
+        <section class="background-color p-2">
+            <app-icon-button icon="help_outline"
+                label="Pojištění odpovědnosti vyplývající z činností v běžném občanském životě"></app-icon-button>
+            <div fxLayout="column" class="default-background-color m-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Limit plnění</mat-label>
+                    <mat-select [(ngModel)]="selectedAggregateIndemnity" name="aggregateIndemnity">
+                        <mat-option *ngFor="let aggregateIndemnity of aggregateIndemnities"
+                            [value]="aggregateIndemnity.value">
+                            {{aggregateIndemnity.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Územní rozsah</mat-label>
+                    <mat-select [(ngModel)]="selectedTerritorialScale" name="territorialScale">
+                        <mat-option *ngFor="let territorialScale of territorialScales" [value]="territorialScale.value">
+                            {{territorialScale.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Spoluúčast</mat-label>
+                    <mat-select [(ngModel)]="selectedCoinsurance" name="coinsurance">
+                        <mat-option *ngFor="let coinsurance of coinsurances" [value]="coinsurance.value">
+                            {{coinsurance.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div fxLayout="column" xFlexAlign="center center" class="background-color m-2 p-2">
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <p>Sleva:</p>
+                        <p>{{viewDiscount}}</p>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <p>Roční pojištění:</p>
+                        <p>{{viewYearInsurance}}</p>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <mat-divider></mat-divider>
+        <section>
+            <div>
+                <button mat-button>
+                    <mat-icon>add_circle_outline</mat-icon>
+                    Přidat pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli
+                </button>
+            </div>
+        </section>
+    </mat-card-content>
+</mat-card>

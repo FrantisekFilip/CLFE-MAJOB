@@ -1,7 +1,7 @@
 <mat-horizontal-stepper linear #stepper (selectionChange)="stepperChanged($event)" [selectedIndex]="selectedIndex">
     <mat-step [stepControl]="calcForm">
         <ng-template matStepLabel>Pojištění odpovědnosti - kalkulace</ng-template>
-        <app-citizen-calculation-form></app-citizen-calculation-form>
+        <app-employee-calculation-form></app-employee-calculation-form>
     </mat-step>
     <mat-step [stepControl]="addInfoForm">
         <ng-template matStepLabel>Doplňující informace</ng-template>
