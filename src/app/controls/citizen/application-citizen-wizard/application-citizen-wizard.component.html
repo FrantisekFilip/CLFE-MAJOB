@@ -15,7 +15,13 @@
             </mat-step>
             <mat-step [stepControl]="addInfoForm">
                 <ng-template matStepLabel>Doplňující informace</ng-template>
-                <app-additional-info-form></app-additional-info-form>
+                <form [formGroup]="calcForm" (ngSubmit)="submit()">
+                    <app-additional-info-panel></app-additional-info-panel>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <app-back-button></app-back-button>
+                        <app-next-button></app-next-button>
+                    </div>
+                </form>
             </mat-step>
             <mat-step [stepControl]="summaryPage">
                 <ng-template matStepLabel>Rekapitulace zvoleného rozsahu pojištění</ng-template>

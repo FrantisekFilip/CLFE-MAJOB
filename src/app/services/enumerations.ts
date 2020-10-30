@@ -11,3 +11,11 @@ export interface AggregateIndemnity extends Enumeration {
 export interface Coinsurance extends Enumeration {
     value: number;
 }
+
+export interface EmployeeCoinsurance extends Enumeration {
+}
+
+export interface InstalmentFrequency extends Enumeration {
+}
+
+

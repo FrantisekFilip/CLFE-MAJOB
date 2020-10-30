@@ -32,14 +32,14 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <div fxLayout="column" xFlexAlign="center center" class="background-color m-2 p-2">
+                <div fxLayout="column" fxFlexAlign="center center" class="background-color m-2 p-2">
+                    <span fxLayout="row" fxLayoutAlign="space-between center">
+                        <p>Roční pojistné:</p>
+                        <p>{{viewYearlyInsurance}}</p>
+                    </span>
                     <span fxLayout="row" fxLayoutAlign="space-between center">
                         <p>Sleva:</p>
                         <p>{{viewDiscount}}</p>
-                    </span>
-                    <span fxLayout="row" fxLayoutAlign="space-between center">
-                        <p>Roční pojištění:</p>
-                        <p>{{viewYearInsurance}}</p>
                     </span>
                 </div>
             </div>
@@ -52,6 +52,9 @@
                     Přidat pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli
                 </button>
             </div>
+        </section>
+        <section>
+            <app-calculation-summary-panel></app-calculation-summary-panel>
         </section>
     </mat-card-content>
 </mat-card>

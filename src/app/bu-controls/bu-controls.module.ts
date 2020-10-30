@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-import { PaymentWizardComponent } from './payment/payment-wizard/payment-wizard.component';
+import { CommonSimplecontrolsModule } from './../common-simplecontrols/common-simplecontrols.module';
+import { ClientInfoPanelComponent } from './client-info-panel/client-info-panel.component';
+import { ActiveAddressPanelComponent } from './active-address-panel/active-address-panel.component';
 
 @NgModule({
-  declarations: [PaymentWizardComponent],
+  declarations: [ClientInfoPanelComponent, ActiveAddressPanelComponent],
   exports: [
-    PaymentWizardComponent
+    ClientInfoPanelComponent, ActiveAddressPanelComponent
   ],
   imports: [
-    CommonModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CommonModule,
+    CommonSimplecontrolsModule
   ]
 })
 export class BuControlsModule { }

@@ -1,16 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AggregateIndemnity, Coinsurance, TerritorialScale } from './../../../services/enumerations';
+import { AggregateIndemnity, EmployeeCoinsurance, TerritorialScale } from 'src/app/services/enumerations';
 
 @Component({
-  selector: 'app-citizen-calculation-panel',
-  templateUrl: './citizen-calculation-panel.component.html',
-  styleUrls: ['./citizen-calculation-panel.component.scss']
+  selector: 'app-employee-calculation-panel',
+  templateUrl: './employee-calculation-panel.component.html',
+  styleUrls: ['./employee-calculation-panel.component.scss']
 })
-export class CitizenCalculationPanelComponent implements OnInit {
+export class EmployeeCalculationPanelComponent implements OnInit {
   selectedAggregateIndemnity: string;
   selectedTerritorialScale: string;
-  selectedCoinsurance: string;
+  mainVehiclesChecked: boolean;
+  otherVehiclesChecked: boolean;
+  viewAggregateIndemnity = '50 000 Kč';
+  viewEmployeeCoinsurance: string;
   viewDiscount: string;
   viewYearlyInsurance: string;
 
@@ -30,13 +33,15 @@ export class CitizenCalculationPanelComponent implements OnInit {
     { code: 'world', viewValue: 'Svět', value: 'Svět' }
   ];
 
-  coinsurances: Coinsurance[] = [
-    { code: 'coin-1', viewValue: '1 000 Kč', value: 1000 },
-    { code: 'coin-2', viewValue: '2 000 Kč', value: 2000 },
-    { code: 'coin-3', viewValue: '3 000 Kč', value: 3000 },
-    { code: 'coin-4', viewValue: '4 000 Kč', value: 4000 },
-    { code: 'coin-5', viewValue: '5 000 Kč', value: 5000 }
+  employeeCoinsurances: EmployeeCoinsurance[] = [
+    {
+      code: 'ecoin-1', viewValue: '0 Kč pro škody hrazené do výše spoluúčasti z havarijního pojištění (motokolo, motocykl, osobní a nákladní automobil, traktor a autobus \n 1 000 Kč pro ostatní škody'
+    }
   ];
+
+  constructor() {
+    this.viewEmployeeCoinsurance = this.employeeCoinsurances[0].viewValue;
+  }
 
   ngOnInit(): void {
   }

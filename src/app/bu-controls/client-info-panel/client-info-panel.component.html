@@ -1,0 +1,41 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Jméno:</mat-label>
+            <input matInput [value]='firstName'>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Titul před/za jménem:</mat-label>
+            <input matInput [value]='title'>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field appearance="fill">
+            <mat-label>Přijmení:</mat-label>
+            <input matInput [value]='lastName'>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Rodné číslo:</mat-label>
+            <input matInput [value]='firstName'>
+        </mat-form-field>
+        nebo
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Datum narození:</mat-label>
+            <input matInput type="date" [value]='firstName'>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>Telefon:</mat-label>
+            <input matInput type="tel" [value]='phoneNumber' placeholder="420">
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex>
+            <mat-label>
+                <app-icon-button icon="help_outline" label="Email:"></app-icon-button>
+            </mat-label>
+            <input matInput type="email" [value]='email' placeholder="@">
+        </mat-form-field>
+    </div>
+</div>
