@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
 
 @Component({
   selector: 'app-additional-info-panel',
@@ -8,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class AdditionalInfoPanelComponent implements OnInit {
   viewCommencementDate: string;
+  clientInfo: ClientInfoModel = new ClientInfoModel();
   selectedMailingAddress: boolean;
   selectedOtherPolicyHolder: boolean;
   termsAndConditionsChecked: boolean;

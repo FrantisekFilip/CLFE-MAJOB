@@ -12,7 +12,6 @@ Moduly
         -   payments - specialni modul pro realizaci online platby
     -   "sluzby" - nevizuální komponenty (knihovny)
         -   common-services - zakladni sdilene sluzby (infrastruktura aplikace)
-        -   global-services - globalni sluzby (obvykle jako singletony - runtime zalezitosti jako "nastaveni uzivatele", "poskytovatel ciselniku" ...
 
 Samotna aplikace neposkytuje moduly, pouze je organizovana do adresaru
     -   controls - vizualni komponenty

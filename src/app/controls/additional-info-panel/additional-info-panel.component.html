@@ -10,7 +10,7 @@
                     <p>{{viewCommencementDate}}</p>
                 </span>
                 <h3>Pojistník</h3>
-                <app-client-info-panel></app-client-info-panel>
+                <app-client-info-panel [clientInfo]='clientInfo' [parentForm]="parentForm"></app-client-info-panel>
                 <h3>Adresa bydliště v ČR</h3>
                 <app-active-address-panel></app-active-address-panel>
             </section>

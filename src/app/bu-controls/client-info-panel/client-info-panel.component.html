@@ -1,41 +1,24 @@
 <div fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>Jméno:</mat-label>
-            <input matInput [value]='firstName'>
-        </mat-form-field>
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>Titul před/za jménem:</mat-label>
-            <input matInput [value]='title'>
-        </mat-form-field>
+        <app-text-field [value]="clientInfo.firstName" label="Jméno:" [parentForm]="parentForm"></app-text-field>
+        <app-text-field [value]="clientInfo.title" label="Titul před/za jménem:" [parentForm]="parentForm">
+        </app-text-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <mat-form-field appearance="fill">
-            <mat-label>Přijmení:</mat-label>
-            <input matInput [value]='lastName'>
-        </mat-form-field>
+        <app-text-field [value]="clientInfo.lastName" label="Přijmení:" [parentForm]="parentForm">
+        </app-text-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>Rodné číslo:</mat-label>
-            <input matInput [value]='firstName'>
-        </mat-form-field>
+        <app-birth-number-field [value]="clientInfo.birthNumber?.value" label="Rodné číslo:" [parentForm]="parentForm">
+        </app-birth-number-field>
         nebo
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>Datum narození:</mat-label>
-            <input matInput type="date" [value]='firstName'>
-        </mat-form-field>
+        <app-date-field [value]="clientInfo.birthDate" label="Datum narození:" [parentForm]="parentForm">
+        </app-date-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>Telefon:</mat-label>
-            <input matInput type="tel" [value]='phoneNumber' placeholder="420">
-        </mat-form-field>
-        <mat-form-field appearance="fill" fxFlex>
-            <mat-label>
-                <app-icon-button icon="help_outline" label="Email:"></app-icon-button>
-            </mat-label>
-            <input matInput type="email" [value]='email' placeholder="@">
-        </mat-form-field>
+        <app-phone-number-field [value]="clientInfo.phoneNumber?.value" label="Telefon:" [parentForm]="parentForm">
+        </app-phone-number-field>
+        <app-email-field [value]="clientInfo.email?.value" label="Email:" [parentForm]="parentForm">
+        </app-email-field>
     </div>
 </div>

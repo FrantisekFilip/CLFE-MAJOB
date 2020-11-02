@@ -1,4 +1,4 @@
-import { Enumeration } from '../common-services/logical-types';
+import { Enumeration } from '../common-services/models/enumeration';
 
 export interface TerritorialScale extends Enumeration {
     value: string;

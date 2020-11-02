@@ -15,8 +15,8 @@
             </mat-step>
             <mat-step [stepControl]="addInfoForm">
                 <ng-template matStepLabel>Doplňující informace</ng-template>
-                <form [formGroup]="calcForm" (ngSubmit)="submit()">
-                    <app-additional-info-panel></app-additional-info-panel>
+                <form [formGroup]="addInfoForm" (ngSubmit)="submit()">
+                    <app-additional-info-panel [parentForm]="addInfoForm"></app-additional-info-panel>
                     <div fxLayout="row" fxLayoutAlign="center center">
                         <app-back-button></app-back-button>
                         <app-next-button></app-next-button>
