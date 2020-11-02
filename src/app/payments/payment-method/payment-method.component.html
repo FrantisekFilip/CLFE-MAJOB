@@ -1,4 +1,25 @@
-<p>payment-method works!</p>
-<div *ngIf="false">
-<app-payment-final-screen></app-payment-final-screen>
+<div *ngIf="isMain">
+  <section class="background-color p-2">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1 mat-subheader>Pojištění odpovědnosti - volba platební metody</h1>
+      <p mat-line>Nyní zvolte způsob platby</p>
+    </div>
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      class="default-background-color m-2"
+    >
+      <p class="mt-2" style="text-align: center">
+        Máte možnost výběru z "Okamžité platby", nebo "Odložené platby"
+      </p>
+    </div>
+  </section>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-radio-button value="citizen-app">Okamžitá platba</mat-radio-button>
+    <mat-radio-button value="employee-app">Odložená platba </mat-radio-button>
+  </div>
+  <button mat-stroked-button (click)="switchPage()">Pokračovat</button>
+</div>
+<div *ngIf="!isMain">
+  <app-payment-final-screen></app-payment-final-screen>
 </div>
