@@ -13,6 +13,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonSimplecontrolsModule } from '../common-simplecontrols/common-simplecontrols.module';
 import { MatButtonModule } from '@angular/material/button';
+import { PaymentsService } from './services/payments.service';
 
 
 
@@ -33,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   exports: [
     PaymentMethodComponent
-  ]
+  ],
+  providers: [PaymentsService]
 })
 export class PaymentsModule { }

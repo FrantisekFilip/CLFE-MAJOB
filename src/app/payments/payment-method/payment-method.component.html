@@ -21,7 +21,21 @@
   </div>
   <p mat-line></p>
   <button mat-flat-button color="primary" (click)="switchPage()">Pokračovat</button>
+  <button mat-flat-button color="primary" (click)="redirectHome()">Zpět</button>
 </div>
 <div *ngIf="!isMain">
   <app-payment-final-screen></app-payment-final-screen>
+</div>
+<div *ngIf="true">
+  <section class="background-color p-2">
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      class="default-background-color m-2"
+    >
+      <p class="mt-2" style="text-align: center">
+        Platba přes GoPay se nezdařila, prosím opakujte platbu nebo zvolte Zaplatit převodem později.
+      </p>
+    </div>
+  </section>
 </div>
