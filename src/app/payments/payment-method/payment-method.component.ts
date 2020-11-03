@@ -10,14 +10,22 @@ import { MatRadioModule } from '@angular/material/radio';
 })
 export class PaymentMethodComponent implements OnInit {
   public isMain: boolean = true;
+  selectedPayment: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onRadioBtnChange($event) {
+    console.log($event.value);
+    this.selectedPayment = $event.value;
+  }
+
   switchPage() {
+    if (this.selectedPayment === "expres-payment") {
     this.isMain = false;
+    }
   }
 
 }

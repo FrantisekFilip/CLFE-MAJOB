@@ -14,11 +14,13 @@
       </p>
     </div>
   </section>
+  <p mat-line></p>
   <div fxLayout="row" fxLayoutAlign="space-between center">
-    <mat-radio-button value="citizen-app">Okamžitá platba</mat-radio-button>
-    <mat-radio-button value="employee-app">Odložená platba </mat-radio-button>
+    <mat-radio-button value="expres-payment" (change)="onRadioBtnChange($event)">Okamžitá platba</mat-radio-button>
+    <mat-radio-button value="delayed-payment" (change)="onRadioBtnChange($event)">Odložená platba </mat-radio-button>
   </div>
-  <button mat-stroked-button (click)="switchPage()">Pokračovat</button>
+  <p mat-line></p>
+  <button mat-flat-button color="primary" (click)="switchPage()">Pokračovat</button>
 </div>
 <div *ngIf="!isMain">
   <app-payment-final-screen></app-payment-final-screen>
