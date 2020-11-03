@@ -1,14 +1,36 @@
-<mat-horizontal-stepper linear #stepper (selectionChange)="stepperChanged($event)" [selectedIndex]="selectedIndex">
-    <mat-step [stepControl]="calcForm">
-        <ng-template matStepLabel>Pojištění odpovědnosti - kalkulace</ng-template>
-        <app-citizen-calculation-form></app-citizen-calculation-form>
-    </mat-step>
-    <mat-step [stepControl]="addInfoForm">
-        <ng-template matStepLabel>Doplňující informace</ng-template>
-        <app-additional-info-form></app-additional-info-form>
-    </mat-step>
-    <mat-step [stepControl]="summaryPage">
-        <ng-template matStepLabel>Rekapitulace zvoleného rozsahu pojištění</ng-template>
-        <app-summary-page></app-summary-page>
-    </mat-step>
-</mat-horizontal-stepper>
+<section>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <h3 mat-subheader>Pojištění odpovědnosti</h3>
+        <mat-vertical-stepper linear #stepper (selectionChange)="stepperChanged($event)"
+            [selectedIndex]="selectedIndex">
+            <mat-step [stepControl]="calcForm">
+                <ng-template matStepLabel>Kalkulace</ng-template>
+                <form [formGroup]="calcForm" (ngSubmit)="submit()">
+                    <app-citizen-calculation-panel [parentForm]="calcForm"></app-citizen-calculation-panel>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <app-back-button></app-back-button>
+                        <app-next-button></app-next-button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="addInfoForm">
+                <ng-template matStepLabel>Doplňující informace</ng-template>
+                <form [formGroup]="addInfoForm" (ngSubmit)="submit()">
+                    <app-additional-info-panel [parentForm]="addInfoForm"></app-additional-info-panel>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <app-back-button></app-back-button>
+                        <app-next-button></app-next-button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="summaryPage">
+                <ng-template matStepLabel>Rekapitulace zvoleného rozsahu pojištění</ng-template>
+                <app-summary-page></app-summary-page>
+            </mat-step>
+        </mat-vertical-stepper>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+    <app-terms-conditions-panel></app-terms-conditions-panel>
+</section>

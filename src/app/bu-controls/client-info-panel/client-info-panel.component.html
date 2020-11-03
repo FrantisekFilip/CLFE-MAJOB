@@ -1,0 +1,24 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <app-text-field [value]="clientInfo.firstName" label="Jméno:" [parentForm]="parentForm"></app-text-field>
+        <app-text-field [value]="clientInfo.title" label="Titul před/za jménem:" [parentForm]="parentForm">
+        </app-text-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <app-text-field [value]="clientInfo.lastName" label="Přijmení:" [parentForm]="parentForm">
+        </app-text-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <app-birth-number-field [value]="clientInfo.birthNumber?.value" label="Rodné číslo:" [parentForm]="parentForm">
+        </app-birth-number-field>
+        nebo
+        <app-date-field [value]="clientInfo.birthDate" label="Datum narození:" [parentForm]="parentForm">
+        </app-date-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <app-phone-number-field [value]="clientInfo.phoneNumber?.value" label="Telefon:" [parentForm]="parentForm">
+        </app-phone-number-field>
+        <app-email-field [value]="clientInfo.email?.value" label="Email:" [parentForm]="parentForm">
+        </app-email-field>
+    </div>
+</div>

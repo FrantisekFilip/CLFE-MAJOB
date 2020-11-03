@@ -23,6 +23,9 @@ export class ApplicationCitizenWizardComponent implements OnInit {
     this.summaryPage = new FormGroup({});
   }
 
+  submit(): void {
+  }
+
   ngOnInit(): void {
     this.routes.queryParams.subscribe(param => {
       const step = param[0];
