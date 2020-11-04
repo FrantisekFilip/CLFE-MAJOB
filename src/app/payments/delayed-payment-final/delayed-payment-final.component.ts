@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { TermsConditionsPanelComponent } from '../../controls/terms-conditions-panel/terms-conditions-panel.component';
+
 
 @Component({
   selector: 'app-delayed-payment-final',

@@ -17,9 +17,13 @@ import { PaymentsService } from './services/payments.service';
 import { DelayedPaymentFinalComponent } from './delayed-payment-final/delayed-payment-final.component';
 
 
-
 @NgModule({
-  declarations: [PaymentWizardComponent, PaymentMethodComponent, PaymentFinalScreenComponent, DelayedPaymentFinalComponent],
+  declarations: [
+    PaymentWizardComponent,
+    PaymentMethodComponent,
+    PaymentFinalScreenComponent,
+    DelayedPaymentFinalComponent
+  ],
   imports: [
     CommonModule,
     CommonSimplecontrolsModule,
@@ -33,9 +37,7 @@ import { DelayedPaymentFinalComponent } from './delayed-payment-final/delayed-pa
     FlexModule,
     MatButtonModule
   ],
-  exports: [
-    PaymentMethodComponent
-  ],
-  providers: [PaymentsService]
+  exports: [PaymentMethodComponent],
+  providers: [PaymentsService],
 })
-export class PaymentsModule { }
+export class PaymentsModule {}

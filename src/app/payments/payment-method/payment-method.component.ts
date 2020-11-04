@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PaymentFinalScreenComponent } from '../payment-final-screen/payment-final-screen.component';
-import { MatRadioModule } from '@angular/material/radio';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentsService } from '../services/payments.service';
 import {Router} from "@angular/router";
 
@@ -11,6 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./payment-method.component.scss']
 })
 export class PaymentMethodComponent implements OnInit {
+  @Output() paymentSelected = new EventEmitter<string>();
+
   public isMain: boolean = true;
   public isExpress: boolean;
   public isDelayed: boolean;
@@ -30,6 +30,7 @@ export class PaymentMethodComponent implements OnInit {
   }
 
   switchPage() {
+    this.paymentSelected.emit('selected');
     if (this.selectedPayment === "expres-payment") {
     this.isMain = false;
     this.isExpress = true;

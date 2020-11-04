@@ -31,6 +31,7 @@ import { AdditionalInfoPanelComponent } from './controls/additional-info-panel/a
 import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-accepted-tc-page.component';
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
 import { PaymentsModule } from './payments/payments.module';
+import { PaymentComponent } from './controls/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PaymentsModule } from './payments/payments.module';
     AdditionalInfoPanelComponent,
     NotAcceptedTcPageComponent,
     SummaryPageComponent,
-    AdditionalInfoPanelComponent
+    AdditionalInfoPanelComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,7 @@ import { PaymentsModule } from './payments/payments.module';
     BuControlsModule,
     PaymentsModule
   ],
+  exports: [TermsConditionsPanelComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
