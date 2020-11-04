@@ -14,11 +14,12 @@ import { FlexModule } from '@angular/flex-layout';
 import { CommonSimplecontrolsModule } from '../common-simplecontrols/common-simplecontrols.module';
 import { MatButtonModule } from '@angular/material/button';
 import { PaymentsService } from './services/payments.service';
+import { DelayedPaymentFinalComponent } from './delayed-payment-final/delayed-payment-final.component';
 
 
 
 @NgModule({
-  declarations: [PaymentWizardComponent, PaymentMethodComponent, PaymentFinalScreenComponent],
+  declarations: [PaymentWizardComponent, PaymentMethodComponent, PaymentFinalScreenComponent, DelayedPaymentFinalComponent],
   imports: [
     CommonModule,
     CommonSimplecontrolsModule,

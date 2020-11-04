@@ -12,6 +12,8 @@ import {Router} from "@angular/router";
 })
 export class PaymentMethodComponent implements OnInit {
   public isMain: boolean = true;
+  public isExpress: boolean;
+  public isDelayed: boolean;
   selectedPayment: string;
 
   constructor(private paymentsService: PaymentsService, private router: Router) { }
@@ -20,7 +22,6 @@ export class PaymentMethodComponent implements OnInit {
   }
 
   onRadioBtnChange($event) {
-    console.log(this.paymentsService.getNewCalculation('kuk'));
     this.selectedPayment = $event.value;
   }
 
@@ -31,6 +32,11 @@ export class PaymentMethodComponent implements OnInit {
   switchPage() {
     if (this.selectedPayment === "expres-payment") {
     this.isMain = false;
+    this.isExpress = true;
+    }
+    if (this.selectedPayment === "delayed-payment") {
+      this.isMain = false;
+      this.isDelayed = true;
     }
   }
 

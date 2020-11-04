@@ -35,7 +35,7 @@
     </button>
   </div>
 </div>
-<div *ngIf="!isMain">
+<div *ngIf="isExpress">
   <app-payment-final-screen></app-payment-final-screen>
 </div>
 <div *ngIf="false">
@@ -51,4 +51,7 @@
       </p>
     </div>
   </section>
+</div>
+<div *ngIf="isDelayed">
+  <app-delayed-payment-final></app-delayed-payment-final>
 </div>
