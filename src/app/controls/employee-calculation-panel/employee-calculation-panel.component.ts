@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
+import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { AggregateIndemnityModel, EmployeeCoinsuranceModel } from 'src/app/models/enumerations';
 
@@ -9,7 +10,7 @@ import { AggregateIndemnityModel, EmployeeCoinsuranceModel } from 'src/app/model
   templateUrl: './employee-calculation-panel.component.html',
   styleUrls: ['./employee-calculation-panel.component.scss']
 })
-export class EmployeeCalculationPanelComponent implements OnInit {
+export class EmployeeCalculationPanelComponent extends BaseFormPanelComponent implements OnInit {
   selectedAggregateIndemnity: string;
   selectedTerritorialScale: string;
   mainVehiclesChecked: boolean;
@@ -29,12 +30,18 @@ export class EmployeeCalculationPanelComponent implements OnInit {
   public readonly employeeCoinsurances: EmployeeCoinsuranceModel[];
 
   constructor(enumerations: EnumerationsService) {
+    super();
     this.aggregateIndemnities = enumerations.getModelValues(AggregateIndemnityModel);
     this.territorialScales = enumerations.getModelValues(TerritorialScaleModel);
     this.employeeCoinsurances = enumerations.getModelValues(EmployeeCoinsuranceModel);
     this.viewEmployeeCoinsurance = this.employeeCoinsurances[0].viewValue;
   }
 
+  protected OnConstruct(): { controlName: string, controls?: { [key: string]: AbstractControl; }[] } {
+    return { controlName: 'EmployeeCalculationPanel' };
+  }
+
   ngOnInit(): void {
+    super.ngOnInit();
   }
 }

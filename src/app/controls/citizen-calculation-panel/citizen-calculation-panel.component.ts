@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
-import { BaseFormPanelComponent } from 'src/app/common-controls/base-form-panel/base-form-panel.component';
+import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { ContractParametersModel } from 'src/app/models/contract-parameters-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';

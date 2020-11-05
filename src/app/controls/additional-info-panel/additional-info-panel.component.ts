@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
-import { BaseFormPanelComponent } from 'src/app/common-controls/base-form-panel/base-form-panel.component';
+import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
 import { AgreementsModel } from 'src/app/models/agreements-model';
 import { ApplicationModel } from 'src/app/models/application-model';
 import { ContractParametersModel } from 'src/app/models/contract-parameters-model';

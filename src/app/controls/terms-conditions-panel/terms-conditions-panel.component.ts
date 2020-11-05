@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terms-conditions-panel.component.scss']
 })
 export class TermsConditionsPanelComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
   }
-
 }

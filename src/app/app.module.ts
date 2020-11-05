@@ -18,7 +18,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonServicesModule } from './common-services/common-services.module';
-import { CommonSimplecontrolsModule } from './common-simplecontrols/common-simplecontrols.module';
 import { CommonControlsModule } from './common-controls/common-controls.module';
 import { BuControlsModule } from './bu-controls/bu-controls.module';
 import { HomePageComponent } from './controls/home-page/home-page.component';
@@ -69,7 +68,6 @@ import { ApplicationWizardComponent } from './controls/application-wizard/applic
     MatStepperModule,
     FlexModule,
     CommonServicesModule,
-    CommonSimplecontrolsModule,
     CommonControlsModule,
     BuControlsModule,
     PaymentsModule

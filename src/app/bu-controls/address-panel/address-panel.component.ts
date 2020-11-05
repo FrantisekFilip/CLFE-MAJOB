@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
-import { BaseFormPanelComponent } from 'src/app/common-controls/base-form-panel/base-form-panel.component';
+import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
 
 @Component({
   selector: 'app-address-panel',

@@ -19,6 +19,10 @@ $secondColor: mat-color($mat-amber, 600);
     background-color: mat-color($mat-gray, 50);
 }
 
+.text-primary {
+    color: mat-color($primary);
+}
+
 .m-2 {
     margin: 2rem;
 }
@@ -34,6 +38,3 @@ $secondColor: mat-color($mat-amber, 600);
     padding: 2rem;
 }
 
-.text-primary {
-    color: mat-color($primary);
-}

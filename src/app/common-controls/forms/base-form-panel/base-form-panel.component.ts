@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup, ValidatorFn } from '@angular/forms';
-import { BaseModel } from '../../common-services/models/base-model';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-base-form-panel',

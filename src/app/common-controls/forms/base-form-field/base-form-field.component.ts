@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { BaseModel } from 'src/app/common-services/models/base-model';
 
 @Component({
@@ -10,6 +10,8 @@ import { BaseModel } from 'src/app/common-services/models/base-model';
 export class BaseFormFieldComponent implements OnInit {
   private _controlName: string;
   private _defaultValidators: ValidatorFn[];
+  private _validators: ValidatorFn[];
+  private _isRequired: boolean;
 
   public get controlName(): string {
     return this._controlName;
@@ -21,6 +23,28 @@ export class BaseFormFieldComponent implements OnInit {
 
   @Input()
   public label: string;
+
+  public get isRequired(): boolean {
+    return this._isRequired;
+  }
+
+  @Input()
+  public set isRequired(value: boolean) {
+    this._isRequired = value;
+    this.setValidators();
+  }
+
+  public get validators(): ValidatorFn[] {
+    return this._validators;
+  }
+
+  @Input()
+  public set validators(value: ValidatorFn[]) {
+    this._validators = this.setValidators(value);
+  }
+
+  @Input()
+  public placeholder: string;
 
   @Input()
   public parentForm: FormGroup;
@@ -48,7 +72,22 @@ export class BaseFormFieldComponent implements OnInit {
     this.parentForm.addControl(this.controlName, this.fieldControl);
   }
 
-  validator(): ValidatorFn {
+  private setValidators(explicitValidators?: ValidatorFn[]): ValidatorFn[] {
+    let validators = [...this._defaultValidators];
+
+    if (this._isRequired) {
+      validators.push(Validators.required);
+    }
+
+    if (explicitValidators && explicitValidators.length > 0) {
+      validators = validators.concat(explicitValidators);
+    }
+
+    this.fieldControl.setValidators(validators);
+    return validators;
+  }
+
+  protected validator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       const model = control.value as BaseModel; // TODO - rewrite as helper cast function
 
