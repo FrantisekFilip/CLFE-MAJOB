@@ -11,6 +11,7 @@ import { BirthNumberFieldComponent } from './birth-number-field/birth-number-fie
 import { PhoneNumberFieldComponent } from './phone-number-field/phone-number-field.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 import { DateFieldComponent } from './date-field/date-field.component';
+import { SelectFieldComponent } from './select-field/select-field.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DateFieldComponent } from './date-field/date-field.component';
     PhoneNumberFieldComponent,
     TextFieldComponent,
     DateFieldComponent,
-    BaseFormPanelComponent
+    BaseFormPanelComponent,
+    SelectFieldComponent
   ],
   imports: [
     CommonModule,

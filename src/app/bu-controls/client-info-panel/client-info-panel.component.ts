@@ -11,6 +11,9 @@ import { BaseFormPanelComponent } from 'src/app/common-controls/base-form-panel/
 export class ClientInfoPanelComponent extends BaseFormPanelComponent implements OnInit {
   private _clientInfo: ClientInfoModel;
 
+  @Input()
+  public header: string;
+
   get clientInfo(): ClientInfoModel {
     return this._clientInfo;
   }
@@ -19,6 +22,9 @@ export class ClientInfoPanelComponent extends BaseFormPanelComponent implements 
   set clientInfo(value: ClientInfoModel) {
     this._clientInfo = value;
   }
+
+  @Input()
+  public emailLabel = 'Email';
 
   protected OnConstruct(): { controlName: string, controls?: { [key: string]: AbstractControl; }[] } {
     return { controlName: 'clientInfoPanel' };
