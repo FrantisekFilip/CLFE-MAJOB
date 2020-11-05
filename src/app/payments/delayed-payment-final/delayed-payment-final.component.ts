@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { TermsConditionsPanelComponent } from '../../controls/terms-conditions-panel/terms-conditions-panel.component';
 
 
 @Component({
@@ -20,6 +19,6 @@ export class DelayedPaymentFinalComponent implements OnInit {
   }
 
   redirectHome() {
-    this.router.navigate(['/home']);
+    window.location.href = 'https://www.pvzp.cz/cs/';
   }
 }

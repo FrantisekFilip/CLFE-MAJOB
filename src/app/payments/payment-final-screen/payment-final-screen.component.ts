@@ -18,6 +18,7 @@ export class PaymentFinalScreenComponent implements OnInit {
   }
 
   redirectHome() {
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
+    window.location.href = 'https://www.pvzp.cz/cs/';
   }
 }
