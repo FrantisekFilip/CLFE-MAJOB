@@ -1,0 +1,64 @@
+<mat-card class="additional-info-panel">
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center left">
+            <section>
+                <app-date-field [value]="commencementDate" label="Datum počátku pojištění:" [parentForm]="parentForm">
+                </app-date-field>
+                <app-client-info-panel header="Pojistník" [clientInfo]="policyHolder" [parentForm]="parentForm"
+                    emailLabel="Kontaktní e-mail pro zaslání pojistných smluv:"></app-client-info-panel>
+                <app-active-address-panel header="Adresa bydliště v ČR" [address]="mainAddress"
+                    [parentForm]="parentForm">
+                </app-active-address-panel>
+            </section>
+            <section>
+                <mat-checkbox labelPosition="before" [checked]="hasContactAddress">
+                    Korespondenční adresa není shodná s adresou bydliště:
+                </mat-checkbox>
+            </section>
+            <section>
+                <mat-checkbox labelPosition="before" [checked]="hasInsuredPerson">
+                    Pojistník není shodný s pojištěnou osobou:
+                </mat-checkbox>
+            </section>
+            <section>
+                <p> Upozornění: Podmínkou platnosti pojistné smlouvy je existence pojistného zájmu pojistníka na majetku
+                    či
+                    odpovědnosti jiné osoby v době uzavření pojistné smlouvy. Pojistník má pojistný zájem, osvědčí-li,
+                    že by mu
+                    bez jeho existence a uchování hrozila přímá majetková ztráta.
+                </p>
+                <div fxLayout="column">
+                    <div fxLayout="column">
+                        <mat-checkbox labelPosition="after" [checked]="agreementsAccepted">
+                            Potvrzuji, že jsem se seznámil s informacemi potřebnými ke sjednání pojistné smlouvy:
+                        </mat-checkbox>
+                        <mat-checkbox labelPosition="after" [checked]="agreements.termsAndConditions" [disabled]="true">
+                            Pojistné podmínky:\n
+                            VPP Majetku a odpovědnosti občanů\n
+                            DPP Pojištění odpovědnosti občanů\n
+                            DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli
+                        </mat-checkbox>
+                        <mat-checkbox labelPosition="after" [checked]="agreements.productInfo" [disabled]="true">
+                            Informační dokument k pojistnému produktu\n
+                            Pojištění odpovědnosti občanů (IPID)\n
+                            Pojištění odvědnosti zaměstnance za škodu způsboenou zaměstnavateli (IPID)\n
+                        </mat-checkbox>
+                        <mat-checkbox labelPosition="after" [checked]="agreements.gdpr" [disabled]="true">
+                            GDPR - poučení o zpracování osobních údajů
+                        </mat-checkbox>
+                        <mat-checkbox labelPosition="after" [checked]="agreements.contractualInfo" [disabled]="true">
+                            Předsmluvní informace
+                        </mat-checkbox>
+                    </div>
+                    <mat-checkbox labelPosition="after" [checked]="agreementsAccepted">
+                        Souhlasím s tím, abych byl v záležitostech týkajících se tohoto pojištění kontaktován prostředky
+                        elektronické komunikace (např. e-mail, telefon atd.).
+                    </mat-checkbox>
+                </div>
+            </section>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,45 @@
+<section>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <h3 mat-subheader>Pojištění odpovědnosti</h3>
+        <mat-vertical-stepper linear #stepper (selectionChange)="stepperChanged($event)"
+            [selectedIndex]="selectedIndex">
+            <mat-step [stepControl]="calcForm">
+                <ng-template matStepLabel>Kalkulace</ng-template>
+                <form [formGroup]="calcForm" (ngSubmit)="submit()">
+                    <mat-card class="calculation-step">
+                        <mat-card-header>
+                            <mat-card-title>(1/5) Kalkulace</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="primary-border p-2">
+                            <app-citizen-calculation-panel [parentForm]="calcForm"></app-citizen-calculation-panel>
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                <app-back-button redirectTo="home"></app-back-button>
+                                <app-stepper-next-button></app-stepper-next-button>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="addInfoForm">
+                <ng-template matStepLabel>Doplňující informace</ng-template>
+                <form [formGroup]="addInfoForm" (ngSubmit)="submit()">
+                    <app-additional-info-panel title="(2/5) Doplňující informace" [parentForm]="addInfoForm">
+                    </app-additional-info-panel>
+                    <app-stepper-buttons></app-stepper-buttons>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="summaryPage">
+                <ng-template matStepLabel>Rekapitulace zvoleného rozsahu pojištění</ng-template>
+                <app-summary-page></app-summary-page>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <app-stepper-back-button></app-stepper-back-button>
+                    <button mat-raised-button matStepperNext>Sjednat smlouvu a pokračovat k platbě</button>
+                </div>
+            </mat-step>
+        </mat-vertical-stepper>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+    <app-terms-conditions-panel></app-terms-conditions-panel>
+</section>

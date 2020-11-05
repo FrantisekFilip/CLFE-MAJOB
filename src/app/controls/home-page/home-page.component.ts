@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatRadioModule } from '@angular/material/radio';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { MatRadioChange, MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +7,6 @@ import { MatRadioModule } from '@angular/material/radio';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
   public applicationRoute: string;
 
   constructor() { }
