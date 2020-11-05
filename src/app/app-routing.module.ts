@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ApplicationCitizenWizardComponent } from './controls/citizen/application-citizen-wizard/application-citizen-wizard.component';
-import { ApplicationEmployeeWizardComponent } from './controls/employee/application-employee-wizard/application-employee-wizard.component';
+import { ApplicationCitizenWizardComponent } from './controls/application-citizen-wizard/application-citizen-wizard.component';
+import { ApplicationEmployeeWizardComponent } from './controls/application-employee-wizard/application-employee-wizard.component';
 import { HomePageComponent } from './controls/home-page/home-page.component';
 import { PaymentComponent } from './controls/payment/payment.component';
 
+
+export const routeHome = 'home';
+export const routeCitizenWizard = 'citizen-app';
+export const routeEmployeeWizard = 'employee-app';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },

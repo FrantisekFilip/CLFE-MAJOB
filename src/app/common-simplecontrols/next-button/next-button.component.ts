@@ -17,6 +17,8 @@ export class NextButtonComponent implements OnInit {
   }
 
   redirect(): void {
-    this.router.navigate([this.redirectTo]);
+    if (this.redirectTo) {
+      this.router.navigate([this.redirectTo]);
+    }
   }
 }

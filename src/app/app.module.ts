@@ -19,13 +19,14 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonServicesModule } from './common-services/common-services.module';
 import { CommonSimplecontrolsModule } from './common-simplecontrols/common-simplecontrols.module';
+import { CommonControlsModule } from './common-controls/common-controls.module';
 import { BuControlsModule } from './bu-controls/bu-controls.module';
 import { HomePageComponent } from './controls/home-page/home-page.component';
 import { TermsConditionsPanelComponent } from './controls/terms-conditions-panel/terms-conditions-panel.component';
-import { ApplicationCitizenWizardComponent } from './controls/citizen/application-citizen-wizard/application-citizen-wizard.component';
-import { CitizenCalculationPanelComponent } from './controls/citizen/citizen-calculation-panel/citizen-calculation-panel.component';
-import { ApplicationEmployeeWizardComponent } from './controls/employee/application-employee-wizard/application-employee-wizard.component';
-import { EmployeeCalculationPanelComponent } from './controls/employee/employee-calculation-panel/employee-calculation-panel.component';
+import { ApplicationCitizenWizardComponent } from './controls/application-citizen-wizard/application-citizen-wizard.component';
+import { CitizenCalculationPanelComponent } from './controls/citizen-calculation-panel/citizen-calculation-panel.component';
+import { ApplicationEmployeeWizardComponent } from './controls/application-employee-wizard/application-employee-wizard.component';
+import { EmployeeCalculationPanelComponent } from './controls/employee-calculation-panel/employee-calculation-panel.component';
 import { CalculationSummaryPanelComponent } from './controls/calculation-summary-panel/calculation-summary-panel.component';
 import { AdditionalInfoPanelComponent } from './controls/additional-info-panel/additional-info-panel.component';
 import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-accepted-tc-page.component';
@@ -69,6 +70,7 @@ import { PaymentComponent } from './controls/payment/payment.component';
     FlexModule,
     CommonServicesModule,
     CommonSimplecontrolsModule,
+    CommonControlsModule,
     BuControlsModule,
     PaymentsModule
   ],

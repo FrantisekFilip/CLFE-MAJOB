@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexModule } from '@angular/flex-layout';
 import { BackButtonComponent } from './back-button/back-button.component';
@@ -13,6 +14,9 @@ import { IconLabelComponent } from './icon-label/icon-label.component';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { NextButtonComponent } from './next-button/next-button.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
+import { StepperNextButtonComponent } from './stepper-next-button/stepper-next-button.component';
+import { StepperBackButtonComponent } from './stepper-back-button/stepper-back-button.component';
+import { StepperButtonsComponent } from './stepper-buttons/stepper-buttons.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     InputFieldComponent,
     NextButtonComponent,
     IconLabelComponent,
-    IconButtonComponent
+    IconButtonComponent,
+    StepperNextButtonComponent,
+    StepperBackButtonComponent,
+    StepperButtonsComponent
   ],
   exports: [
     BackButtonComponent,
@@ -31,7 +38,10 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     IconButtonComponent,
     IconLabelComponent,
     InputFieldComponent,
-    NextButtonComponent
+    NextButtonComponent,
+    StepperNextButtonComponent,
+    StepperBackButtonComponent,
+    StepperButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +49,7 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatStepperModule,
     ReactiveFormsModule,
     FlexModule
   ]

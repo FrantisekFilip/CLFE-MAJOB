@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InstalmentFrequency } from 'src/app/services/enumerations';
+import { InstalmentFrequencyModel } from 'src/app/bu-services/models/enumerations';
+import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 
 @Component({
   selector: 'app-calculation-summary-panel',
@@ -11,14 +12,10 @@ export class CalculationSummaryPanelComponent implements OnInit {
   viewFrequency: string;
   viewInstalment: string;
 
-  instalmentFrequencies: InstalmentFrequency[] = [
-    { code: 'ins-monthly', viewValue: 'monthly' },
-    { code: 'half-yearly', viewValue: 'half-yearly' },
-    { code: 'ins-quarterly', viewValue: 'quarterly' },
-    { code: 'ins-yearly', viewValue: 'Yearly' }
-  ];
+  public readonly instalmentFrequencies: InstalmentFrequencyModel[];
 
-  constructor() {
+  constructor(enumerations: EnumerationsService) {
+    this.instalmentFrequencies = enumerations.getModelValues(InstalmentFrequencyModel);
     this.viewFrequency = this.instalmentFrequencies[2].viewValue;
   }
 

@@ -4,7 +4,7 @@
         <p mat-line>Způsob sjednání jsme přizpůsobili Vašim potřebám, vyberte si</p>
     </div>
     <div fxLayout="column" fxLayoutAlign="center center" class="default-background-color m-2">
-        <mat-radio-group>
+        <mat-radio-group [(ngModel)]="applicationRoute">
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <mat-radio-button value="citizen-app">Pojištění odpovědnosti občanů</mat-radio-button>
                 <mat-radio-button value="employee-app">Pojištění odpovědnosti zaměstnance za škodu způsobenou
@@ -12,7 +12,8 @@
                 </mat-radio-button>
             </div>
         </mat-radio-group>
-        <p class="mt-2" style="text-align: center">Nyní si můžete on-line sjednat pojištění odpovědnosti . Máte-li zájem i o pojištění majetku
+        <p class="mt-2" style="text-align: center">Nyní si můžete on-line sjednat pojištění odpovědnosti . Máte-li zájem
+            i o pojištění majetku
             (vybavení domácnosti, pojištění bytu či rodinného domu), tak se můžete obrátit na naší pobočku
             nebo nás kontaktovat telefonicky či emailem na kontaktech uvedených níže. Na možnosti sjednání
             majetkového pojištění on-line intenzivně pracujeme.</p>
