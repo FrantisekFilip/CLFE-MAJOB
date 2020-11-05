@@ -1,35 +1,28 @@
 <div *ngIf="isMain">
   <section class="background-color p-2">
     <div fxLayout="column" fxLayoutAlign="center center">
-      <h1 mat-subheader>Pojištění odpovědnosti - volba platební metody</h1>
-      <p mat-line>Nyní zvolte způsob platby</p>
+      <h1 mat-subheader>(4/5) Volba platební metody</h1>
+      <p mat-line>Smlouva se stává platnou v den, kdy bude platba pojistného připsána na účet pojistitele.</p>
     </div>
     <div
       fxLayout="column"
       fxLayoutAlign="center center"
-      class="default-background-color m-2"
-    >
-      <p class="mt-2" style="text-align: center">
-        Máte možnost výběru z "Okamžité platby", nebo "Odložené platby"
-      </p>
+      *ngIf="false"
+    > Platba přes GoPay se nezdařila, prosím opakujte platbu, nebo zvolte Zaplatit převodem později.
+
     </div>
   </section>
   <p mat-line></p>
   <div fxLayout="row" fxLayoutAlign fxLayoutGap="5px">
-    <mat-radio-button value="expres-payment" (change)="onRadioBtnChange($event)"
-      >Okamžitá platba</mat-radio-button
+    <button (click)="expressPaymentClick()"
+      >Okamžitá platba</button
     >
-    <mat-radio-button
-      value="delayed-payment"
-      (change)="onRadioBtnChange($event)"
+    <button (click)="delayedPaymentClick()"
       >Odložená platba
-    </mat-radio-button>
+    </button>
   </div>
   <p mat-line></p>
   <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
-    <button mat-flat-button color="primary" fxFlex="0.2 0 auto" (click)="switchPage()">
-      Pokračovat
-    </button>
     <button mat-flat-button color="primary" fxFlex="0.2 0 auto" (click)="redirectHome()">
       Zpět
     </button>
@@ -37,20 +30,6 @@
 </div>
 <div *ngIf="isExpress">
   <app-payment-final-screen></app-payment-final-screen>
-</div>
-<div *ngIf="false">
-  <section class="background-color p-2">
-    <div
-      fxLayout="column"
-      fxLayoutAlign="center center"
-      class="default-background-color m-2"
-    >
-      <p class="mt-2" style="text-align: center">
-        Platba přes GoPay se nezdařila, prosím opakujte platbu nebo zvolte
-        Zaplatit převodem později.
-      </p>
-    </div>
-  </section>
 </div>
 <div *ngIf="isDelayed">
   <app-delayed-payment-final></app-delayed-payment-final>

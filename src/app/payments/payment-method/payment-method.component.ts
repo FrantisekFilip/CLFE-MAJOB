@@ -21,8 +21,14 @@ export class PaymentMethodComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRadioBtnChange($event) {
-    this.selectedPayment = $event.value;
+  delayedPaymentClick() {
+    this.isMain = false;
+    this.isDelayed = true;
+  }
+
+  expressPaymentClick() {
+    this.isMain = false;
+    this.isExpress = true;
   }
 
   redirectHome() {
