@@ -33,6 +33,7 @@ import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
 import { PaymentsModule } from './payments/payments.module';
 import { PaymentComponent } from './controls/payment/payment.component';
+import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PaymentComponent } from './controls/payment/payment.component';
     NotAcceptedTcPageComponent,
     SummaryPageComponent,
     AdditionalInfoPanelComponent,
-    PaymentComponent
+    PaymentComponent,
+    NotAcceptedComponent
   ],
   imports: [
     BrowserModule,
