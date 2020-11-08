@@ -33,6 +33,8 @@ import { EmployeeApplicationPanelComponent } from './controls/employee-applicati
 import { CitizenApplicationPanelComponent } from './controls/citizen-application-panel/citizen-application-panel.component';
 import { CitizenApplicationPageComponent } from './controls/citizen-application-page/citizen-application-page.component';
 import { EmployeeApplicationPageComponent } from './controls/employee-application-page/employee-application-page.component';
+import { PaymentComponent } from './controls/payment/payment.component';
+import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { EmployeeApplicationPageComponent } from './controls/employee-applicatio
     EmployeeApplicationPanelComponent,
     CitizenApplicationPanelComponent,
     CitizenApplicationPageComponent,
-    EmployeeApplicationPageComponent
+    EmployeeApplicationPageComponent,
+    PaymentComponent,
+    NotAcceptedComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ import { EmployeeApplicationPageComponent } from './controls/employee-applicatio
     BuControlsModule,
     PaymentsModule
   ],
+  exports: [TermsConditionsPanelComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-payment-final-screen',
-  templateUrl: './payment-final-screen.component.html',
-  styleUrls: ['./payment-final-screen.component.scss'],
+  selector: 'app-delayed-payment-final',
+  templateUrl: './delayed-payment-final.component.html',
+  styleUrls: ['./delayed-payment-final.component.scss'],
 })
-export class PaymentFinalScreenComponent implements OnInit {
+export class DelayedPaymentFinalComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -18,7 +19,6 @@ export class PaymentFinalScreenComponent implements OnInit {
   }
 
   redirectHome() {
-    //this.router.navigate(['/home']);
     window.location.href = 'https://www.pvzp.cz/cs/';
   }
 }

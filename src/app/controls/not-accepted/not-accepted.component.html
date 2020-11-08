@@ -1,0 +1,24 @@
+<div>
+  <section class="background-color p-2">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1 mat-subheader>Nesplnění podmínek pro pokačování ve sjednání</h1>
+    </div>
+    <div>
+      Bohužel Vámi sjednané pojištění nelze nyní sjednat on-line. V případě
+      Vašeho zájmu o toto pojištění, či o poskytnutí dalších informací k
+      pojištění se můžete obrátit na kteroukoliv naší <a [routerLink]="" (click)="redirect()">pobočku</a>, či nás
+      kontaktovat na telefonním čísle/emailu uvedeném níže.
+    </div>
+  </section>
+  <p mat-line></p>
+  <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
+    <button
+      mat-flat-button
+      color="primary"
+      fxFlex="0.2 0 auto"
+      (click)="close()"
+    >
+      Zavřít
+    </button>
+  </div>
+</div>
