@@ -1,11 +1,10 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
 import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
 import { AgreementsModel } from 'src/app/models/agreements-model';
 import { ApplicationModel } from 'src/app/models/application-model';
-import { ContractParametersModel } from 'src/app/models/contract-parameters-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
 
 @Component({
@@ -17,23 +16,17 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
   private readonly _model: ApplicationModel;
 
   public get commencementDate(): Date {
-    return this._model.contractParameters?.commencementDate;
+    return this._model.commencementDate;
   }
 
-  @Input()
   public set commencementDate(value: Date) {
-    if (!this._model.contractParameters) {
-      this._model.contractParameters = new ContractParametersModel();
-    }
-
-    this._model.contractParameters.commencementDate = value;
+    this._model.commencementDate = value;
   }
 
   public get policyHolder(): ClientInfoModel {
     return this._model.policyHolder;
   }
 
-  @Input()
   public set policyHolder(value: ClientInfoModel) {
     this._model.policyHolder = value;
   }
@@ -42,27 +35,46 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
     return this._model.mainAddress;
   }
 
-  @Input()
   public set mainAddress(value: AddressModel) {
     this._model.mainAddress = value;
   }
 
   public get hasContactAddress(): boolean {
-    return this._model.useContactAddress;
+    return (this._model.contactAddress?.doApply) ?? false;
   }
 
-  @Input()
   public set hasContactAddress(value: boolean) {
-    this._model.useContactAddress = value;
+    if (value === true) {
+      if (this._model.contactAddress) {
+        this._model.contactAddress.doApply = true;
+      }
+      else {
+        this._model.contactAddress = new AddressModel();
+      }
+    }
+  }
+
+  public get contactAddress(): AddressModel {
+    return this._model.contactAddress;
   }
 
   public get hasInsuredPerson(): boolean {
-    return this._model.useInsuredPerson;
+    return (this._model.insuredPerson?.doApply) ?? false;
   }
 
-  @Input()
   public set hasInsuredPerson(value: boolean) {
-    this._model.useInsuredPerson = value;
+    if (value === true) {
+      if (this._model.insuredPerson) {
+        this._model.insuredPerson.doApply = true;
+      }
+      else {
+        this._model.insuredPerson = new ClientInfoModel();
+      }
+    }
+  }
+
+  public get insuredPerson(): ClientInfoModel {
+    return this._model.insuredPerson;
   }
 
   public get agreements(): AgreementsModel {
@@ -73,7 +85,6 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
     return this._model.agreementsAccepted;
   }
 
-  @Input()
   public set agreementsAccepted(value: boolean) {
     this._model.agreementsAccepted = value;
   }
@@ -82,16 +93,12 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
     return this._model.contactMethodsAllowed;
   }
 
-  @Input()
   public set contactMethodsAllowed(value: boolean) {
     this._model.contactMethodsAllowed = value;
   }
 
   @Input()
   public title: string;
-
-  @Input()
-  public parentForm: FormGroup;
 
   constructor(dataService: ApplicationDataService) {
     super();
@@ -112,5 +119,21 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
 
   ngOnInit(): void {
     super.ngOnInit();
+  }
+
+  public showContactAddress(): boolean {
+    return this.hasContactAddress;
+  }
+
+  public showInsuredPerson(): boolean {
+    return this.hasInsuredPerson;
+  }
+
+  public onContactAddressCheckedChange(value: boolean): void {
+    this.hasContactAddress = value;
+  }
+
+  public onInsuredPersonCheckedChange(value: boolean): void {
+    this.hasInsuredPerson = value;
   }
 }

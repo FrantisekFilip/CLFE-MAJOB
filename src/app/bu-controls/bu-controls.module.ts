@@ -9,11 +9,14 @@ import { BuServicesModule } from './../bu-services/bu-services.module';
 import { ClientInfoPanelComponent } from './client-info-panel/client-info-panel.component';
 import { ActiveAddressPanelComponent } from './active-address-panel/active-address-panel.component';
 import { AddressPanelComponent } from './address-panel/address-panel.component';
+import { AddressInfoPanelComponent } from './address-info-panel/address-info-panel.component';
 
 @NgModule({
-  declarations: [ClientInfoPanelComponent, AddressPanelComponent, ActiveAddressPanelComponent],
-  exports: [
-    ClientInfoPanelComponent, AddressPanelComponent, ActiveAddressPanelComponent
+  declarations: [
+    ClientInfoPanelComponent,
+    AddressPanelComponent,
+    ActiveAddressPanelComponent,
+    AddressInfoPanelComponent
   ],
   imports: [
     MatCardModule,
@@ -23,6 +26,12 @@ import { AddressPanelComponent } from './address-panel/address-panel.component';
     CommonServicesModule,
     CommonControlsModule,
     BuServicesModule
+  ],
+  exports: [
+    ClientInfoPanelComponent,
+    AddressPanelComponent,
+    ActiveAddressPanelComponent,
+    AddressInfoPanelComponent
   ]
 })
 export class BuControlsModule { }

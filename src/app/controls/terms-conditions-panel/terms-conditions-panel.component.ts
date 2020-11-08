@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./terms-conditions-panel.component.scss']
 })
 export class TermsConditionsPanelComponent implements OnInit {
+  public expanded: boolean;
+
   ngOnInit(): void {
+  }
+
+  public isExpanded(): boolean {
+    return this.expanded;
   }
 }

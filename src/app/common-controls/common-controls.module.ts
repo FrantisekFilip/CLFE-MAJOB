@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -25,6 +26,22 @@ import { StepperNextButtonComponent } from './stepper/stepper-next-button/steppe
 import { StepperBackButtonComponent } from './stepper/stepper-back-button/stepper-back-button.component';
 import { StepperButtonsComponent } from './stepper/stepper-buttons/stepper-buttons.component';
 import { IconLabelComponent } from './labels/icon-label/icon-label.component';
+import { AddSectionButtonComponent } from './buttons/add-section-button/add-section-button.component';
+import { RemoveSectionButtonComponent } from './buttons/remove-section-button/remove-section-button.component';
+import { NavigationButtonComponent } from './buttons/navigation-button/navigation-button.component';
+import { ExpandButtonComponent } from './buttons/expand-button/expand-button.component';
+import { CollapseButtonComponent } from './buttons/collapse-button/collapse-button.component';
+import { SwitchButtonComponent } from './buttons/switch-button/switch-button.component';
+import { PercentLabelComponent } from './labels/percent-label/percent-label.component';
+import { MoneyLabelComponent } from './labels/money-label/money-label.component';
+import { LabelComponent } from './labels/label/label.component';
+import { SlideToggleComponent } from './checkers/slide-toggle/slide-toggle.component';
+import { TextLabelComponent } from './labels/text-label/text-label.component';
+import { CheckboxComponent } from './checkers/checkbox/checkbox.component';
+import { DateLabelComponent } from './labels/date-label/date-label.component';
+import { PhoneNumberLabelComponent } from './labels/phone-number-label/phone-number-label.component';
+import { EmailLabelComponent } from './labels/email-label/email-label.component';
+import { EnumerationLabelComponent } from './labels/enumeration-label/enumeration-label.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +62,30 @@ import { IconLabelComponent } from './labels/icon-label/icon-label.component';
     StepperNextButtonComponent,
     StepperBackButtonComponent,
     StepperButtonsComponent,
-    IconLabelComponent
+    IconLabelComponent,
+    AddSectionButtonComponent,
+    RemoveSectionButtonComponent,
+    NavigationButtonComponent,
+    ExpandButtonComponent,
+    CollapseButtonComponent,
+    SwitchButtonComponent,
+    PercentLabelComponent,
+    MoneyLabelComponent,
+    LabelComponent,
+    SlideToggleComponent,
+    TextLabelComponent,
+    CheckboxComponent,
+    DateLabelComponent,
+    PhoneNumberLabelComponent,
+    EmailLabelComponent,
+    EnumerationLabelComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -77,7 +111,23 @@ import { IconLabelComponent } from './labels/icon-label/icon-label.component';
     StepperNextButtonComponent,
     StepperBackButtonComponent,
     StepperButtonsComponent,
-    IconLabelComponent
+    IconLabelComponent,
+    AddSectionButtonComponent,
+    RemoveSectionButtonComponent,
+    NavigationButtonComponent,
+    ExpandButtonComponent,
+    CollapseButtonComponent,
+    SwitchButtonComponent,
+    PercentLabelComponent,
+    MoneyLabelComponent,
+    LabelComponent,
+    SlideToggleComponent,
+    TextLabelComponent,
+    CheckboxComponent,
+    DateLabelComponent,
+    PhoneNumberLabelComponent,
+    EmailLabelComponent,
+    EnumerationLabelComponent
   ],
 })
 export class CommonControlsModule { }

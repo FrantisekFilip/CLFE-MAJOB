@@ -1,12 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
 import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
-import { ContractParametersModel } from 'src/app/models/contract-parameters-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
+import { ProductService } from 'src/app/services/product.service';
 import { AggregateIndemnityModel, CoinsuranceModel } from '../../models/enumerations';
 import { MoneyModel } from 'src/app/common-services/models/money-model';
+import { Money } from 'src/app/common-services/types/money';
+import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
+import { CitizenInsuranceParametersModel } from 'src/app/models/citizen-insurance-parameters-model';
+import { ApplicationModel } from 'src/app/models/application-model';
 
 @Component({
   selector: 'app-citizen-calculation-panel',
@@ -14,63 +18,59 @@ import { MoneyModel } from 'src/app/common-services/models/money-model';
   styleUrls: ['./citizen-calculation-panel.component.scss']
 })
 export class CitizenCalculationPanelComponent extends BaseFormPanelComponent implements OnInit {
-  private _model: ContractParametersModel;
+  private readonly _productInfo: CitizenInsuranceProduct;
+  private _model: ApplicationModel;
 
-  public get model(): ContractParametersModel {
-    if (!this._model) {
-      this._model = new ContractParametersModel();
+  public get productName(): string {
+    return this._productInfo.name;
+  }
+
+  public get parametersModel(): CitizenInsuranceParametersModel {
+    if (!this._model.citizenInsuranceParameters) {
+      this._model.citizenInsuranceParameters = new CitizenInsuranceParametersModel(this._productInfo);
     }
 
-    return this._model;
+    return this._model.citizenInsuranceParameters;
   }
 
   public get selectedAggregateIndemnity(): string {
-    return this.model.aggregateIndemnity?.code;
+    return this.parametersModel.aggregateIndemnity?.code;
   }
 
-  @Input()
   public set selectedAggregateIndemnity(value: string) {
-    this.model.aggregateIndemnity = this.enumerations.getByCode(this.aggregateIndemnities, value);
+    this.parametersModel.aggregateIndemnity = this.enumerations.getByCodeFromValues(this.aggregateIndemnities, value);
+    this.RecalculateYearlyInsurance();
   }
 
   public get selectedTerritorialScale(): string {
-    return this.model.territorialScale?.code;
+    return this.parametersModel.territorialScale?.code;
   }
 
-  @Input()
   public set selectedTerritorialScale(value: string) {
-    this.model.territorialScale = this.enumerations.getByCode(this.territorialScales, value);
+    this.parametersModel.territorialScale = this.enumerations.getByCodeFromValues(this.territorialScales, value);
+    this.RecalculateYearlyInsurance();
   }
 
   public get selectedCoinsurance(): string {
-    return this.model.coinsurance?.code;
+    return this.parametersModel.coinsurance?.code;
   }
 
-  @Input()
   public set selectedCoinsurance(value: string) {
-    this.model.coinsurance = this.enumerations.getByCode(this.coinsurances, value);
+    this.parametersModel.coinsurance = this.enumerations.getByCodeFromValues(this.coinsurances, value);
+    this.RecalculateYearlyInsurance();
   }
 
   public get discount(): number {
-    return this.model.discount;
-  }
-
-  @Input()
-  public set discount(value: number) {
-    this.model.discount = value;
+    return this.parametersModel.discount;
   }
 
   public get yearlyInsurance(): MoneyModel {
-    return this.model.yearlyInsurance;
+    return this.parametersModel.yearlyInsurance;
   }
 
-  @Input()
   public set yearlyInsurance(value: MoneyModel) {
-    this.model.yearlyInsurance = value;
+    this.parametersModel.yearlyInsurance = value;
   }
-
-  @Input()
-  public parentForm: FormGroup;
 
   public readonly aggregateIndemnities: AggregateIndemnityModel[];
 
@@ -78,12 +78,14 @@ export class CitizenCalculationPanelComponent extends BaseFormPanelComponent imp
 
   public readonly coinsurances: CoinsuranceModel[];
 
-  constructor(private enumerations: EnumerationsService, dataService: ApplicationDataService) {
+  constructor(private enumerations: EnumerationsService, dataService: ApplicationDataService, private productService: ProductService) {
     super();
     this.aggregateIndemnities = enumerations.getModelValues(AggregateIndemnityModel);
     this.territorialScales = enumerations.getModelValues(TerritorialScaleModel);
     this.coinsurances = enumerations.getModelValues(CoinsuranceModel);
-    this._model = dataService.application.contractParameters;
+    this._productInfo = productService.GetProduct(CitizenInsuranceProduct);
+    this._model = dataService.application;
+    this.parametersModel.discount = this._productInfo.discount;
   }
 
   protected OnConstruct(): { controlName: string, controls?: { [key: string]: AbstractControl; }[] } {
@@ -92,5 +94,38 @@ export class CitizenCalculationPanelComponent extends BaseFormPanelComponent imp
 
   ngOnInit(): void {
     super.ngOnInit();
+  }
+
+  private RecalculateYearlyInsurance(): void {
+    const result: Money = this.productService.calculateYearlyInsurance(this.parametersModel);
+    let insurance = this.yearlyInsurance;
+
+    if (result) {
+      if (!insurance) {
+        insurance = new MoneyModel();
+      }
+
+      insurance.value = result;
+    }
+    else {
+      insurance = null;
+    }
+
+    this.yearlyInsurance = insurance;
+    this._model.totalYearlyInsurance = MoneyModel.FromMoney(
+      this.productService.calculateTotalYearlyInsurance(
+        [insurance?.value, this._model.employeeInsuranceParameters?.yearlyInsurance.value]));
+  }
+
+  public onAggregateIndemnityChange(value: string): void {
+    this.selectedAggregateIndemnity = value;
+  }
+
+  public onTerritorialScaleChange(value: string): void {
+    this.selectedTerritorialScale = value;
+  }
+
+  public onCoinsuranceChange(value: string): void {
+    this.selectedCoinsurance = value;
   }
 }

@@ -8,7 +8,7 @@ import { ApplicationModel } from '../models/application-model';
 export class ApplicationDataService {
   private readonly _application: ApplicationModel;
 
-  get application(): ApplicationModel {
+  public get application(): ApplicationModel {
     return this._application;
   }
 

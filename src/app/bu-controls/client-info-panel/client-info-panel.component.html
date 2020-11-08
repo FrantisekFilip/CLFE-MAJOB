@@ -1,22 +1,22 @@
 <h3>{{header}}</h3>
 <div fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="clientInfo.title" label="Titul před/za jménem:" [parentForm]="parentForm">
+        <app-text-field [value]="clientInfo.title" label="Titul před/za jménem:" [parentForm]="panelControl">
         </app-text-field>
-        <app-date-field [value]="clientInfo.birthDate" label="Datum narození:" [parentForm]="parentForm">
+        <app-date-field [value]="clientInfo.birthDate" label="Datum narození:" [parentForm]="panelControl">
         </app-date-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="clientInfo.firstName" label="Jméno:" [parentForm]="parentForm"></app-text-field>
-        <app-text-field [value]="clientInfo.lastName" label="Přijmení:" [parentForm]="parentForm">
+        <app-text-field [value]="clientInfo.firstName" label="Jméno:" [parentForm]="panelControl"></app-text-field>
+        <app-text-field [value]="clientInfo.lastName" label="Přijmení:" [parentForm]="panelControl">
         </app-text-field>
     </div>
-    <app-birth-number-field [value]="clientInfo.birthNumber" label="Rodné číslo:" [parentForm]="parentForm">
+    <app-birth-number-field [value]="clientInfo.birthNumber" label="Rodné číslo:" [parentForm]="panelControl">
     </app-birth-number-field>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-phone-number-field [value]="clientInfo.phoneNumber" label="Telefon:" [parentForm]="parentForm">
+        <app-phone-number-field [value]="clientInfo.phoneNumber" label="Telefon:" [parentForm]="panelControl">
         </app-phone-number-field>
-        <app-email-field [value]="clientInfo.email" [label]="emailLabel" [parentForm]="parentForm">
+        <app-email-field [value]="clientInfo.email" [label]="emailLabel" [parentForm]="panelControl">
         </app-email-field>
     </div>
 </div>

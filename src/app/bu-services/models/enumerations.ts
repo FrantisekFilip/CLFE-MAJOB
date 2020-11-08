@@ -5,4 +5,7 @@ export class TerritorialScaleModel extends EnumerationModel {
 }
 
 export class InstalmentFrequencyModel extends EnumerationModel {
+    public static yearlyCode = 'ins-yearly';
+
+    paymentsPerYear: number;
 }

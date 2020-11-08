@@ -2,8 +2,10 @@ import { LocalizedMessage } from '../services/localized-message';
 import { UserMessage } from '../services/user-message';
 import { ValidatableModel } from './validatable-model';
 
-export class BaseModel implements ValidatableModel {
+export abstract class BaseModel implements ValidatableModel {
     private _validationErrors: LocalizedMessage[];
+
+    public doApply = true;
 
     public get validationErrors(): LocalizedMessage[] {
         return this._validationErrors;

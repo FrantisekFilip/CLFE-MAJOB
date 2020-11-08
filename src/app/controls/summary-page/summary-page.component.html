@@ -1,1 +1,33 @@
-<p>summary-page works!</p>
+<mat-card class="additional-info-panel">
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center left">
+            <h3>Pojištění</h3>
+            <app-date-label label="Počátek pojištění:" [value]="commencementDate"></app-date-label>
+            <app-text-label label="Pojistné období:" value="1 rok"></app-text-label>
+            <app-text-label label="Pojistná doba:" value="smlouva na dobu neurčitou"></app-text-label>
+            <span>
+                Pojistník:
+                <app-address-info-panel [person]="policyHolder" [address]="mainAddress"></app-address-info-panel>
+            </span>
+            <app-email-label label="E-mail:" [value]="email"></app-email-label>
+            <app-phone-number-label label="Telefon:" [value]="phoneNumber"></app-phone-number-label>
+            <app-money-label label="Celkové roční pojistné:" [value]="totalYearlyInsurance"></app-money-label>
+            <app-enumeration-label label="Frekvence placení:" [value]="instalmentFrequency"></app-enumeration-label>
+            <app-money-label label="Splátka pojistného:" [value]="payment"></app-money-label>
+            <a href="www.google.com">
+                <b>Náhled na návrh pojistné smlouvy </b><i>(pouze vzor)</i>
+            </a>
+            <p>
+                Tento dokument není nabídkou ani pojistnou smlouvou a slouží pouze
+                ke kontrole údajů a rozsahu pojistné ochrany před sjednáním smlouvy
+            </p>
+            <p>
+                Pojistnou smlouvu a pojistku obdržíte v elektronické
+                podobě po sjednání smlouvy.
+            </p>
+        </div>
+    </mat-card-content>
+</mat-card>

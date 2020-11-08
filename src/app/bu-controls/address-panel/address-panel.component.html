@@ -1,15 +1,15 @@
 <h3>{{header}}</h3>
 <div fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="address.streetName" label="Ulice:" [parentForm]="parentForm"></app-text-field>
+        <app-text-field [value]="address.streetName" label="Ulice:" [parentForm]="panelControl"></app-text-field>
         <app-text-field [value]="address.registrationNumber" label="Číslo popisné / orientační:"
-            [parentForm]="parentForm">
+            [parentForm]="panelControl">
         </app-text-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="address.postcode" label="PSČ:" [parentForm]="parentForm">
+        <app-text-field [value]="address.postcode" label="PSČ:" [parentForm]="panelControl">
         </app-text-field>
-        <app-text-field [value]="address.municipality" label="Obec:" [parentForm]="parentForm">
+        <app-text-field [value]="address.municipality" label="Obec:" [parentForm]="panelControl">
         </app-text-field>
     </div>
 </div>

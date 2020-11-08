@@ -6,8 +6,8 @@
     <div fxLayout="column" fxLayoutAlign="center center" class="default-background-color m-2">
         <mat-radio-group [(ngModel)]="applicationRoute">
             <div fxLayout="row" fxLayoutAlign="space-between center">
-                <mat-radio-button value="citizen-app">Pojištění odpovědnosti občanů</mat-radio-button>
-                <mat-radio-button value="employee-app">Pojištění odpovědnosti zaměstnance za škodu způsobenou
+                <mat-radio-button [value]="routeCitizenApp">Pojištění odpovědnosti občanů</mat-radio-button>
+                <mat-radio-button [value]="routeEmployeeApp">Pojištění odpovědnosti zaměstnance za škodu způsobenou
                     zaměstnavateli
                 </mat-radio-button>
             </div>
