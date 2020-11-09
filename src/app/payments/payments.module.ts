@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaymentWizardComponent } from './payment-wizard/payment-wizard.component';
-import { PaymentMethodComponent } from './payment-method/payment-method.component';
-import { PaymentFinalScreenComponent } from './payment-final-screen/payment-final-screen.component';
-
-
+import { FlexModule } from '@angular/flex-layout';
+import { CommonControlsModule } from 'src/app/common-controls/common-controls.module';
+import { PaymentsService } from './services/payments.service';
+import { ExpressPaymentButtonComponent } from './controls/express-payment-button/express-payment-button.component';
+import { DelayedPaymentButtonComponent } from './controls/delayed-payment-button/delayed-payment-button.component';
+import { PaymentSelectionPanelComponent } from './controls/payment-selection-panel/payment-selection-panel.component';
 
 @NgModule({
-  declarations: [PaymentWizardComponent, PaymentMethodComponent, PaymentFinalScreenComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    ExpressPaymentButtonComponent,
+    DelayedPaymentButtonComponent,
+    PaymentSelectionPanelComponent
   ],
-  exports: [
-    PaymentMethodComponent
-  ]
+  imports: [
+    CommonModule,
+    FlexModule,
+    CommonControlsModule
+  ],
+  exports:
+    [
+      ExpressPaymentButtonComponent,
+      DelayedPaymentButtonComponent,
+      PaymentSelectionPanelComponent
+    ],
+  providers: [PaymentsService],
 })
 export class PaymentsModule { }

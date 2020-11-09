@@ -1,8 +1,0 @@
-<mat-form-field appearance="fill">
-    <mat-label>{{label}}</mat-label>
-    <mat-select [(ngModel)]="selected" [formControl]="fieldControl">
-        <mat-option *ngFor="let option of options" [value]="option.code">
-            {{option.viewValue}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>

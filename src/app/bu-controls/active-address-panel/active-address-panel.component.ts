@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { AddressService } from 'src/app/bu-services/services/address.service';
-import { BaseFormPanelComponent } from 'src/app/common-controls/base-form-panel/base-form-panel.component';
+import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 
 @Component({
   selector: 'app-active-address-panel',

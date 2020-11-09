@@ -7,48 +7,54 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonServicesModule } from './common-services/common-services.module';
-import { CommonSimplecontrolsModule } from './common-simplecontrols/common-simplecontrols.module';
 import { CommonControlsModule } from './common-controls/common-controls.module';
 import { BuControlsModule } from './bu-controls/bu-controls.module';
 import { HomePageComponent } from './controls/home-page/home-page.component';
 import { TermsConditionsPanelComponent } from './controls/terms-conditions-panel/terms-conditions-panel.component';
-import { ApplicationCitizenWizardComponent } from './controls/application-citizen-wizard/application-citizen-wizard.component';
 import { CitizenCalculationPanelComponent } from './controls/citizen-calculation-panel/citizen-calculation-panel.component';
-import { ApplicationEmployeeWizardComponent } from './controls/application-employee-wizard/application-employee-wizard.component';
 import { EmployeeCalculationPanelComponent } from './controls/employee-calculation-panel/employee-calculation-panel.component';
 import { CalculationSummaryPanelComponent } from './controls/calculation-summary-panel/calculation-summary-panel.component';
 import { AdditionalInfoPanelComponent } from './controls/additional-info-panel/additional-info-panel.component';
-import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-accepted-tc-page.component';
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
 import { PaymentsModule } from './payments/payments.module';
 import { ApplicationWizardComponent } from './controls/application-wizard/application-wizard.component';
+import { EmployeeApplicationPanelComponent } from './controls/employee-application-panel/employee-application-panel.component';
+import { CitizenApplicationPanelComponent } from './controls/citizen-application-panel/citizen-application-panel.component';
+import { CitizenApplicationPageComponent } from './controls/citizen-application-page/citizen-application-page.component';
+import { EmployeeApplicationPageComponent } from './controls/employee-application-page/employee-application-page.component';
+import { BranchVisitPageComponent } from './controls/branch-visit-page/branch-visit-page.component';
+import { PaymentPageComponent } from './controls/payment-page/payment-page.component';
+import { FinalPageComponent } from './controls/final-page/final-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     TermsConditionsPanelComponent,
-    ApplicationCitizenWizardComponent,
     CitizenCalculationPanelComponent,
-    ApplicationEmployeeWizardComponent,
     EmployeeCalculationPanelComponent,
     CalculationSummaryPanelComponent,
     AdditionalInfoPanelComponent,
-    NotAcceptedTcPageComponent,
     SummaryPageComponent,
     AdditionalInfoPanelComponent,
-    ApplicationWizardComponent
+    ApplicationWizardComponent,
+    EmployeeApplicationPanelComponent,
+    CitizenApplicationPanelComponent,
+    CitizenApplicationPageComponent,
+    EmployeeApplicationPageComponent,
+    BranchVisitPageComponent,
+    PaymentPageComponent,
+    FinalPageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,22 +64,21 @@ import { ApplicationWizardComponent } from './controls/application-wizard/applic
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
-    MatCheckboxModule,
     MatDividerModule,
+    MatExpansionModule,
     MatGridListModule,
     MatIconModule,
     MatListModule,
     MatRadioModule,
-    MatSelectModule,
     MatSlideToggleModule,
     MatStepperModule,
     FlexModule,
     CommonServicesModule,
-    CommonSimplecontrolsModule,
     CommonControlsModule,
     BuControlsModule,
     PaymentsModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

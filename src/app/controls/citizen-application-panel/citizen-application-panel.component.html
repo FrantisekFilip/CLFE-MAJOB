@@ -1,0 +1,21 @@
+<mat-card class="citizen-application-panel">
+    <mat-card-content class="primary-border p-2">
+        <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
+        <mat-divider></mat-divider>
+        <section>
+            <ng-container *ngIf="!isEmployeeActive()">
+                <app-add-section-button [callback]="addOrRemoveEmployeeSection"
+                    label="Přidat pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli">
+                </app-add-section-button>
+            </ng-container>
+            <ng-container *ngIf="isEmployeeActive()">
+                <app-remove-section-button [callback]="addOrRemoveEmployeeSection" label="Odebrat">
+                </app-remove-section-button>
+                <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
+            </ng-container>
+        </section>
+        <section>
+            <app-calculation-summary-panel [parentForm]="panelControl"></app-calculation-summary-panel>
+        </section>
+    </mat-card-content>
+</mat-card>
