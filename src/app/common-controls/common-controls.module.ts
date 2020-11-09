@@ -42,6 +42,7 @@ import { DateLabelComponent } from './labels/date-label/date-label.component';
 import { PhoneNumberLabelComponent } from './labels/phone-number-label/phone-number-label.component';
 import { EmailLabelComponent } from './labels/email-label/email-label.component';
 import { EnumerationLabelComponent } from './labels/enumeration-label/enumeration-label.component';
+import { ActionButtonComponent } from './buttons/action-button/action-button.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { EnumerationLabelComponent } from './labels/enumeration-label/enumeratio
     DateLabelComponent,
     PhoneNumberLabelComponent,
     EmailLabelComponent,
-    EnumerationLabelComponent
+    EnumerationLabelComponent,
+    ActionButtonComponent
   ],
   imports: [
     CommonModule,
@@ -127,7 +129,8 @@ import { EnumerationLabelComponent } from './labels/enumeration-label/enumeratio
     DateLabelComponent,
     PhoneNumberLabelComponent,
     EmailLabelComponent,
-    EnumerationLabelComponent
+    EnumerationLabelComponent,
+    ActionButtonComponent
   ],
 })
 export class CommonControlsModule { }

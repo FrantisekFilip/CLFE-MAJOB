@@ -18,6 +18,8 @@ export class ApplicationWizardComponent implements OnInit {
   public calcForm: FormGroup;
   public addInfoForm: FormGroup;
   public summaryPage: FormGroup;
+  public paymentPage: FormGroup;
+  public finalPage: FormGroup;
 
   @Input()
   public productName: string;
@@ -26,6 +28,7 @@ export class ApplicationWizardComponent implements OnInit {
     this.calcForm = new FormGroup({});
     this.addInfoForm = new FormGroup({});
     this.summaryPage = new FormGroup({});
+    this.paymentPage = new FormGroup({});
   }
 
   ngOnInit(): void {
@@ -37,6 +40,12 @@ export class ApplicationWizardComponent implements OnInit {
       }
       else if (step === StepNames.summaryStepName) {
         this.selectedIndex = 2;
+      }
+      else if (step === StepNames.paymentStepName) {
+        this.selectedIndex = 3;
+      } else if (step === StepNames.finalStepName) {
+        this.selectedIndex = 4;
+
       } else {
         this.selectedIndex = 0;
       }
@@ -63,8 +72,14 @@ export class ApplicationWizardComponent implements OnInit {
     else if (event.selectedIndex === 1) {
       stepName = StepNames.addInfoStepName;
     }
-    else {
+    else if (event.selectedIndex === 2) {
       stepName = StepNames.summaryStepName;
+    }
+    else if (event.selectedIndex === 3) {
+      stepName = StepNames.paymentStepName;
+    }
+    else {
+      stepName = StepNames.finalStepName;
     }
 
     this.router.navigate([], { queryParams: { step: stepName } });

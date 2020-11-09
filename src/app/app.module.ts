@@ -25,7 +25,6 @@ import { CitizenCalculationPanelComponent } from './controls/citizen-calculation
 import { EmployeeCalculationPanelComponent } from './controls/employee-calculation-panel/employee-calculation-panel.component';
 import { CalculationSummaryPanelComponent } from './controls/calculation-summary-panel/calculation-summary-panel.component';
 import { AdditionalInfoPanelComponent } from './controls/additional-info-panel/additional-info-panel.component';
-import { NotAcceptedTcPageComponent } from './controls/not-accepted-tc-page/not-accepted-tc-page.component';
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
 import { PaymentsModule } from './payments/payments.module';
 import { ApplicationWizardComponent } from './controls/application-wizard/application-wizard.component';
@@ -33,8 +32,9 @@ import { EmployeeApplicationPanelComponent } from './controls/employee-applicati
 import { CitizenApplicationPanelComponent } from './controls/citizen-application-panel/citizen-application-panel.component';
 import { CitizenApplicationPageComponent } from './controls/citizen-application-page/citizen-application-page.component';
 import { EmployeeApplicationPageComponent } from './controls/employee-application-page/employee-application-page.component';
-import { PaymentComponent } from './controls/payment/payment.component';
-import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.component';
+import { BranchVisitPageComponent } from './controls/branch-visit-page/branch-visit-page.component';
+import { PaymentPageComponent } from './controls/payment-page/payment-page.component';
+import { FinalPageComponent } from './controls/final-page/final-page.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,6 @@ import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.compo
     EmployeeCalculationPanelComponent,
     CalculationSummaryPanelComponent,
     AdditionalInfoPanelComponent,
-    NotAcceptedTcPageComponent,
     SummaryPageComponent,
     AdditionalInfoPanelComponent,
     ApplicationWizardComponent,
@@ -53,8 +52,9 @@ import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.compo
     CitizenApplicationPanelComponent,
     CitizenApplicationPageComponent,
     EmployeeApplicationPageComponent,
-    PaymentComponent,
-    NotAcceptedComponent
+    BranchVisitPageComponent,
+    PaymentPageComponent,
+    FinalPageComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +78,7 @@ import { NotAcceptedComponent } from './controls/not-accepted/not-accepted.compo
     BuControlsModule,
     PaymentsModule
   ],
-  exports: [TermsConditionsPanelComponent],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

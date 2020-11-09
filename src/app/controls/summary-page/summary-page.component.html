@@ -1,10 +1,10 @@
-<mat-card class="additional-info-panel">
+<mat-card class="summary-page-panel">
     <mat-card-header>
         <mat-card-title>{{title}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <div fxLayout="column" fxLayoutAlign="center left">
-            <h3>Pojištění</h3>
+            <h3 mat-subheader>Pojištění</h3>
             <app-date-label label="Počátek pojištění:" [value]="commencementDate"></app-date-label>
             <app-text-label label="Pojistné období:" value="1 rok"></app-text-label>
             <app-text-label label="Pojistná doba:" value="smlouva na dobu neurčitou"></app-text-label>
