@@ -21,9 +21,9 @@ export class ExpressPaymentButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onClick(): void {
+  public onClick(e): void {
     if (!this.disabled) {
-      this.paymentsService.executeDelayedPayment(this.payment);
+      this.paymentsService.executeExpressPayment(this.payment);
     }
   }
 }
