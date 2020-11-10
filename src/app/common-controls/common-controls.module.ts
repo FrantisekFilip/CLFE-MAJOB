@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
@@ -43,6 +46,8 @@ import { PhoneNumberLabelComponent } from './labels/phone-number-label/phone-num
 import { EmailLabelComponent } from './labels/email-label/email-label.component';
 import { EnumerationLabelComponent } from './labels/enumeration-label/enumeration-label.component';
 import { ActionButtonComponent } from './buttons/action-button/action-button.component';
+import { VerticalStepperComponent } from './stepper/vertical-stepper/vertical-stepper.component';
+import { BigRadioGroupDirective, BigRadioButtonComponent } from './radio/big-radio-button/big-radio-button.component';
 
 @NgModule({
   declarations: [
@@ -80,10 +85,16 @@ import { ActionButtonComponent } from './buttons/action-button/action-button.com
     PhoneNumberLabelComponent,
     EmailLabelComponent,
     EnumerationLabelComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    VerticalStepperComponent,
+    BigRadioButtonComponent,
+    BigRadioGroupDirective
   ],
   imports: [
     CommonModule,
+    MatCommonModule,
+    MatRippleModule,
+    TranslateModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -91,6 +102,7 @@ import { ActionButtonComponent } from './buttons/action-button/action-button.com
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatRadioModule,
     MatSelectModule,
     MatStepperModule,
     FlexModule
@@ -130,7 +142,10 @@ import { ActionButtonComponent } from './buttons/action-button/action-button.com
     PhoneNumberLabelComponent,
     EmailLabelComponent,
     EnumerationLabelComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    VerticalStepperComponent,
+    BigRadioButtonComponent,
+    BigRadioGroupDirective
   ],
 })
 export class CommonControlsModule { }

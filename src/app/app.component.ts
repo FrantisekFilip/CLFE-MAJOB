@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { InstalmentFrequencyModel, TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
 import { AggregateIndemnityModel, CoinsuranceModel, EmployeeCoinsuranceModel } from './models/enumerations';
@@ -12,7 +13,9 @@ import { MoneyModel } from './common-services/models/money-model';
 export class AppComponent {
   title = 'CLFE-Majob';
 
-  constructor(enumerations: EnumerationsService) {
+  constructor(translate: TranslateService, enumerations: EnumerationsService) {
+    translate.setDefaultLang('cs');
+
     InstalmentFrequencyModel.yearlyCode = 'ins-yearly';
     enumerations.setModelValues(InstalmentFrequencyModel, [
       { code: 'ins-monthly', viewValue: 'monthly', paymentsPerYear: 12 },
