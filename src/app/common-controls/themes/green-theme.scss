@@ -1,40 +1,97 @@
 @import "~@angular/material/theming";
+@import "layouts";
 
 @include mat-core();
 
-$primary: mat-palette($mat-green, 600);
-$accent: mat-palette($mat-gray, 900);
-$warn: mat-palette($mat-red, 800);
+$primary-palette: mat-palette($mat-green, 700, 50, 900);
+$accent-palette: mat-palette($mat-grey, 100, 50, 900);
+$warn-palette: mat-palette($mat-red, 800);
 
-$theme: mat-light-theme($primary, $accent, $warn);
-@include angular-material-theme($theme);
+$default-color: mat-color($primary-palette);
+$lighter-color: mat-color($primary-palette, lighter);
+$darker-color: mat-color($primary-palette, darker);
+$accent-color: white;
+$action-color: mat-color($mat-blue, 600);
 
-$secondColor: mat-color($mat-amber, 600);
+$theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
 
-.background-color {
-    background-color: $secondColor;
+@function theme-foreground() {
+  @return (
+    base: $lighter-color,
+    //      divider:           $white-12-opacity,
+    //      dividers:          $white-12-opacity,
+    //      disabled:          rgba($color, 0.38),
+    //      disabled-button:   rgba($color, 0.38),
+    //      disabled-text:     rgba($color, 0.38),
+    //elevation:         black,
+    //      hint-text:         rgba($color, 0.38),
+    secondary-text: $lighter-color,
+    //      icon:              rgba($color, 0.54),
+    //      icons:             rgba($color, 0.54),
+    text: $lighter-color //      slider-off:        rgba($color, 0.26),
+    //      slider-off-active: rgba($color, 0.38),
+    //s      slider-min:        rgba($color, 0.38)
+  );
 }
 
-.default-background-color {
-    background-color: mat-color($mat-gray, 50);
+@function theme-background() {
+  @return (
+    //    status-bar: map_get($mat-grey, 300),
+    //    app-bar:    map_get($mat-grey, 100),
+    //    background: $action-color,
+    //    hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+    //    card:       white,
+    //    dialog:     white,
+    //    disabled-button: rgba(black, 0.12),
+    raised-button: $action-color,
+    //    focused-button: $dark-focused,
+    //    selected-button: map_get($mat-grey, 300),
+    //    selected-disabled-button: map_get($mat-grey, 400),
+    //    disabled-button-toggle: map_get($mat-grey, 200),
+    //    unselected-chip: map_get($mat-grey, 300),
+    //    disabled-list-option: map_get($mat-grey, 200),
+    //    tooltip: map_get($mat-grey, 700)
+  );
 }
 
-.text-primary {
-    color: mat-color($primary);
+@include angular-material-theme(
+  map-merge(
+    $theme,
+    (
+      foreground: theme-foreground(),
+      background: theme-background(),
+    )
+  )
+);
+
+p {
+  color: $default-color;
 }
 
-.m-2 {
-    margin: 2rem;
+h2 {
+  color: $default-color;
 }
 
-.mt-2 {
-    margin-top: 2rem !important;
-}
-.ml-2 {
-    margin-left: 2rem;
+.expansion-panel-default {
+  background-color: $default-color !important;
 }
 
-.p-2 {
-    padding: 2rem;
+.panel-rounded-default {
+  @extend .panel-rounded;
+  background-color: $default-color;
 }
 
+.panel-rounded-lighter {
+  @extend .panel-rounded;
+  background-color: $lighter-color;
+}
+
+.panel-rounded-darker {
+  @extend .panel-rounded;
+  background-color: $darker-color;
+}
+
+.panel-rounded-accent {
+  @extend .panel-rounded;
+  background-color: $accent-color;
+}

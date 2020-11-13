@@ -1,5 +1,10 @@
 {
-    "buttons": {
-        "back": "Zpět 123"
+    "home": {
+        "title": "Pojištění odpovědnosti - volba pojištění",
+        "welcome": "Způsob sjednání jsme přizpůsobili Vašim potřebám, vyberte si",
+        "description": "Nyní si můžete on-line sjednat pojištění odpovědnosti . Máte-li zájem i o pojištění majetku<br>(vybavení domácnosti, pojištění bytu či rodinného domu), tak se můžete obrátit na naší pobočku<br>nebo nás kontaktovat telefonicky či emailem na kontaktech uvedených níže. Na možnosti sjednání<br>majetkového pojištění on-line intenzivně pracujeme."
+    },
+    "terms": {
+        "documentsToDownload": "Dokumenty ke stažení"
     }
 }

@@ -26,7 +26,7 @@ import { ChangeDetectionStrategy } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VerticalStepperComponent extends MatVerticalStepper implements OnInit {
+export class VerticalStepperComponent extends MatVerticalStepper {
 
   constructor(
     @Optional() dir: Directionality,
@@ -34,8 +34,5 @@ export class VerticalStepperComponent extends MatVerticalStepper implements OnIn
     elementRef?: ElementRef<HTMLElement>,
     @Inject(DOCUMENT) _document?: any) {
     super(dir, changeDetectorRef, elementRef, _document);
-  }
-
-  ngOnInit(): void {
   }
 }

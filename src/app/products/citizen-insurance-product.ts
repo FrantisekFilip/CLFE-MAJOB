@@ -10,8 +10,9 @@ export class CitizenInsuranceProduct extends Product implements ProductInfo {
 
     constructor(
         name: string,
+        shortName: string,
         public readonly discount: number
     ) {
-        super(name);
+        super(name, shortName);
     }
 }

@@ -1,7 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +18,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CommonServicesModule } from './common-services/common-services.module';
 import { CommonControlsModule } from './common-controls/common-controls.module';
 import { BuControlsModule } from './bu-controls/bu-controls.module';
@@ -38,6 +38,11 @@ import { EmployeeApplicationPageComponent } from './controls/employee-applicatio
 import { BranchVisitPageComponent } from './controls/branch-visit-page/branch-visit-page.component';
 import { PaymentPageComponent } from './controls/payment-page/payment-page.component';
 import { FinalPageComponent } from './controls/final-page/final-page.component';
+import { TranslateMultiHttpLoader } from 'src/app/common-services/services/translate-multi-http-loader';
+
+export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
+  return new TranslateMultiHttpLoader(http, ['common-services', 'common-controls', 'bu-services', 'bu-controls']);
+}
 
 @NgModule({
   declarations: [
@@ -67,7 +72,8 @@ import { FinalPageComponent } from './controls/final-page/final-page.component';
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      }
+      },
+      isolate: true
     }),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -84,17 +90,13 @@ import { FinalPageComponent } from './controls/final-page/final-page.component';
     MatSlideToggleModule,
     MatStepperModule,
     FlexModule,
+    CdkStepperModule,
     CommonServicesModule,
-    CommonControlsModule,
+    CommonControlsModule.forRoot(),
     BuControlsModule,
     PaymentsModule
   ],
   exports: [],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}

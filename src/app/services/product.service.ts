@@ -12,19 +12,20 @@ import { InstalmentFrequencyModel } from '../bu-services/models/enumerations';
   providedIn: 'root'
 })
 export class ProductService {
+  private readonly _products: Map<string, Product> = new Map();
 
-  constructor() { }
+  constructor() {
+    this._products.set(CitizenInsuranceProduct.name,
+      new CitizenInsuranceProduct('Pojištění odpovědnosti vyplývající z činností v běžném občanském životě',
+        'Pojištění odpovědnosti občanů', 0.2));
+    this._products.set(EmployeeInsuranceProduct.name,
+      new EmployeeInsuranceProduct('Pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli',
+        'Pojištění odpovědnosti zaměstnance', 0.2, new Money(50000, 'CZK'), true));
+  }
 
   public GetProduct<T extends Product>(c: new (...args: any[]) => T): T {// TODO - wire to product catalog
     const productName: string = c.name;
-
-    if (productName === CitizenInsuranceProduct.name) {
-      return new c('Pojištění odpovědnosti vyplývající z činností v běžném občanském životě', 0.2);
-    } else if (productName === EmployeeInsuranceProduct.name) {
-      return new c('Pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli', 0.2, new Money(50000, 'CZK'), true);
-    }
-
-    return null;
+    return this._products.get(productName) as T;
   }
 
   public calculateYearlyInsurance<T extends CalculationParameters>(data: T): Money {

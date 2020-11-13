@@ -11,10 +11,11 @@ export class EmployeeInsuranceProduct extends Product implements ProductInfo {
 
     constructor(
         name: string,
+        shortName: string,
         public readonly discount: number,
         public readonly entrustedThingsLossLimit: Money,
         public readonly noClaimBonus: boolean
     ) {
-        super(name);
+        super(name, shortName);
     }
 }

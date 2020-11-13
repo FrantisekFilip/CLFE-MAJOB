@@ -1,25 +1,25 @@
-<section class="background-color p-2">
+<section class="panel-rounded-lighter padding-medium">
     <div fxLayout="column" fxLayoutAlign="center center">
-        <h1 mat-subheader>Pojištění odpovědnosti - volba pojištění</h1>
-        <p mat-line>Způsob sjednání jsme přizpůsobili Vašim potřebám, vyberte si</p>
+        <h2 mat-subheader translate>home.title</h2>
+        <p mat-line translate>home.welcome</p>
     </div>
-    <div fxLayout="column" fxLayoutAlign="center center" class="default-background-color m-2">
-        <mat-radio-group [(ngModel)]="applicationRoute">
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <mat-radio-button [value]="routeCitizenApp">Pojištění odpovědnosti občanů</mat-radio-button>
-                <mat-radio-button [value]="routeEmployeeApp">Pojištění odpovědnosti zaměstnance za škodu způsobenou
-                    zaměstnavateli
-                </mat-radio-button>
+    <div fxLayout="column" fxLayoutAlign="center center" class="panel-rounded-accent  margin-small">
+        <mat-radio-group [(ngModel)]="applicationRoute" class="padding-medium">
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
+                <app-big-radio-button [value]="routeCitizenApp" image="assets/images/products/citizen_insurance.svg">
+                    {{citizenInsuranceName}}
+                </app-big-radio-button>
+                <app-big-radio-button [value]="routeEmployeeApp" image="assets/images/products/employee_insurance.svg">
+                    {{employeeInsuranceName}}
+                </app-big-radio-button>
             </div>
         </mat-radio-group>
-        <p class="mt-2" style="text-align: center">Nyní si můžete on-line sjednat pojištění odpovědnosti . Máte-li zájem
-            i o pojištění majetku
-            (vybavení domácnosti, pojištění bytu či rodinného domu), tak se můžete obrátit na naší pobočku
-            nebo nás kontaktovat telefonicky či emailem na kontaktech uvedených níže. Na možnosti sjednání
-            majetkového pojištění on-line intenzivně pracujeme.</p>
+        <p class="padding-small" style="text-align: center">
+            <app-translated-label label="home.description"></app-translated-label>
+        </p>
     </div>
     <div fxLayout="row" fxLayoutAlign="center center">
-        <app-next-button [redirectTo]="applicationRoute"></app-next-button>
+        <app-next-button [redirectTo]="applicationRoute" class="margin-smallest"></app-next-button>
     </div>
 </section>
 <mat-divider></mat-divider>

@@ -1,39 +1,8 @@
-<label [attr.for]="inputId" class="mat-radio-label" #label>
-    <!-- The actual 'radio' part of the control. -->
-    <div class="mat-radio-container">
-      <div class="mat-radio-outer-circle"></div>
-      <div class="mat-radio-inner-circle"></div>
-      <input #input class="mat-radio-input cdk-visually-hidden" type="radio"
-          [id]="inputId"
-          [checked]="checked"
-          [disabled]="disabled"
-          [tabIndex]="tabIndex"
-          [attr.name]="name"
-          [attr.value]="value"
-          [required]="required"
-          [attr.aria-label]="ariaLabel"
-          [attr.aria-labelledby]="ariaLabelledby"
-          [attr.aria-describedby]="ariaDescribedby"
-          (change)="_onInputChange($event)"
-          (click)="_onInputClick($event)">
-  
-      <!-- The ripple comes after the input so that we can target it with a CSS
-           sibling selector when the input is focused. -->
-      <div mat-ripple class="mat-radio-ripple mat-focus-indicator"
-           [matRippleTrigger]="label"
-           [matRippleDisabled]="_isRippleDisabled()"
-           [matRippleCentered]="true"
-           [matRippleRadius]="20"
-           [matRippleAnimation]="{enterDuration: 150}">
-  
-        <div class="mat-ripple-element mat-radio-persistent-ripple"></div>
-      </div>
-    </div>
-  
-    <!-- The label content for radio control. -->
-    <div class="mat-radio-label-content" [class.mat-radio-label-before]="labelPosition == 'before'">
-      <!-- Add an invisible span so JAWS can read the label -->
-      <span style="display:none">&nbsp;</span>
+<mat-radio-button #radioButton [value]="value">
+  <div [ngClass]="selected? 'rounded-box-active':'rounded-box'" fxLayout="column" fxLayoutAlign="top center">
+    <img [src]="image" *ngIf="image" fxFlex="70">
+    <span fxFlex="30" class="padding-horizontal-small" style="text-align: center">
       <ng-content></ng-content>
-    </div>
-  </label>
+    </span>
+  </div>
+</mat-radio-button>

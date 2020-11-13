@@ -1,10 +1,10 @@
 <section>
     <div fxLayout="column" fxLayoutAlign="center center">
         <h3 mat-subheader>Pojištění odpovědnosti</h3>
-        <mat-vertical-stepper linear #stepper (selectionChange)="stepperChanged($event)"
-            [selectedIndex]="selectedIndex">
-            <mat-step [stepControl]="calcForm">
-                <ng-template matStepLabel>Kalkulace</ng-template>
+        <app-custom-stepper class="screen-width"
+            headerDescription="Pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli" linear #stepper
+            (selectionChange)="stepperChanged($event)" [selectedIndex]="selectedIndex">
+            <cdk-step [stepControl]="calcForm" [label]="'Kalkulace'">
                 <form [formGroup]="calcForm" (ngSubmit)="submit()">
                     <mat-card class="calculation-step">
                         <mat-card-header>
@@ -25,38 +25,34 @@
                         </mat-card-content>
                     </mat-card>
                 </form>
-            </mat-step>
-            <mat-step [stepControl]="addInfoForm">
-                <ng-template matStepLabel>Doplňující informace</ng-template>
+            </cdk-step>
+            <cdk-step [stepControl]="addInfoForm" [label]="'Doplňující informace'">
                 <form [formGroup]="addInfoForm" (ngSubmit)="submit()">
                     <app-additional-info-panel title="(2/5) Doplňující informace" [parentForm]="addInfoForm">
                     </app-additional-info-panel>
                     <app-stepper-buttons></app-stepper-buttons>
                 </form>
-            </mat-step>
-            <mat-step [stepControl]="summaryPage">
-                <ng-template matStepLabel>Rekapitulace zvoleného rozsahu pojištění</ng-template>
+            </cdk-step>
+            <cdk-step [stepControl]="summaryPage" [label]="'Rekapitulace zvoleného rozsahu pojištění'">
                 <app-summary-page title="(3/5) Rekapitualce zvoleného rozsahu pojištění"></app-summary-page>
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <app-stepper-back-button></app-stepper-back-button>
                     <button mat-raised-button matStepperNext>Sjednat smlouvu a pokračovat k platbě</button>
                 </div>
-            </mat-step>
-            <mat-step [stepControl]="paymentPage">
-                <ng-template matStepLabel>Volba platební metody</ng-template>
+            </cdk-step>
+            <cdk-step [stepControl]="paymentPage" [label]="'Volba platební metody'">
                 <app-payment-page title="(4/5) Volba platební metody"></app-payment-page>
                 <div fxLayout="column" fxLayoutAlign="center center">
                     <app-stepper-back-button></app-stepper-back-button>
                 </div>
-            </mat-step>
-            <mat-step [stepControl]="finalPage">
-                <ng-template matStepLabel>Smluvní dokumentace</ng-template>
+            </cdk-step>
+            <cdk-step [stepControl]="finalPage" [label]="'Smluvní dokumentace'">
                 <app-final-page title="(5/5) Smluvní dokumentace"></app-final-page>
                 <div fxLayout="column" fxLayoutAlign="center center">
                     <app-back-button [redirectTo]="homeRoute"></app-back-button>
                 </div>
-            </mat-step>
-        </mat-vertical-stepper>
+            </cdk-step>
+        </app-custom-stepper>
     </div>
 </section>
 <mat-divider></mat-divider>

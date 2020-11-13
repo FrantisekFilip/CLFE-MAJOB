@@ -10,5 +10,8 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@import "./app/common-controls/themes/green-theme.scss"
+@import "./app/common-controls/themes/green-theme.scss";
 
+.screen {
+  width: 1040px;
+}

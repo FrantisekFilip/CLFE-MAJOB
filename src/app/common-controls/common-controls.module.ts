@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,12 +6,14 @@ import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 import { BaseFormFieldComponent } from './forms/base-form-field/base-form-field.component';
 import { BaseFormPanelComponent } from './forms//base-form-panel/base-form-panel.component';
 import { EmailFieldComponent } from './forms//email-field/email-field.component';
@@ -47,7 +49,12 @@ import { EmailLabelComponent } from './labels/email-label/email-label.component'
 import { EnumerationLabelComponent } from './labels/enumeration-label/enumeration-label.component';
 import { ActionButtonComponent } from './buttons/action-button/action-button.component';
 import { VerticalStepperComponent } from './stepper/vertical-stepper/vertical-stepper.component';
-import { BigRadioGroupDirective, BigRadioButtonComponent } from './radio/big-radio-button/big-radio-button.component';
+import {  BigRadioButtonComponent } from './radio/big-radio-button/big-radio-button.component';
+import { CustomStepperComponent } from './custom-stepper/custom-stepper.component';
+import { CustomStepperHeaderButtonComponent } from './custom-stepper/custom-stepper-header-button/custom-stepper-header-button.component';
+import { VarDirective } from './directives/var.directive';
+import { RichTranslatePipe } from './pipes/rich-translate.pipe';
+import { TranslatedLabelComponent } from './labels/translated-label/translated-label.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +95,11 @@ import { BigRadioGroupDirective, BigRadioButtonComponent } from './radio/big-rad
     ActionButtonComponent,
     VerticalStepperComponent,
     BigRadioButtonComponent,
-    BigRadioGroupDirective
+    CustomStepperComponent,
+    CustomStepperHeaderButtonComponent,
+    VarDirective,
+    RichTranslatePipe,
+    TranslatedLabelComponent
   ],
   imports: [
     CommonModule,
@@ -99,13 +110,15 @@ import { BigRadioGroupDirective, BigRadioButtonComponent } from './radio/big-rad
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatDividerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
     MatStepperModule,
-    FlexModule
+    FlexModule,
+    CdkStepperModule
   ],
   exports: [
     BaseFormFieldComponent,
@@ -145,7 +158,17 @@ import { BigRadioGroupDirective, BigRadioButtonComponent } from './radio/big-rad
     ActionButtonComponent,
     VerticalStepperComponent,
     BigRadioButtonComponent,
-    BigRadioGroupDirective
+    CustomStepperComponent,
+    VarDirective,
+    RichTranslatePipe,
+    TranslatedLabelComponent
   ],
 })
-export class CommonControlsModule { }
+export class CommonControlsModule {
+  static forRoot(): ModuleWithProviders<CommonControlsModule> {
+    return {
+      ngModule: CommonControlsModule,
+      providers: [RichTranslatePipe],
+    };
+  }
+}
