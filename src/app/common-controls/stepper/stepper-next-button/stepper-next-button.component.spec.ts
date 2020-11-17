@@ -8,9 +8,9 @@ describe('StepperNextButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StepperNextButtonComponent ]
+      declarations: [StepperNextButtonComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

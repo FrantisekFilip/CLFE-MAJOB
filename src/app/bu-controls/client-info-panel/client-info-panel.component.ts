@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
-import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
 @Component({
   selector: 'app-client-info-panel',
   templateUrl: './client-info-panel.component.html',
   styleUrls: ['./client-info-panel.component.scss']
 })
-export class ClientInfoPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class ClientInfoPanelComponent extends FormPanelDirective implements OnInit {
   private _clientInfo: ClientInfoModel;
 
   @Input()

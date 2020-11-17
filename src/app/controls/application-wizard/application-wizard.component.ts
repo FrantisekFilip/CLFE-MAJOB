@@ -6,6 +6,7 @@ import { KnownRoutes } from 'src/app/known-routes';
 import { StepNames } from './step-names';
 import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
 import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-application-wizard',
@@ -14,6 +15,7 @@ import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-pr
 })
 export class ApplicationWizardComponent implements OnInit {
   public readonly homeRoute = KnownRoutes.routeHome;
+  private _productName: string;
   public selectedIndex = 0;
   public calcForm: FormGroup;
   public addInfoForm: FormGroup;
@@ -22,13 +24,18 @@ export class ApplicationWizardComponent implements OnInit {
   public finalPage: FormGroup;
 
   @Input()
-  public productName: string;
+  public productCode: string;
 
-  constructor(private router: Router, private routes: ActivatedRoute) {
+  public get productName(): string {
+    return this._productName;
+  }
+
+  constructor(private router: Router, private routes: ActivatedRoute, private readonly products: ProductService) {
     this.calcForm = new FormGroup({});
     this.addInfoForm = new FormGroup({});
     this.summaryPage = new FormGroup({});
     this.paymentPage = new FormGroup({});
+    this.finalPage = new FormGroup({});
   }
 
   ngOnInit(): void {
@@ -50,17 +57,19 @@ export class ApplicationWizardComponent implements OnInit {
         this.selectedIndex = 0;
       }
     });
+
+    this._productName = this.products.GetProductInfo(this.productCode)?.shortName;
   }
 
   submit(): void {
   }
 
   public isCitizenInsurance(): boolean {
-    return this.productName === CitizenInsuranceProduct.productCode;
+    return this.productCode === CitizenInsuranceProduct.productCode;
   }
 
   public isEmployeeInsurance(): boolean {
-    return this.productName === EmployeeInsuranceProduct.productCode;
+    return this.productCode === EmployeeInsuranceProduct.productCode;
   }
 
   public stepperChanged(event: StepperSelectionEvent): void {

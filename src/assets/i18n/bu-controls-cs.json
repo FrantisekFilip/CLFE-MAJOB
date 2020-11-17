@@ -1,0 +1,18 @@
+{
+    "client": {
+        "title": "Titul před/za jménem:",
+        "firstName": "Jméno:",
+        "surname": "Přijmení:",
+        "birthDate": "Datum narození:",
+        "birthNumber": "Rodné číslo:"
+    },
+    "contacts": {
+        "phoneNumber": "Telefon:"
+    },
+    "address": {
+        "streetName": "Ulice:",
+        "registrationNumber": "Číslo popisné / orientační:",
+        "postcode": "PSČ:",
+        "municipality": "Obec:"
+    }
+}

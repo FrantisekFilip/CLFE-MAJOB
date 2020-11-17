@@ -1,5 +1,10 @@
-<span>{{label}}
-    <button mat-icon-button (click)="download()">
-        <mat-icon>get_app</mat-icon>
+<span>
+    <button mat-icon-button (click)="download()" *ngIf="iconBeforeContent">
+        <mat-icon>{{icon}}</mat-icon>
+    </button>
+    <ng-content *ngIf="hasContent"></ng-content>
+    <span translate *ngIf="!hasContent">buttons.download</span>
+    <button mat-icon-button (click)="download()" *ngIf="iconAfterContent">
+        <mat-icon>{{icon}}</mat-icon>
     </button>
 </span>

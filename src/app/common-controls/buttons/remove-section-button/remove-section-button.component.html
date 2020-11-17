@@ -1,4 +1,3 @@
-<button mat-button color="primary" (click)="callback()">
-    <mat-icon>{{icon}}</mat-icon>
-    {{label}}
-</button>
+<app-flat-button [icon]="icon" [labelPosition]="labelPosition" [action]="action">
+    <ng-content></ng-content>
+</app-flat-button>

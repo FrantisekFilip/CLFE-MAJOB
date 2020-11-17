@@ -1,6 +1,7 @@
 {
     "buttons": {
         "back": "Zpět",
-        "next": "Pokračovat"
+        "next": "Pokračovat",
+        "download": "Stáhnout"
     }
 }

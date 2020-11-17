@@ -1,21 +1,29 @@
-<mat-card class="citizen-application-panel">
-    <mat-card-content class="primary-border p-2">
+<div class="panel-colors-lighter">
+    <section class="panel-rounded-accent margin-vertical-medium padding-small">
+        <app-icon-button icon="help_outline"><b>{{citizenInsuranceProductName}}</b></app-icon-button>
         <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
-        <mat-divider></mat-divider>
-        <section>
-            <ng-container *ngIf="!isEmployeeActive()">
-                <app-add-section-button [callback]="addOrRemoveEmployeeSection"
-                    label="Přidat pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli">
+    </section>
+    <section>
+        <ng-container *ngIf="!isEmployeeActive()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <app-add-section-button [callback]="addOrRemoveEmployeeSection">
+                    <span translate>steps.calculation.addEmployeeInsurance</span>
                 </app-add-section-button>
-            </ng-container>
-            <ng-container *ngIf="isEmployeeActive()">
-                <app-remove-section-button [callback]="addOrRemoveEmployeeSection" label="Odebrat">
-                </app-remove-section-button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isEmployeeActive()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <span fxLayout="row" fxLayoutAlign="space-between center">
+                    <app-icon-button icon="help_outline"><b>{{employeeInsuranceProductName}}</b></app-icon-button>
+                    <app-remove-section-button [callback]="addOrRemoveEmployeeSection">
+                        <span translate>steps.calculation.removeEmployeeInsurance</span>
+                    </app-remove-section-button>
+                </span>
                 <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
-            </ng-container>
-        </section>
-        <section>
-            <app-calculation-summary-panel [parentForm]="panelControl"></app-calculation-summary-panel>
-        </section>
-    </mat-card-content>
-</mat-card>
+            </div>
+        </ng-container>
+    </section>
+    <section>
+        <app-calculation-summary-panel [parentForm]="panelControl"></app-calculation-summary-panel>
+    </section>
+</div>

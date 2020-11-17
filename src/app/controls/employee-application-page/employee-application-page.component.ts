@@ -7,7 +7,7 @@ import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-pr
   styleUrls: ['./employee-application-page.component.scss']
 })
 export class EmployeeApplicationPageComponent implements OnInit {
-  public readonly productName = EmployeeInsuranceProduct.productCode;
+  public readonly productCode = EmployeeInsuranceProduct.productCode;
 
   constructor() { }
 

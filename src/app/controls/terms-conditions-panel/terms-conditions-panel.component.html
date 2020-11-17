@@ -1,11 +1,12 @@
 <section class="padding-vertical-small">
     <mat-accordion>
         <mat-expansion-panel (opened)="expanded = true" (closed)="expanded = false" hideToggle>
-            <mat-expansion-panel-header class="panel-rounded-default expansion-panel-default">
+            <mat-expansion-panel-header #expansionPanelHeader (click)="expansionPanelHeader._toggle()"
+                class="panel-rounded-default">
                 <mat-panel-title>
                     <div fxLayout="row" fxLayoutAlign="space-between center">
-                        <span>
-                            <mat-icon svgIcon="download-icon"></mat-icon>
+                        <span class="clickable" (click)="expansionPanelHeader._toggle()">
+                            <mat-icon svgIcon="download_icon"></mat-icon>
                             <span translate>terms.documentsToDownload</span>
                         </span>
                         <!--span>
@@ -19,8 +20,6 @@
                     </div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
-
-            <!--
             <div fxLayout="row" fxFlexAlign="center center">
                 <div fxFlex="50">
                     <div fxLayout="column" fxFlexAlign="center center">
@@ -59,7 +58,6 @@
                     </div>
                 </div>
             </div>
-        -->
         </mat-expansion-panel>
     </mat-accordion>
 </section>

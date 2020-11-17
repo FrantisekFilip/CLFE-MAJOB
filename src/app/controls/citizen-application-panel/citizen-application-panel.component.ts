@@ -1,14 +1,27 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
+import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-citizen-application-panel',
   templateUrl: './citizen-application-panel.component.html',
   styleUrls: ['./citizen-application-panel.component.scss']
 })
-export class CitizenApplicationPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class CitizenApplicationPanelComponent extends FormPanelDirective implements OnInit {
   private _employeeActive = false;
+
+  public readonly citizenInsuranceProductName: string;
+
+  public readonly employeeInsuranceProductName: string;
+
+  constructor(productService: ProductService) {
+    super();
+    this.citizenInsuranceProductName = productService.GetProduct(CitizenInsuranceProduct).name;
+    this.employeeInsuranceProductName = productService.GetProduct(EmployeeInsuranceProduct).name;
+  }
 
   protected OnConstruct(): { controlName: string, controls?: { [key: string]: AbstractControl; }[] } {
     return { controlName: 'CitizenApplicationPanel' };

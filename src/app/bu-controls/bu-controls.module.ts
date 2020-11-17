@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonServicesModule } from '../common-services/common-services.module';
 import { CommonControlsModule } from '../common-controls/common-controls.module';
 import { BuServicesModule } from '../bu-services/bu-services.module';
@@ -21,8 +21,8 @@ import { AddressInfoPanelComponent } from './address-info-panel/address-info-pan
   ],
   imports: [
     CommonModule,
+    TranslateModule,
     FlexModule,
-    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     CommonServicesModule,
@@ -30,6 +30,10 @@ import { AddressInfoPanelComponent } from './address-info-panel/address-info-pan
     BuServicesModule
   ],
   exports: [
+    TranslateModule,
+    CommonServicesModule,
+    CommonControlsModule,
+    BuServicesModule,
     ClientInfoPanelComponent,
     AddressPanelComponent,
     ActiveAddressPanelComponent,

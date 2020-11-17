@@ -1,22 +1,30 @@
 <h3>{{header}}</h3>
 <div fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="clientInfo.title" label="Titul před/za jménem:" [parentForm]="panelControl">
+        <app-text-field [value]="clientInfo.title" [parentForm]="panelControl">
+            <span translate>client.title</span>
         </app-text-field>
         <app-date-field [value]="clientInfo.birthDate" label="Datum narození:" [parentForm]="panelControl">
+            <span translate>client.birthDate</span>
         </app-date-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-text-field [value]="clientInfo.firstName" label="Jméno:" [parentForm]="panelControl"></app-text-field>
-        <app-text-field [value]="clientInfo.lastName" label="Přijmení:" [parentForm]="panelControl">
+        <app-text-field [value]="clientInfo.firstName" [parentForm]="panelControl">
+            <span translate>client.firstName</span>
+        </app-text-field>
+        <app-text-field [value]="clientInfo.lastName" [parentForm]="panelControl">
+            <span translate>client.surname</span>
         </app-text-field>
     </div>
-    <app-birth-number-field [value]="clientInfo.birthNumber" label="Rodné číslo:" [parentForm]="panelControl">
+    <app-birth-number-field [value]="clientInfo.birthNumber" [parentForm]="panelControl">
+        <span translate>client.birthNumber</span>
     </app-birth-number-field>
     <div fxLayout="row" fxLayoutAlign="space-between">
-        <app-phone-number-field [value]="clientInfo.phoneNumber" label="Telefon:" [parentForm]="panelControl">
+        <app-phone-number-field [value]="clientInfo.phoneNumber" [parentForm]="panelControl">
+            <span translate>contacts.phoneNumber</span>
         </app-phone-number-field>
-        <app-email-field [value]="clientInfo.email" [label]="emailLabel" [parentForm]="panelControl">
+        <app-email-field [value]="clientInfo.email" [parentForm]="panelControl">
+            {{emailLabel}}
         </app-email-field>
     </div>
 </div>

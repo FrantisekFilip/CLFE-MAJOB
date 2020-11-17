@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './translated-label.component.html',
   styleUrls: ['./translated-label.component.scss']
 })
-export class TranslatedLabelComponent  implements OnInit {
+export class TranslatedLabelComponent implements OnInit, OnDestroy {
   private _label: string;
   private _labelChange: Subscription;
   private _viewHtml: SafeHtml;
@@ -38,6 +38,10 @@ export class TranslatedLabelComponent  implements OnInit {
   constructor(private readonly translate: TranslateService, private readonly sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this._labelChange?.unsubscribe();
   }
 
 }

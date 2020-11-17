@@ -1,16 +1,12 @@
 <section>
     <div fxLayout="column" fxLayoutAlign="center center">
-        <h3 mat-subheader>Pojištění odpovědnosti</h3>
-        <app-custom-stepper class="screen-width"
-            headerDescription="Pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli" linear #stepper
+        <app-vertical-stepper [headerDescription]="productName" linear #stepper
             (selectionChange)="stepperChanged($event)" [selectedIndex]="selectedIndex">
-            <cdk-step [stepControl]="calcForm" [label]="'Kalkulace'">
+            <cdk-step [stepControl]="calcForm" [label]="'steps.calculation.title' | translate">
                 <form [formGroup]="calcForm" (ngSubmit)="submit()">
-                    <mat-card class="calculation-step">
-                        <mat-card-header>
-                            <mat-card-title>(1/5) Kalkulace</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="primary-border p-2">
+                    <div class="panel-rounded-lighter padding-medium">
+                        <h2>(1/5) {{'steps.calculation.title' | translate}}</h2>
+                        <div class="panel-rounded-accent margin-vertical-medium">
                             <ng-container *ngIf="isCitizenInsurance()">
                                 <app-citizen-application-panel [parentForm]="calcForm"></app-citizen-application-panel>
                             </ng-container>
@@ -18,12 +14,12 @@
                                 <app-employee-application-panel [parentForm]="calcForm">
                                 </app-employee-application-panel>
                             </ng-container>
-                            <div fxLayout="row" fxLayoutAlign="center center">
-                                <app-back-button [redirectTo]="homeRoute"></app-back-button>
-                                <app-stepper-next-button></app-stepper-next-button>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <app-back-button [redirectTo]="homeRoute" class="margin-right-small"></app-back-button>
+                            <app-stepper-next-button class="margin-left-small"></app-stepper-next-button>
+                        </div>
+                    </div>
                 </form>
             </cdk-step>
             <cdk-step [stepControl]="addInfoForm" [label]="'Doplňující informace'">
@@ -52,10 +48,9 @@
                     <app-back-button [redirectTo]="homeRoute"></app-back-button>
                 </div>
             </cdk-step>
-        </app-custom-stepper>
+        </app-vertical-stepper>
     </div>
 </section>
-<mat-divider></mat-divider>
 <section>
     <app-terms-conditions-panel></app-terms-conditions-panel>
 </section>

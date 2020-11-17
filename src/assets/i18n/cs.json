@@ -6,5 +6,47 @@
     },
     "terms": {
         "documentsToDownload": "Dokumenty ke stažení"
+    },
+    "steps": {
+        "calculation": {
+            "title": "Kalkulace",
+            "addEmployeeInsurance": "Přidat pojištění odpovědnosti zaměstnance za škodu způsobenou zaměstnavateli",
+            "removeEmployeeInsurance": "Odebrat",
+            "addCitizenInsurance": "Přidat pojištění odpovědnosti občanů",
+            "removeCitizenInsurance": "Odebrat",
+            "employeeOptions": {
+                "description": "Pojištění se vztahuje i na škody způsobené v souvislosti s řízením /obsluhou:"
+            }
+        },
+        "addInfo": {
+            "addressTitle": "Adresa bydliště v ČR",
+            "otherContactAddress": "Korespondenční adresa není shodná s adresou bydliště:",
+            "otherInsuredPerson": "Pojistník není shodný s pojištěnou osobou:",
+            "disclaimer": "Upozornění: Podmínkou platnosti pojistné smlouvy je existence pojistného zájmu pojistníka na majetku či odpovědnosti jiné osoby v době uzavření pojistné smlouvy. Pojistník má pojistný zájem, osvědčí-li, že by mu bez jeho existence a uchování hrozila přímá majetková ztráta."
+        }
+    },
+    "application": {
+        "policyHolder": "Pojistník",
+        "insuredPerson": "Pojištěná osoba",
+        "contactEmail": "Kontaktní e-mail pro zaslání pojistných smluv:",
+        "agreements": {
+            "acceptance": "Potvrzuji, že jsem se seznámil s informacemi potřebnými ke sjednání pojistné smlouvy:",
+            "termsAndConditions": "Pojistné podmínky:<br>VPP Majetku a odpovědnosti občanů<br>DPP Pojištění odpovědnosti občanů<br>DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli",
+            "product": "Informační dokument k pojistnému produktu<br>Pojištění odpovědnosti občanů (IPID)<br>Pojištění odvědnosti zaměstnance za škodu způsboenou zaměstnavateli (IPID)",
+            "gdpr": "GDPR - poučení o zpracování osobních údajů",
+            "contractualInfo": "Předsmluvní informace",
+            "eContact": "Souhlasím s tím, abych byl v záležitostech týkajících se tohoto pojištění kontaktován prostředky elektronické komunikace (např. e-mail, telefon atd.)."
+        }
+    },
+    "parameters": {
+        "commencementDate": "Datum počátku pojištění:",
+        "aggregateIndemnities": "Limit plnění",
+        "territorialScales": "Územní rozsah",
+        "coinsurances": "Spoluúčast",
+        "entrustedThingsLossLimit": "Limit plnění pro ztrátu svěřených věcí (pracovní nástroje, ochranné pomůcky, apod.):"
+    },
+    "summary": {
+        "discount": "Sleva:",
+        "yearlyInsurance": "Roční pojištění:"
     }
 }

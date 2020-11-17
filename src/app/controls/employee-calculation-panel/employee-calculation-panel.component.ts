@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
-import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { Money } from 'src/app/common-services/types/money';
 import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
@@ -11,19 +10,16 @@ import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-pr
 import { ApplicationDataService } from 'src/app/services/application-data.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ApplicationModel } from 'src/app/models/application-model';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
 @Component({
   selector: 'app-employee-calculation-panel',
   templateUrl: './employee-calculation-panel.component.html',
   styleUrls: ['./employee-calculation-panel.component.scss']
 })
-export class EmployeeCalculationPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class EmployeeCalculationPanelComponent extends FormPanelDirective implements OnInit {
   private readonly _productInfo: EmployeeInsuranceProduct;
   private _model: ApplicationModel;
-
-  public get productName(): string {
-    return this._productInfo.name;
-  }
 
   public get parametersModel(): EmployeeInsuranceParametersModel {
     if (!this._model.employeeInsuranceParameters) {

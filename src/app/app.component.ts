@@ -27,11 +27,8 @@ export class AppComponent {
       translate.use(language);
 
       this.matIconRegistry.addSvgIcon(
-        'download-icon',
-        this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/download_icon.svg'),
-        {
-          viewBox: ''
-        }
+        'download_icon',
+        this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/download_icon.svg')
       );
 
       InstalmentFrequencyModel.yearlyCode = 'ins-yearly';

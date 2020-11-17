@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
-import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -11,19 +10,16 @@ import { Money } from 'src/app/common-services/types/money';
 import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
 import { CitizenInsuranceParametersModel } from 'src/app/models/citizen-insurance-parameters-model';
 import { ApplicationModel } from 'src/app/models/application-model';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
 @Component({
   selector: 'app-citizen-calculation-panel',
   templateUrl: './citizen-calculation-panel.component.html',
   styleUrls: ['./citizen-calculation-panel.component.scss']
 })
-export class CitizenCalculationPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class CitizenCalculationPanelComponent extends FormPanelDirective implements OnInit {
   private readonly _productInfo: CitizenInsuranceProduct;
   private _model: ApplicationModel;
-
-  public get productName(): string {
-    return this._productInfo.name;
-  }
 
   public get parametersModel(): CitizenInsuranceParametersModel {
     if (!this._model.citizenInsuranceParameters) {

@@ -1,21 +1,29 @@
-<mat-card class="citizen-application-panel">
-    <mat-card-content class="primary-border p-2">
+<div class="panel-colors-lighter">
+    <section class="panel-rounded-accent margin-vertical-medium padding-small">
+        <app-icon-button icon="help_outline"><b>{{employeeInsuranceProductName}}</b></app-icon-button>
         <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
-        <mat-divider></mat-divider>
-        <section>
-            <ng-container *ngIf="!isCitizenActive()">
-                <app-add-section-button [callback]="addOrRemoveCitizenSection"
-                    label="Přidat pojištění odpovědnosti občanů">
+    </section>
+    <section>
+        <ng-container *ngIf="!isCitizenActive()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <app-add-section-button [callback]="addOrRemoveCitizenSection">
+                    <span translate>steps.calculation.addCitizenInsurance</span>
                 </app-add-section-button>
-            </ng-container>
-            <ng-container *ngIf="isCitizenActive()">
-                <app-remove-section-button [callback]="addOrRemoveCitizenSection" label="Odebrat">
-                </app-remove-section-button>
-                <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
-            </ng-container>
-        </section>
-        <section>
-            <app-calculation-summary-panel></app-calculation-summary-panel>
-        </section>
-    </mat-card-content>
-</mat-card>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isCitizenActive()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <span fxLayout="row" fxLayoutAlign="space-between center">
+                    <app-icon-button icon="help_outline"><b>{{citizenInsuranceProductName}}</b></app-icon-button>
+                    <app-remove-section-button [callback]="addOrRemoveCitizenSection">
+                        <span translate>steps.calculation.removeCitizenInsurance</span>
+                    </app-remove-section-button>
+                    <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
+                </span>
+            </div>
+        </ng-container>
+    </section>
+    <section>
+        <app-calculation-summary-panel [parentForm]="panelControl"></app-calculation-summary-panel>
+    </section>
+</div>

@@ -4,15 +4,15 @@ import { CitizenCalculationParameters } from './citizen-calculation-parameters';
 import { EmployeeCalculationParameters } from './employee-calculation-parameters';
 import { CitizenInsuranceProduct } from './../products/citizen-insurance-product';
 import { EmployeeInsuranceProduct } from './../products/employee-insurance-product';
-import { Product } from '../products/product';
 import { CalculationParameters } from './calculation-parameters';
 import { InstalmentFrequencyModel } from '../bu-services/models/enumerations';
+import { ProductInfo } from '../products/product-info';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private readonly _products: Map<string, Product> = new Map();
+  private readonly _products: Map<string, ProductInfo> = new Map();
 
   constructor() {
     this._products.set(CitizenInsuranceProduct.name,
@@ -23,9 +23,19 @@ export class ProductService {
         'Pojištění odpovědnosti zaměstnance', 0.2, new Money(50000, 'CZK'), true));
   }
 
-  public GetProduct<T extends Product>(c: new (...args: any[]) => T): T {// TODO - wire to product catalog
+  public GetProduct<T extends ProductInfo>(c: new (...args: any[]) => T): T {// TODO - wire to product catalog
     const productName: string = c.name;
     return this._products.get(productName) as T;
+  }
+
+  public GetProductInfo(code: string): ProductInfo {
+    for (const [key, product] of this._products) {
+      if (product.code === code) {
+        return product;
+      }
+    }
+
+    return null;
   }
 
   public calculateYearlyInsurance<T extends CalculationParameters>(data: T): Money {

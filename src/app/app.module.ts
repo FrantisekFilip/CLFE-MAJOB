@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexModule } from '@angular/flex-layout';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CommonServicesModule } from './common-services/common-services.module';
@@ -39,6 +40,9 @@ import { BranchVisitPageComponent } from './controls/branch-visit-page/branch-vi
 import { PaymentPageComponent } from './controls/payment-page/payment-page.component';
 import { FinalPageComponent } from './controls/final-page/final-page.component';
 import { TranslateMultiHttpLoader } from 'src/app/common-services/services/translate-multi-http-loader';
+import { HeaderComponent } from './controls/structure/header/header.component';
+import { FooterComponent } from './controls/structure/footer/footer.component';
+import { ContentComponent } from './controls/structure/content/content.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
   return new TranslateMultiHttpLoader(http, ['common-services', 'common-controls', 'bu-services', 'bu-controls']);
@@ -62,7 +66,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
     EmployeeApplicationPageComponent,
     BranchVisitPageComponent,
     PaymentPageComponent,
-    FinalPageComponent
+    FinalPageComponent,
+    HeaderComponent,
+    FooterComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +96,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
     MatRadioModule,
     MatSlideToggleModule,
     MatStepperModule,
+    MatToolbarModule,
     FlexModule,
     CdkStepperModule,
     CommonServicesModule,

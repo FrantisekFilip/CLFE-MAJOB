@@ -1,16 +1,15 @@
-@import "~@angular/material/theming";
 @import "layouts";
 
 @include mat-core();
 
 $primary-palette: mat-palette($mat-green, 700, 50, 900);
-$accent-palette: mat-palette($mat-grey, 100, 50, 900);
+$accent-palette: mat-palette($mat-grey, 800, 50, 900);
 $warn-palette: mat-palette($mat-red, 800);
 
 $default-color: mat-color($primary-palette);
 $lighter-color: mat-color($primary-palette, lighter);
 $darker-color: mat-color($primary-palette, darker);
-$accent-color: white;
+$accent-color: mat-color($accent-palette, lighter);
 $action-color: mat-color($mat-blue, 600);
 
 $theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
@@ -39,7 +38,7 @@ $theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
     //    status-bar: map_get($mat-grey, 300),
     //    app-bar:    map_get($mat-grey, 100),
     //    background: $action-color,
-    //    hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+    hover: $default-color, // Visually disables hover effect
     //    card:       white,
     //    dialog:     white,
     //    disabled-button: rgba(black, 0.12),
@@ -70,10 +69,6 @@ p {
 
 h2 {
   color: $default-color;
-}
-
-.expansion-panel-default {
-  background-color: $default-color !important;
 }
 
 .panel-rounded-default {

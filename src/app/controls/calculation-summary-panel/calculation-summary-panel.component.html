@@ -1,15 +1,13 @@
-<mat-card class="calculation-summary-panel">
-    <mat-card-content class="primary-border p-2">
-        <app-select-field [options]="instalmentFrequencies" [selected]="selectedInstalmentFrequency"
-            (valueChange)="onInstalmentFrequencyChange($event)" [parentForm]="panelControl" label="Frekvence placení">
-        </app-select-field>
-        <mat-card class="calculation-summary-subpanel">
-            <mat-card-content class="primary-border p-2">
-                <div fxLayout=column>
-                    <app-money-label label="Splátka pojistného:" [value]="payment"></app-money-label>
-                    <app-money-label label="Roční pojistné celek:" [value]="totalYearlyInsurance"></app-money-label>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </mat-card-content>
-</mat-card>
+<div class="panel-rounded-accent margin-vertical-medium padding-small">
+    <app-select-field [options]="instalmentFrequencies" [selected]="selectedInstalmentFrequency"
+        (valueChange)="onInstalmentFrequencyChange($event)" [parentForm]="panelControl" label="Frekvence placení">
+    </app-select-field>
+    <mat-card class="calculation-summary-subpanel">
+        <mat-card-content class="primary-border p-2">
+            <div fxLayout=column>
+                <app-money-label label="Splátka pojistného:" [value]="payment"></app-money-label>
+                <app-money-label label="Roční pojistné celek:" [value]="totalYearlyInsurance"></app-money-label>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
