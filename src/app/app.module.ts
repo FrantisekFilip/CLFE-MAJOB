@@ -46,9 +46,11 @@ import { FooterComponent } from './controls/structure/footer/footer.component';
 import { ContentComponent } from './controls/structure/content/content.component';
 import { ProductSummaryPanelComponent } from './controls/product-summary-panel/product-summary-panel.component';
 import { AddinfoTermsDownloadComponent } from './controls/parts/addinfo-terms-download/addinfo-terms-download.component';
+import { FinalDocsDownloadComponent } from './controls/parts/final-docs-download/final-docs-download.component';
+import { TermsDownloadComponent } from './controls/parts/terms-download/terms-download.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
-  return new TranslateMultiHttpLoader(http, ['common-services', 'common-controls', 'bu-services', 'bu-controls']);
+  return new TranslateMultiHttpLoader(http, ['common-services', 'common-controls', 'bu-services', 'bu-controls', 'payments']);
 }
 
 @NgModule({
@@ -74,7 +76,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
     FooterComponent,
     ContentComponent,
     ProductSummaryPanelComponent,
-    AddinfoTermsDownloadComponent
+    AddinfoTermsDownloadComponent,
+    FinalDocsDownloadComponent,
+    TermsDownloadComponent
   ],
   imports: [
     BrowserModule,

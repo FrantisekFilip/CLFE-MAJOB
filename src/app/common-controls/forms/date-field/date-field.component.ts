@@ -10,17 +10,25 @@ import { FormFieldDirective } from '../form-field.directive';
 export class DateFieldComponent extends FormFieldDirective implements OnInit {
   private _value: string;
 
-  get value(): string {
+  public get iValue(): string {
     return this._value;
   }
 
-  @Input()
-  set value(value: string) {
+  public set iValue(value: string) {
     this._value = value;
 
     if (value) {
       this.fieldControl.setValue(value);
     }
+  }
+
+  public get value(): Date {
+    return this._value ? new Date(this._value) : null;
+  }
+
+  @Input()
+  public set value(value: Date) {
+    this.iValue = value?.toDateString();
   }
 
   protected OnConstruct(): { controlName: string, validators?: ValidatorFn[] } {
@@ -29,5 +37,10 @@ export class DateFieldComponent extends FormFieldDirective implements OnInit {
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      this._value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 }

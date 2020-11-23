@@ -17,6 +17,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonServicesModule } from 'src/app/common-services/common-services.module';
 /** Buttons */
+import { ActionButtonComponent } from './buttons/action-button/action-button.component';
 import { AddSectionButtonComponent } from './buttons/add-section-button/add-section-button.component';
 import { BackButtonComponent } from './buttons/back-button/back-button.component';
 import { BigButtonComponent } from './buttons/big-button/big-button.component';
@@ -26,6 +27,7 @@ import { ExpandButtonComponent } from './buttons/expand-button/expand-button.com
 import { FlatButtonComponent } from './buttons/flat-button/flat-button.component';
 import { HelpIconButtonComponent } from './buttons/help-icon-button/help-icon-button.component';
 import { IconButtonComponent } from './buttons/icon-button/icon-button.component';
+import { NavigationButtonComponent } from './buttons/navigation-button/navigation-button.component';
 import { NextButtonComponent } from './buttons/next-button/next-button.component';
 import { RemoveSectionButtonComponent } from './buttons/remove-section-button/remove-section-button.component';
 import { StrokedButtonComponent } from './buttons/stroked-button/stroked-button.component';
@@ -71,6 +73,7 @@ import { IconComponent } from './icon/icon.component';
 
 @NgModule({
   declarations: [
+    ActionButtonComponent,
     AddSectionButtonComponent,
     BackButtonComponent,
     BigButtonComponent,
@@ -80,6 +83,7 @@ import { IconComponent } from './icon/icon.component';
     FlatButtonComponent,
     HelpIconButtonComponent,
     IconButtonComponent,
+    NavigationButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
     StrokedButtonComponent,
@@ -141,6 +145,7 @@ import { IconComponent } from './icon/icon.component';
   exports: [
     TranslateModule,
     CommonServicesModule,
+    ActionButtonComponent,
     AddSectionButtonComponent,
     BackButtonComponent,
     BigButtonComponent,
@@ -150,6 +155,7 @@ import { IconComponent } from './icon/icon.component';
     FlatButtonComponent,
     HelpIconButtonComponent,
     IconButtonComponent,
+    NavigationButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
     StrokedButtonComponent,

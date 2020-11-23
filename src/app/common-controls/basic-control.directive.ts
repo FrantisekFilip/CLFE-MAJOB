@@ -11,12 +11,12 @@ export abstract class BasicControlDirective {
   private _readOnly: boolean;
   private _disabled: boolean;
 
-  get labelPosition(): LabelPosition {
+  public get labelPosition(): LabelPosition {
     return this._labelPosition;
   }
 
   @Input()
-  set labelPosition(value: LabelPosition) {
+  public set labelPosition(value: LabelPosition) {
     this._labelPosition = value ?? LabelPosition.Before;
   }
 

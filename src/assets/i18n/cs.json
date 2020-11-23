@@ -5,7 +5,11 @@
         "description": "Nyní si můžete on-line sjednat pojištění odpovědnosti . Máte-li zájem i o pojištění majetku<br>(vybavení domácnosti, pojištění bytu či rodinného domu), tak se můžete obrátit na naší pobočku<br>nebo nás kontaktovat telefonicky či emailem na kontaktech uvedených níže. Na možnosti sjednání<br>majetkového pojištění on-line intenzivně pracujeme."
     },
     "terms": {
-        "documentsToDownload": "Dokumenty ke stažení"
+        "documentsToDownload": "Dokumenty ke stažení",
+        "buttons": {
+            "expand": "Rozbalit",
+            "collapse": "Sbalit"
+        }
     },
     "steps": {
         "calculation": {
@@ -36,18 +40,45 @@
             "email": "E-mail:",
             "phoneNumber": "Telefon:",
             "contractPreview": "<b>Náhled na návrh pojistné smlouvy </b><i>(pouze vzor)</i>",
-            "disclaimer":"<p>Tento dokument není nabídkou ani pojistnou smlouvou a slouží pouze ke kontrole údajů a rozsahu pojistné ochrany před sjednáním smlouvy</p><p>Pojistnou smlouvu a pojistku obdržíte v elektronické podobě po sjednání smlouvy.</p>"
+            "disclaimer": "<p>Tento dokument není nabídkou ani pojistnou smlouvou a slouží pouze ke kontrole údajů a rozsahu pojistné ochrany před sjednáním smlouvy</p><p>Pojistnou smlouvu a pojistku obdržíte v elektronické podobě po sjednání smlouvy.</p>"
+        },
+        "payment": {
+            "title": "Volba platební metody",
+            "acknowledgement": "Děkujeme za sjednání pojištění.",
+            "notice": "Smlouva se stává platnou v den, kdy bude platba pojistného připsána na účet pojistitele."
+        },
+        "final": {
+            "title": "Smluvní dokumentace",
+            "acknowledgement": "Děkujeme Vám za sjednání a úhradu pojištění.",
+            "documentation": {
+                "title": "Smluvní dokumentace ke stažení (také odeslána na Váš e-mail)",
+                "contract": "Návrh pojistné smlouvy",
+                "confirmation": "Potvrzení o uzavření pojištění (Pojistka)"
+            },
+            "buttons": {
+                "close": "Zavřít"
+            },
+            "notification": "Smluvní dokumentaci jsme Vám též odeslali na uvedný e-mail. V případě, že by Vám e-mail do několika minut nedorazil, tak nás prosím kontaktujte na telefonním čísle či e-mailem uvedeným níže, abychom Vám mohli dokumenty zaslat."
         }
     },
     "application": {
         "policyHolder": "Pojistník:",
-        "insuredPerson": "Pojištěná osoba",
+        "insuredPerson": "Pojištěná osoba:",
         "contactEmail": "Kontaktní e-mail pro zaslání pojistných smluv:",
         "agreements": {
             "acceptance": "Potvrzuji, že jsem se seznámil s informacemi potřebnými ke sjednání pojistné smlouvy:",
-            "termsAndConditions": "Pojistné podmínky:<br>&emsp;VPP Majetku a odpovědnosti občanů<br>&emsp;DPP Pojištění odpovědnosti občanů<br>&emsp;DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli",
-            "product": "Informační dokument k pojistnému produktu<br>&emsp;Pojištění odpovědnosti občanů (IPID)<br>&emsp;Pojištění odvědnosti zaměstnance za škodu způsboenou zaměstnavateli (IPID)",
-            "gdpr": "GDPR - poučení o zpracování osobních údajů",
+            "termsAndConditions": {
+                "title": "Pojistné podmínky:",
+                "property": "VPP Majetku a odpovědnosti občanů",
+                "citizen": "DPP Pojištění odpovědnosti občanů",
+                "employee": "DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli"
+            },
+            "product": {
+                "title": "Informační dokument k pojistnému produktu",
+                "citizen": "Pojištění odpovědnosti občanů (IPID)",
+                "employee": "Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli (IPID)"
+            },
+            "gdpr": "Zpracování osobních údajů (GDPR)",
             "contractualInfo": "Předsmluvní informace",
             "eContact": "Souhlasím s tím, abych byl v záležitostech týkajících se tohoto pojištění kontaktován prostředky elektronické komunikace (např. e-mail, telefon atd.)."
         }

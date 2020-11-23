@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BigButtonComponent implements OnInit {
   @Input()
-  public imageUrl: string;
+  public image: string;
 
   @Input()
   public selected: boolean;

@@ -10,7 +10,7 @@ export class PaymentsService {
 
   public executeDelayedPayment(payment: PaymentModel): boolean {
     alert('Delayed payment: ' + payment?.amount?.value.amount.toString());
-    return false;
+    return true;
   }
 
   public executeExpressPayment(payment: PaymentModel): boolean {
