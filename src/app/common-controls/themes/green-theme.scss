@@ -2,39 +2,18 @@
 
 @include mat-core();
 
-$primary: mat-palette($mat-green, 600);
-$accent: mat-palette($mat-gray, 900);
-$warn: mat-palette($mat-red, 800);
+$primary-palette: mat-palette($mat-green, 600, 50, 700);
+$accent-palette: mat-palette($mat-grey, 600, 50, 800);
+$warn-palette: mat-palette($mat-red, 800);
 
-$theme: mat-light-theme($primary, $accent, $warn);
-@include angular-material-theme($theme);
+$default-color: mat-color($primary-palette);
+$lighter-color: mat-color($primary-palette, lighter);
+$darker-color: mat-color($primary-palette, darker);
+$bright-color: mat-color($accent-palette, lighter);
+$accent-color: mat-color($accent-palette);
+$dark-color: mat-color($accent-palette, darker);
+$action-color: mat-color($mat-blue, 600);
 
-$secondColor: mat-color($mat-amber, 600);
+$theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
 
-.background-color {
-    background-color: $secondColor;
-}
-
-.default-background-color {
-    background-color: mat-color($mat-gray, 50);
-}
-
-.text-primary {
-    color: mat-color($primary);
-}
-
-.m-2 {
-    margin: 2rem;
-}
-
-.mt-2 {
-    margin-top: 2rem !important;
-}
-.ml-2 {
-    margin-left: 2rem;
-}
-
-.p-2 {
-    padding: 2rem;
-}
-
+@import "theme.scss";

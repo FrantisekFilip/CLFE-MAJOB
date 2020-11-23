@@ -11,6 +11,5 @@ export class StepperBackButtonComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
 

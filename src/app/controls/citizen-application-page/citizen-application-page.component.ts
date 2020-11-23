@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
+import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insurance-product';
 
 @Component({
   selector: 'app-citizen-application-page',
@@ -7,9 +7,7 @@ import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-prod
   styleUrls: ['./citizen-application-page.component.scss']
 })
 export class CitizenApplicationPageComponent implements OnInit {
-  public readonly productName = CitizenInsuranceProduct.productCode;
-
-  constructor() { }
+  public readonly productCode = CitizenInsuranceProduct.productCode;
 
   ngOnInit(): void {
   }

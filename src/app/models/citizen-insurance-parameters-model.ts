@@ -1,6 +1,6 @@
 import { TerritorialScaleModel } from '../bu-services/models/enumerations';
 import { MoneyModel } from '../common-services/models/money-model';
-import { ProductInfo } from '../products/product-info';
+import { ProductInfo } from 'src/app/products/services/product-info';
 import { CitizenCalculationParameters } from '../services/citizen-calculation-parameters';
 import { ContractParametersModel } from './contract-parameters-model';
 import { AggregateIndemnityModel, CoinsuranceModel } from './enumerations';

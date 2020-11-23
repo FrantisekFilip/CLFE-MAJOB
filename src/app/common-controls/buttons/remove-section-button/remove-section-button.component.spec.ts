@@ -8,9 +8,9 @@ describe('RemoveSectionButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RemoveSectionButtonComponent ]
+      declarations: [RemoveSectionButtonComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -15,7 +15,23 @@ export class ClientInfoModel extends BaseModel {
 
     public lastName: string;
 
-    public title: string;
+    public get name(): string {
+        const parts: string[] = [];
+
+        if (this.firstName) {
+            parts.push(this.firstName);
+        }
+
+        if (this.lastName) {
+            parts.push(this.lastName);
+        }
+
+        return parts.join(' ');
+    }
+
+    public titleAN: string;
+
+    public titleBN: string;
 
     public get birthNumber(): BirthNumberModel {
         return this._birthNumber;

@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { BaseFormFieldComponent } from '../base-form-field/base-form-field.component';
+import { FormFieldDirective } from '../form-field.directive';
 
 @Component({
   selector: 'app-date-field',
   templateUrl: './date-field.component.html',
   styleUrls: ['./date-field.component.scss']
 })
-export class DateFieldComponent extends BaseFormFieldComponent implements OnInit {
+export class DateFieldComponent extends FormFieldDirective implements OnInit {
   private _value: string;
 
   get value(): string {
