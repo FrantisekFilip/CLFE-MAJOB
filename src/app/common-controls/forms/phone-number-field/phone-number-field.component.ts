@@ -30,5 +30,14 @@ export class PhoneNumberFieldComponent extends FormFieldDirective implements OnI
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      if (!this._value) {
+        this._value = new PhoneNumberModel();
+      }
+
+      this._value.value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 }

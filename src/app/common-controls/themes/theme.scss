@@ -151,4 +151,12 @@ h2 {
   background-color: $darker-color;
 }
 
+.color-dark {
+  color: $dark-color;
+}
+
+.color-warn {
+  color: $warn-color;
+}
+
 @import "theme-overrides.scss";

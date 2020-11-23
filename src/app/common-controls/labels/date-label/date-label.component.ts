@@ -11,7 +11,12 @@ export class DateLabelComponent extends LabelDirective implements OnInit {
   public value: Date;
 
   public get formatted(): string {
-    return this.value?.toDateString();
+    if (this.value) {
+      return new Date(this.value).toDateString();
+    }
+    else {
+      return null;
+    }
   }
 
   ngOnInit(): void {

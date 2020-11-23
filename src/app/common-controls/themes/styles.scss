@@ -64,8 +64,18 @@
   border-radius: $size-largest !important;
 }
 
-.ul-reduced-format {
-  @extend .padding-horizontal-small;
+.ul-reduced-tiny {
+  @extend .padding-left-tiny;
+  list-style-type: none;
+}
+
+.ul-reduced-small {
+  @extend .padding-left-small;
+  list-style-type: none;
+}
+
+.ul-reduced-large {
+  @extend .padding-left-large;
   list-style-type: none;
 }
 

@@ -10,10 +10,14 @@ Zname problemy:
     -   Oddelit modely ciselniku od ciselniku samotnych
     -   Presunout aktualizaci ApplicationModel ze stranek do ApplicationDataService (kvuli konzistentnimu prepocitavani souvisejicich atributu)
     -   Nejsou naimplementovane formularove validace
+    -   Vyresit submit warningy z prohlizece
+    -   FormFields - sjednotit base value pres generiku
+    -   Konverze boolean na text
+    -   Realizovat TODO
 -   Ovladaci prvky
     -   Stepper - nahradit specialni tlacitka direktivami
     -   Stepper - chybi grafika vpravo dole
-    -   Stepper - opravit grafiku
+    -   Stepper - opravit grafiku - krouzek Active je moc tlusty
     -   RichTranslate - nahradit specialni label direktivou
     -   Odsazeni Help-icon labelu vs ostatni labely/fieldy
     -   Dodelat "dokumenty ke stazeni"
@@ -23,17 +27,29 @@ Zname problemy:
     -   Panely ne vzdy zakulacuji rohy
     -   Odstranit ng-deep ze vsech css
     -   Neprenasi se data z formularu do prehledovych obrazovek
+    -   Predelat css tak, aby komponenty nemusely referencovat konkretni green-theme, ale theme
+    -   Odebrat !important z css (krome marginu a paddingu)
+    -   Section button - prehodit + na zacatek
+    -   LayoutGap do stylu
+    -   Nahradit color-dark za styl (pokud se podari dostat barvy do konstant)
+    -   Download button spatne zarovnava
 -   Dialogy
     -   stylovat Error Dialogy
     -   stylovat Potvrzovaci Dialogy
+-   Dokumenty ke stažení
+    -   Ikonka ma byt cerna
+    -   Tlacitko rozbalit / sbalit k prave stranek
+    -   Vybarveni tlacitek rozbalit / sbalit
+    -   Rozbaleny hover probarvuje
+    -   Border - color nefunguje
+-   Obr. - Kalkulace
+    -   Odstranit vnejsi bily div, ktery kazi zakulaceni
 -   Obr. - Doplnujici informace
     -   Zarovnani radku pro vkladani titulu
 -   Obr. - Rekapitulace
     -   Tlacitko sjednat ma chybne barvy
 -   Obr. - Nepodarilo se sjednat (visit-branch)
-    -   Chybi styly
+    -   Tlacitko kontakt ma byt zelene
+    -   Panel neni zaobleny
 -   Obr. - Volba platebni metody
-    -   Chybi styly
     -   Nejsou aktivni tlacitka (docasne by mela routovat na success / fail)
--   Obr. - Smluvni dokumentace
-    -   Chybi styly
