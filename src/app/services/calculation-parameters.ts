@@ -1,4 +1,4 @@
-import { ProductInfo } from '../products/product-info';
+import { ProductInfo } from '../products/services/product-info';
 
 export interface CalculationParameters {
     product: ProductInfo;

@@ -1,34 +1,34 @@
-<section class="background-color p-2">
-    <app-icon-button icon="help_outline" [label]="productName"></app-icon-button>
-    <div fxLayout="column" fxFlexAlign="center center" class="default-background-color m-2">
+<div class="padding-bottom-small">
+    <div>
         <app-select-field [options]="aggregateIndemnities" [selected]="selectedAggregateIndemnity"
-            (valueChange)="onAggregateIndemnityChange($event)" [parentForm]="panelControl" label="Limit plnění">
+            (valueChange)="onAggregateIndemnityChange($event)" [parentForm]="panelControl">
+            <span translate>parameters.aggregateIndemnity</span>
         </app-select-field>
         <app-select-field [options]="territorialScales" [selected]="selectedTerritorialScale"
-            (valueChange)="onTerritorialScaleChange($event)" [parentForm]="panelControl" label="Územní rozsah">
+            (valueChange)="onTerritorialScaleChange($event)" [parentForm]="panelControl">
+            <span translate>parameters.territorialScale</span>
         </app-select-field>
-        <app-money-label label="Limit plnění pro ztrátu svěřených věcí (pracovní nástroje, ochranné pomůcky, apod.):"
-            [value]="entrustedThingsLossLimit"></app-money-label>
-    </div>
-    <h2 mat-subheader>Pojištění se vztahuje i na škody způsobené v souvislosti s řízením /obsluhou:</h2>
-    <div fxLayout="column">
-        <mat-slide-toggle [checked]='mainVehiclesChecked' labelPosition="before">motocyklu, motokola, osobního a
-            nákladního automobilu, traktoru a autobusu,
-        </mat-slide-toggle>
-        <mat-slide-toggle [checked]='otherVehiclesChecked' labelPosition="before">ostatních dopravních
-            prostředků a pracovních strojů opatřených místem k sezení nebo na dálkové ovládání <i>(např.bagr, jeřáb,
-                nakladač, vysokozdvižný vozík)</i>
-        </mat-slide-toggle>
-        <mat-slide-toggle [checked]='noClaimBonus' labelPosition="before" disabled="true">Pojištění s benefitem za
-            bezeškodní průběh:
-        </mat-slide-toggle>
+        <app-money-label [value]="entrustedThingsLossLimit" displayBold="true">
+            <span translate>parameters.entrustedThingsLossLimit</span>
+        </app-money-label>
     </div>
     <br>
-    <app-text-label label="Spoluúčast:" [value]="coinsurance"></app-text-label>
-    <div fxLayout="column" fxFlexAlign="center center" class="background-color m-2 p-2">
-        <app-percent-label label="Sleva:" [value]="discount"></app-percent-label>
-        <h3>
-            <app-money-label label="Roční pojistné:" [value]="yearlyInsurance"></app-money-label>
-        </h3>
-    </div>
-</section>
+    <b>
+        <p translate>steps.calculation.employeeOptions.description</p>
+    </b>
+    <app-slide-toggle-field [checked]='mainVehicleChecked' labelPosition="before" [parentForm]="panelControl">
+        <app-translated-label label="parameters.mainVehicle"></app-translated-label>
+    </app-slide-toggle-field>
+    <app-slide-toggle-field [checked]='otherVehiclesChecked' labelPosition="before" [parentForm]="panelControl">
+        <app-translated-label label="parameters.otherVehicles"></app-translated-label>
+    </app-slide-toggle-field>
+    <app-slide-toggle-field [checked]='noClaimBonus' labelPosition="before" disabled="true" [parentForm]="panelControl">
+        <app-help-icon-button><span translate>parameters.noClaimBonus</span></app-help-icon-button>
+    </app-slide-toggle-field>
+    <br>
+    <app-text-label [value]="coinsurance">
+        <span translate>parameters.coinsurance</span>
+    </app-text-label>
+    <app-product-summary-panel [discount]="discount" [yearlyInsurance]="yearlyInsurance" [parentForm]="panelControl">
+    </app-product-summary-panel>
+</div>

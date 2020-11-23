@@ -1,33 +1,50 @@
-<mat-card class="summary-page-panel">
-    <mat-card-header>
-        <mat-card-title>{{title}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div fxLayout="column" fxLayoutAlign="center left">
-            <h3 mat-subheader>Pojištění</h3>
-            <app-date-label label="Počátek pojištění:" [value]="commencementDate"></app-date-label>
-            <app-text-label label="Pojistné období:" value="1 rok"></app-text-label>
-            <app-text-label label="Pojistná doba:" value="smlouva na dobu neurčitou"></app-text-label>
-            <span>
-                Pojistník:
+<section>
+    <h2>{{title}}</h2>
+    <div class="form-section-panel">
+        <h3 translate>steps.summary.products</h3>
+        <ng-container *ngFor="let product of products">
+            <app-help-icon-button><b>{{product.name}}</b></app-help-icon-button>
+        </ng-container>
+        <app-date-label [value]="commencementDate">
+            <b><span translate>parameters.commencementDate</span></b>
+        </app-date-label>
+        <app-text-label [value]="insurancePeriod">
+            <b><span translate>parameters.insurancePeriod</span></b>
+        </app-text-label>
+        <app-enumeration-label [value]="contractDuration">
+            <b><span translate>parameters.duration</span></b>
+        </app-enumeration-label>
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <b><span class="form-field-label" translate>application.policyHolder</span></b>
+            <div class="form-field-value">
                 <app-address-info-panel [person]="policyHolder" [address]="mainAddress"></app-address-info-panel>
-            </span>
-            <app-email-label label="E-mail:" [value]="email"></app-email-label>
-            <app-phone-number-label label="Telefon:" [value]="phoneNumber"></app-phone-number-label>
-            <app-money-label label="Celkové roční pojistné:" [value]="totalYearlyInsurance"></app-money-label>
-            <app-enumeration-label label="Frekvence placení:" [value]="instalmentFrequency"></app-enumeration-label>
-            <app-money-label label="Splátka pojistného:" [value]="payment"></app-money-label>
-            <a href="www.google.com">
-                <b>Náhled na návrh pojistné smlouvy </b><i>(pouze vzor)</i>
-            </a>
-            <p>
-                Tento dokument není nabídkou ani pojistnou smlouvou a slouží pouze
-                ke kontrole údajů a rozsahu pojistné ochrany před sjednáním smlouvy
-            </p>
-            <p>
-                Pojistnou smlouvu a pojistku obdržíte v elektronické
-                podobě po sjednání smlouvy.
-            </p>
+            </div>
         </div>
-    </mat-card-content>
-</mat-card>
+        <span *ngIf="!hasInsuredPerson">
+            <b><span translate>steps.summary.noOtherInsuredPerson</span></b>
+        </span>
+        <app-text-label *ngIf="hasInsuredPerson" [value]="insurancePeriod">
+            <b><span translate>application.insuredPersonName</span></b>
+        </app-text-label>
+        <app-email-label [value]="email">
+            <b><span translate>steps.summary.email</span></b>
+        </app-email-label>
+        <app-phone-number-label [value]="phoneNumber">
+            <b><span translate>steps.summary.phoneNumber</span></b>
+        </app-phone-number-label>
+        <app-money-label [value]="totalYearlyInsurance">
+            <b><span translate>summary.totalYearlyInsurance</span></b>
+        </app-money-label>
+        <app-enumeration-label [value]="instalmentFrequency">
+            <b><span translate>parameters.instalmentFrequency</span></b>
+        </app-enumeration-label>
+        <app-money-label [value]="payment">
+            <b><span translate>summary.payment</span></b>
+        </app-money-label>
+        <span fxLayout="row" fxLayoutAlign="space-between center">
+            <app-translated-label label="steps.summary.contractPreview"></app-translated-label>
+            <app-icon icon="download_icon"></app-icon>
+        </span>
+        <app-translated-label label="steps.summary.disclaimer"></app-translated-label>
+    </div>
+</section>
