@@ -3,11 +3,11 @@ import { AbstractControl } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/products/services/product.service';
 import { AggregateIndemnityModel, CoinsuranceModel } from '../../models/enumerations';
 import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { Money } from 'src/app/common-services/types/money';
-import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
+import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insurance-product';
 import { CitizenInsuranceParametersModel } from 'src/app/models/citizen-insurance-parameters-model';
 import { ApplicationModel } from 'src/app/models/application-model';
 import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
@@ -110,7 +110,9 @@ export class CitizenCalculationPanelComponent extends FormPanelDirective impleme
     this.yearlyInsurance = insurance;
     this._model.totalYearlyInsurance = MoneyModel.FromMoney(
       this.productService.calculateTotalYearlyInsurance(
-        [insurance?.value, this._model.employeeInsuranceParameters?.yearlyInsurance.value]));
+        [insurance?.value, this._model.employeeInsuranceParameters?.yearlyInsurance?.value]));
+    this._model.instalments.payment = MoneyModel.FromMoney(
+      this.productService.calculateInstalment(this._model.totalYearlyInsurance.value, this._model.instalments?.frequency));
   }
 
   public onAggregateIndemnityChange(value: string): void {

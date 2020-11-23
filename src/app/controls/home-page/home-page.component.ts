@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { KnownRoutes } from 'src/app/known-routes';
-import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
-import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
-import { ProductInfo } from 'src/app/products/product-info';
-import { ProductService } from 'src/app/services/product.service';
+import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
+import { ProductInfo } from 'src/app/products/services/product-info';
+import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
   selector: 'app-home-page',

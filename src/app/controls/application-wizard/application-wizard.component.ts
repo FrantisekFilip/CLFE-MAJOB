@@ -4,14 +4,16 @@ import { StepperSelectionEvent } from '@angular/cdk/stepper/public-api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KnownRoutes } from 'src/app/known-routes';
 import { StepNames } from './step-names';
-import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
-import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
-import { ProductService } from 'src/app/services/product.service';
+import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
+import { ProductService } from 'src/app/products/services/product.service';
+import { ApplicationDataService } from 'src/app/services/application-data.service';
 
 @Component({
   selector: 'app-application-wizard',
   templateUrl: './application-wizard.component.html',
-  styleUrls: ['./application-wizard.component.scss']
+  styleUrls: ['./application-wizard.component.scss'],
+  providers: [ApplicationDataService]
 })
 export class ApplicationWizardComponent implements OnInit {
   public readonly homeRoute = KnownRoutes.routeHome;
@@ -28,6 +30,10 @@ export class ApplicationWizardComponent implements OnInit {
 
   public get productName(): string {
     return this._productName;
+  }
+
+  public get showTerms(): boolean {
+    return this.selectedIndex === 0;
   }
 
   constructor(private router: Router, private routes: ActivatedRoute, private readonly products: ProductService) {

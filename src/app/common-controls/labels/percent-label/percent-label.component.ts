@@ -17,7 +17,7 @@ export class PercentLabelComponent extends LabelDirective implements OnInit {
 
   public set value(value: number) {
     this._value = value;
-    this._formatted = value ? (value * 100).toString() : null;
+    this._formatted = value ? (value * 100).toString() + ' %' : null;
   }
 
   public get formattedValue(): string {

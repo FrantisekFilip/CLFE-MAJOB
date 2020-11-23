@@ -5,9 +5,9 @@ import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.dir
 import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { ApplicationModel } from 'src/app/models/application-model';
-import { InstalmentsModel } from 'src/app/models/instalments-model';
+import { InstalmentsModel } from 'src/app/bu-services/models/instalments-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
   selector: 'app-calculation-summary-panel',

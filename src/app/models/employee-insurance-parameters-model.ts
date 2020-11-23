@@ -1,6 +1,6 @@
 import { TerritorialScaleModel } from '../bu-services/models/enumerations';
 import { MoneyModel } from '../common-services/models/money-model';
-import { ProductInfo } from '../products/product-info';
+import { ProductInfo } from 'src/app/products/services/product-info';
 import { EmployeeCalculationParameters } from '../services/employee-calculation-parameters';
 import { ContractParametersModel } from './contract-parameters-model';
 import { AggregateIndemnityModel, EmployeeCoinsuranceModel } from './enumerations';
@@ -12,7 +12,7 @@ export class EmployeeInsuranceParametersModel extends ContractParametersModel im
 
     public entrustedThingsLossLimit: MoneyModel;
 
-    public mainVehiclesChecked: boolean;
+    public mainVehicleChecked: boolean;
 
     public otherVehiclesChecked: boolean;
 

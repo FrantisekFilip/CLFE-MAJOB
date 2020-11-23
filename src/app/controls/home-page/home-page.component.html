@@ -1,9 +1,9 @@
-<section class="panel-rounded-lighter padding-medium">
+<section class="section-main">
     <div fxLayout="column" fxLayoutAlign="center center">
         <h2 translate>home.title</h2>
         <p mat-line translate>home.welcome</p>
     </div>
-    <div fxLayout="column" fxLayoutAlign="center center" class="panel-rounded-accent  margin-small">
+    <div fxLayout="column" fxLayoutAlign="center center" class="panel-rounded-bright margin-small">
         <mat-radio-group [(ngModel)]="applicationRoute" class="padding-medium">
             <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
                 <app-big-radio-button [value]="routeCitizenApp" image="assets/images/products/citizen_insurance.svg">
@@ -22,7 +22,6 @@
         <app-next-button [redirectTo]="applicationRoute" class="margin-smallest"></app-next-button>
     </div>
 </section>
-<mat-divider></mat-divider>
 <section>
     <app-terms-conditions-panel></app-terms-conditions-panel>
 </section>

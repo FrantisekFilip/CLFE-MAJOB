@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Money } from 'src/app/common-services/types/money';
-import { CitizenCalculationParameters } from './citizen-calculation-parameters';
-import { EmployeeCalculationParameters } from './employee-calculation-parameters';
-import { CitizenInsuranceProduct } from './../products/citizen-insurance-product';
-import { EmployeeInsuranceProduct } from './../products/employee-insurance-product';
-import { CalculationParameters } from './calculation-parameters';
-import { InstalmentFrequencyModel } from '../bu-services/models/enumerations';
-import { ProductInfo } from '../products/product-info';
+import { CitizenCalculationParameters } from '../../services/citizen-calculation-parameters';
+import { EmployeeCalculationParameters } from '../../services/employee-calculation-parameters';
+import { CitizenInsuranceProduct } from './citizen-insurance-product';
+import { EmployeeInsuranceProduct } from './employee-insurance-product';
+import { CalculationParameters } from '../../services/calculation-parameters';
+import { InstalmentFrequencyModel } from '../../bu-services/models/enumerations';
+import { ProductInfo } from './product-info';
 
 @Injectable({
   providedIn: 'root'
@@ -71,6 +71,10 @@ export class ProductService {
   }
 
   public calculateInstalment(yearlyInsurance: Money, frequency: InstalmentFrequencyModel): Money {
-    return Money.divide(yearlyInsurance, frequency.paymentsPerYear);
+    if (yearlyInsurance && frequency) {
+      return Money.divide(yearlyInsurance, frequency.paymentsPerYear);
+    }
+
+    return null;
   }
 }

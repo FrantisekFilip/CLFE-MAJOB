@@ -27,12 +27,12 @@
 
 .rounded-box:hover {
   background-color: $default-color;
-  color: $accent-color;
+  color: $bright-color;
 }
 
 .rounded-box-active {
   @extend .rounded-box-shape;
   background-color: $default-color;
-  color: $accent-color;
+  color: $bright-color;
   white-space: normal;
 }

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
-import { InstalmentFrequencyModel, TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
+import { ContractDurationModel, InstalmentFrequencyModel, TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
 import { AggregateIndemnityModel, CoinsuranceModel, EmployeeCoinsuranceModel } from './models/enumerations';
 import { MoneyModel } from './common-services/models/money-model';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { AssetsManagerService } from './common-controls/services/assets-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -17,26 +16,21 @@ export class AppComponent {
 
   constructor(
     readonly translate: TranslateService,
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer,
+    assetsManager: AssetsManagerService,
     enumerations: EnumerationsService) {
     {
       // const language: string = this.translate.getBrowserLang(); // TODO - activate after proper init is implemented
       const language = 'cs';
       translate.setDefaultLang(language);
       translate.use(language);
-
-      this.matIconRegistry.addSvgIcon(
-        'download_icon',
-        this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/download_icon.svg')
-      );
+      assetsManager.addSvgIcon('download_icon', '../assets/icons/download_icon.svg');
 
       InstalmentFrequencyModel.yearlyCode = 'ins-yearly';
       enumerations.setModelValues(InstalmentFrequencyModel, [
-        { code: 'ins-monthly', viewValue: 'monthly', paymentsPerYear: 12 },
-        { code: 'ins-half-yearly', viewValue: 'half-yearly', paymentsPerYear: 2 },
-        { code: 'ins-quarterly', viewValue: 'quarterly', paymentsPerYear: 4 },
-        { code: InstalmentFrequencyModel.yearlyCode, viewValue: 'yearly', paymentsPerYear: 1 }
+        { code: 'ins-monthly', viewValue: 'měsíční', paymentsPerYear: 12 },
+        { code: 'ins-half-yearly', viewValue: 'pololetní', paymentsPerYear: 2 },
+        { code: 'ins-quarterly', viewValue: 'čtvrtletní', paymentsPerYear: 4 },
+        { code: InstalmentFrequencyModel.yearlyCode, viewValue: 'roční', paymentsPerYear: 1 }
       ]);
       enumerations.setModelValues(TerritorialScaleModel, [
         { code: 'europe', viewValue: 'Evropa', value: 'Evropa' },
@@ -60,6 +54,10 @@ export class AppComponent {
         {
           code: 'ecoin-1', viewValue: '0 Kč pro škody hrazené do výše spoluúčasti z havarijního pojištění (motokolo, motocykl, osobní a nákladní automobil, traktor a autobus \n 1 000 Kč pro ostatní škody'
         }
+      ]);
+      enumerations.setModelValues(ContractDurationModel, [
+        { code: ContractDurationModel.indefiniteCode, viewValue: 'smlouva na dobu neurčitou' },
+        { code: 'fixed', viewValue: 'smlouva na dobu určitou' },
       ]);
     }
   }

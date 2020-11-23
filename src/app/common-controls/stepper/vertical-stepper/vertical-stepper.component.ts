@@ -11,12 +11,6 @@ export class VerticalStepperComponent extends CdkStepper {
   @Input()
   public headerDescription: string;
 
-  @Input()
-  public headerWidth = '30%';
-
-  @Input()
-  public contentWidth = '70%';
-
   onClick(index: number): void {
     this.selectedIndex = index;
   }

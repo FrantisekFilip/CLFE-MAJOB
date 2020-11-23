@@ -1,13 +1,11 @@
 import { Directive, Input, OnInit } from '@angular/core';
-import { UndefinedParameterError } from 'src/app/common-services/errorHandling/undefined-parameter-error';
-import { nameof } from 'src/app/common-services/utils';
+import { BasicControlDirective } from '../basic-control.directive';
 import { LabelPosition } from './../label-position';
 
 @Directive()
-export abstract class ButtonDirective implements OnInit {
+export abstract class ButtonDirective extends BasicControlDirective implements OnInit {
   private _defaultIcon: string;
   private _icon: string;
-  private _labelPosition: LabelPosition = LabelPosition.After;
 
   public get icon(): string {
     return this._icon;
@@ -23,15 +21,6 @@ export abstract class ButtonDirective implements OnInit {
     }
   }
 
-  get labelPosition(): LabelPosition {
-    return this._labelPosition;
-  }
-
-  @Input()
-  set labelPosition(value: LabelPosition) {
-    this._labelPosition = value ?? LabelPosition.After;
-  }
-
   @Input()
   public action: () => void;
 
@@ -43,21 +32,16 @@ export abstract class ButtonDirective implements OnInit {
     return this.icon && this.labelPosition === LabelPosition.Before;
   }
 
-  constructor() { }
-
   protected OnConstruct(): { defaultIcon: string } {
-    return { defaultIcon: 'error_outline' };
+    return { defaultIcon: null };
   }
 
   ngOnInit(): void {
     const metadata = this.OnConstruct();
-    const defaultIcon = metadata.defaultIcon;
+    this._defaultIcon = metadata.defaultIcon;
 
-    if (!defaultIcon) {
-      throw new UndefinedParameterError(nameof(defaultIcon));
+    if (!this._icon) {
+      this._icon = this._defaultIcon;
     }
-
-    this._defaultIcon = defaultIcon;
-    this._icon = defaultIcon;
   }
 }

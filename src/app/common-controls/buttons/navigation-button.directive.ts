@@ -1,9 +1,9 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonDirective } from './button.directive';
 
 @Directive()
-export abstract class NavigationButtonDirective extends ButtonDirective {
+export abstract class NavigationButtonDirective extends ButtonDirective implements OnInit {
   @Input()
   public redirectTo: string;
 
@@ -11,7 +11,14 @@ export abstract class NavigationButtonDirective extends ButtonDirective {
     super();
   }
 
-  redirect(): void {
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.action = () => {
+      this.redirect();
+    };
+  }
+
+  private redirect(): void {
     if (this.redirectTo) {
       this.router.navigate([this.redirectTo]);
     }

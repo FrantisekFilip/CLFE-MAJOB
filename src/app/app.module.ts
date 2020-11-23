@@ -31,6 +31,7 @@ import { CalculationSummaryPanelComponent } from './controls/calculation-summary
 import { AdditionalInfoPanelComponent } from './controls/additional-info-panel/additional-info-panel.component';
 import { SummaryPageComponent } from './controls/summary-page/summary-page.component';
 import { PaymentsModule } from './payments/payments.module';
+import { ProductsModule } from './products/products.module';
 import { ApplicationWizardComponent } from './controls/application-wizard/application-wizard.component';
 import { EmployeeApplicationPanelComponent } from './controls/employee-application-panel/employee-application-panel.component';
 import { CitizenApplicationPanelComponent } from './controls/citizen-application-panel/citizen-application-panel.component';
@@ -43,6 +44,8 @@ import { TranslateMultiHttpLoader } from 'src/app/common-services/services/trans
 import { HeaderComponent } from './controls/structure/header/header.component';
 import { FooterComponent } from './controls/structure/footer/footer.component';
 import { ContentComponent } from './controls/structure/content/content.component';
+import { ProductSummaryPanelComponent } from './controls/product-summary-panel/product-summary-panel.component';
+import { AddinfoTermsDownloadComponent } from './controls/parts/addinfo-terms-download/addinfo-terms-download.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
   return new TranslateMultiHttpLoader(http, ['common-services', 'common-controls', 'bu-services', 'bu-controls']);
@@ -69,7 +72,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateMultiHttpLoader {
     FinalPageComponent,
     HeaderComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
+    ProductSummaryPanelComponent,
+    AddinfoTermsDownloadComponent
   ],
   imports: [
     BrowserModule,

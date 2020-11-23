@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CitizenInsuranceProduct } from 'src/app/products/citizen-insurance-product';
-import { ProductService } from 'src/app/services/product.service';
+import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insurance-product';
 
 @Component({
   selector: 'app-citizen-application-page',

@@ -13,10 +13,6 @@ export class NextButtonComponent extends NavigationButtonDirective implements On
     super(router);
   }
 
-  protected OnConstruct(): { defaultIcon: string } {
-    return { defaultIcon: null };
-  }
-
   ngOnInit(): void {
     super.ngOnInit();
   }

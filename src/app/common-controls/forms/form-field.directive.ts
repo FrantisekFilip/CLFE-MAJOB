@@ -1,39 +1,14 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { BaseModel } from 'src/app/common-services/models/base-model';
+import { BasicControlDirective } from '../basic-control.directive';
 
 @Directive()
-export abstract class FormFieldDirective implements OnInit {
+export abstract class FormFieldDirective extends BasicControlDirective implements OnInit {
   private _controlName: string;
-  private _defaultValidators: ValidatorFn[];
-  private _validators: ValidatorFn[];
-  private _isRequired: boolean;
 
   public get controlName(): string {
     return this._controlName;
-  }
-
-  public get defaultValidators(): ValidatorFn[] {
-    return this._defaultValidators;
-  }
-
-  public get isRequired(): boolean {
-    return this._isRequired;
-  }
-
-  @Input()
-  public set isRequired(value: boolean) {
-    this._isRequired = value;
-    this.setValidators();
-  }
-
-  public get validators(): ValidatorFn[] {
-    return this._validators;
-  }
-
-  @Input()
-  public set validators(value: ValidatorFn[]) {
-    this._validators = this.setValidators(value);
   }
 
   @Input()
@@ -45,8 +20,8 @@ export abstract class FormFieldDirective implements OnInit {
   public readonly fieldControl: FormControl;
 
   constructor() {
-    this._defaultValidators = [this.validator];
-    this.fieldControl = new FormControl('', this._defaultValidators);
+    super();
+    this.fieldControl = new FormControl('', this.defaultValidators);
   }
 
   protected OnConstruct(): { controlName: string, validators?: ValidatorFn[] } {
@@ -58,24 +33,18 @@ export abstract class FormFieldDirective implements OnInit {
     this._controlName = metadata.controlName;
 
     if (metadata.validators) {
-      this._defaultValidators = this.defaultValidators.concat(metadata.validators);
-      this.fieldControl.setValidators(this._defaultValidators);
+      metadata.validators.forEach(validator => {
+        this.defaultValidators.push(validator);
+      });
+
+      this.fieldControl.setValidators(this.defaultValidators);
     }
 
     this.parentForm.addControl(this.controlName, this.fieldControl);
   }
 
-  private setValidators(explicitValidators?: ValidatorFn[]): ValidatorFn[] {
-    let validators = [...this._defaultValidators];
-
-    if (this._isRequired) {
-      validators.push(Validators.required);
-    }
-
-    if (explicitValidators && explicitValidators.length > 0) {
-      validators = validators.concat(explicitValidators);
-    }
-
+  protected setValidators(explicitValidators?: ValidatorFn[]): ValidatorFn[] {
+    const validators = super.setValidators(explicitValidators);
     this.fieldControl.setValidators(validators);
     return validators;
   }

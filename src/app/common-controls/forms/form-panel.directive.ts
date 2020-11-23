@@ -1,9 +1,7 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
-@Directive({
-  selector: '[appFormPanel]'
-})
+@Directive()
 export abstract class FormPanelDirective implements OnInit {
   private _controlName: string;
 

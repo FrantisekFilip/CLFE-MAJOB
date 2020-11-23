@@ -6,9 +6,9 @@ import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { EmployeeInsuranceParametersModel } from 'src/app/models/employee-insurance-parameters-model';
 import { AggregateIndemnityModel, EmployeeCoinsuranceModel } from 'src/app/models/enumerations';
-import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/products/services/product.service';
 import { ApplicationModel } from 'src/app/models/application-model';
 import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
@@ -51,12 +51,12 @@ export class EmployeeCalculationPanelComponent extends FormPanelDirective implem
     return this.parametersModel.entrustedThingsLossLimit;
   }
 
-  public get mainVehiclesChecked(): boolean {
-    return this.parametersModel.mainVehiclesChecked;
+  public get mainVehicleChecked(): boolean {
+    return this.parametersModel.mainVehicleChecked;
   }
 
-  public set mainVehiclesChecked(value: boolean) {
-    this.parametersModel.mainVehiclesChecked = value;
+  public set mainVehicleChecked(value: boolean) {
+    this.parametersModel.mainVehicleChecked = value;
     this.RecalculateYearlyInsurance();
   }
 
@@ -131,7 +131,7 @@ export class EmployeeCalculationPanelComponent extends FormPanelDirective implem
     this.yearlyInsurance = insurance;
     this._model.totalYearlyInsurance = MoneyModel.FromMoney(
       this.productService.calculateTotalYearlyInsurance(
-        [insurance?.value, this._model.employeeInsuranceParameters?.yearlyInsurance.value]));
+        [insurance?.value, this._model.citizenInsuranceParameters?.yearlyInsurance?.value]));
   }
 
   public onAggregateIndemnityChange(value: string): void {

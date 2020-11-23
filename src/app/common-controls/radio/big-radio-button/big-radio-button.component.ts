@@ -11,7 +11,7 @@ export class BigRadioButtonComponent {
   @ViewChild('radioButton')
   public radioButton: MatRadioButton;
 
-  get selected(): boolean {
+  public get selected(): boolean {
     return this.radioButton?.checked;
   }
 

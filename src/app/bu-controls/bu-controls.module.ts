@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
@@ -22,6 +23,8 @@ import { AddressInfoPanelComponent } from './address-info-panel/address-info-pan
   imports: [
     CommonModule,
     TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexModule,
     MatFormFieldModule,
     MatInputModule,

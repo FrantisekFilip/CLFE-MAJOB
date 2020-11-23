@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
 
 @Component({
   selector: 'app-employee-application-page',

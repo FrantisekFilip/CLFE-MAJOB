@@ -1,22 +1,16 @@
-<div fxLayout="column" fxFlexAlign="left" class="margin-top-small">
+<div class="padding-bottom-small">
     <app-select-field [options]="aggregateIndemnities" [selected]="selectedAggregateIndemnity"
         (valueChange)="onAggregateIndemnityChange($event)" [parentForm]="panelControl">
-        <span translate>parameters.aggregateIndemnities</span>
+        <span translate>parameters.aggregateIndemnity</span>
     </app-select-field>
     <app-select-field [options]="territorialScales" [selected]="selectedTerritorialScale"
-        (valueChange)="onTerritorialScaleChange($event)" [parentForm]="panelControl" label="Územní rozsah">
-        <span translate>parameters.territorialScales</span>
+        (valueChange)="onTerritorialScaleChange($event)" [parentForm]="panelControl">
+        <span translate>parameters.territorialScale</span>
     </app-select-field>
     <app-select-field [options]="coinsurances" [selected]="selectedCoinsurance"
-        (valueChange)="onCoinsuranceChange($event)" [parentForm]="panelControl" label="Spoluúčast">
-        <span translate>parameters.coinsurances</span>
+        (valueChange)="onCoinsuranceChange($event)" [parentForm]="panelControl">
+        <span translate>parameters.coinsurance</span>
     </app-select-field>
-    <div fxLayout="column" fxFlexAlign="center center" class="panel-rounded-lighter padding-small">
-        <app-percent-label [value]="discount"><span translate>summary.discount</span></app-percent-label>
-        <br>
-        <b>
-            <app-money-label [value]="yearlyInsurance"><span translate>summary.yearlyInsurance</span>
-            </app-money-label>
-        </b>
-    </div>
+    <app-product-summary-panel [discount]="discount" [yearlyInsurance]="yearlyInsurance" [parentForm]="panelControl">
+    </app-product-summary-panel>
 </div>

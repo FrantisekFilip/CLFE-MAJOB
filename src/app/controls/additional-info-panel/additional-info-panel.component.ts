@@ -52,6 +52,11 @@ export class AdditionalInfoPanelComponent extends FormPanelDirective implements 
         this._model.contactAddress = new AddressModel();
       }
     }
+    else {
+      if (this._model.contactAddress) {
+        this._model.contactAddress.doApply = false;
+      }
+    }
   }
 
   public get contactAddress(): AddressModel {
@@ -69,6 +74,11 @@ export class AdditionalInfoPanelComponent extends FormPanelDirective implements 
       }
       else {
         this._model.insuredPerson = new ClientInfoModel();
+      }
+    }
+    else {
+      if (this._model.insuredPerson) {
+        this._model.insuredPerson.doApply = false;
       }
     }
   }
@@ -119,14 +129,6 @@ export class AdditionalInfoPanelComponent extends FormPanelDirective implements 
 
   ngOnInit(): void {
     super.ngOnInit();
-  }
-
-  public showContactAddress(): boolean {
-    return this.hasContactAddress;
-  }
-
-  public showInsuredPerson(): boolean {
-    return this.hasInsuredPerson;
   }
 
   public onContactAddressCheckedChange(value: boolean): void {

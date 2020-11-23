@@ -1,5 +1,5 @@
-<button mat-flat-button (click)="action()">
-    <mat-icon *ngIf="iconBeforeContent">{{icon}}</mat-icon>
+<button class="flat-button" mat-flat-button (click)="action()">
+    <mat-icon *ngIf="iconBeforeContent" class="margin-right-smallest">{{icon}}</mat-icon>
     <ng-content></ng-content>
-    <mat-icon *ngIf="iconAfterContent">{{icon}}</mat-icon>
+    <mat-icon *ngIf="iconAfterContent" class="margin-left-smallest">{{icon}}</mat-icon>
 </button>

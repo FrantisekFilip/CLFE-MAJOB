@@ -9,3 +9,8 @@ export class InstalmentFrequencyModel extends EnumerationModel {
 
     paymentsPerYear: number;
 }
+
+export class ContractDurationModel extends EnumerationModel {
+    public static indefiniteCode = 'indefinite';
+}
+

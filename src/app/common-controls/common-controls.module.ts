@@ -24,9 +24,11 @@ import { CollapseButtonComponent } from './buttons/collapse-button/collapse-butt
 import { DownloadButtonComponent } from './buttons/download-button/download-button.component';
 import { ExpandButtonComponent } from './buttons/expand-button/expand-button.component';
 import { FlatButtonComponent } from './buttons/flat-button/flat-button.component';
+import { HelpIconButtonComponent } from './buttons/help-icon-button/help-icon-button.component';
 import { IconButtonComponent } from './buttons/icon-button/icon-button.component';
 import { NextButtonComponent } from './buttons/next-button/next-button.component';
 import { RemoveSectionButtonComponent } from './buttons/remove-section-button/remove-section-button.component';
+import { StrokedButtonComponent } from './buttons/stroked-button/stroked-button.component';
 import { ToggleButtonComponent } from './buttons/toggle-button/toggle-button.component';
 /** Dialogs */
 import { ConfirmationDialogComponent } from './dialogs/confirmation-dialog/confirmation-dialog.component';
@@ -40,6 +42,7 @@ import { SelectFieldComponent } from './forms/select-field/select-field.componen
 import { SlideToggleFieldComponent } from './forms/slide-toggle-field/slide-toggle-field.component';
 import { TextFieldComponent } from './forms/text-field/text-field.component';
 /** Labels */
+import { CheckboxLabelComponent } from './labels/checkbox-label/checkbox-label.component';
 import { DateLabelComponent } from './labels/date-label/date-label.component';
 import { EmailLabelComponent } from './labels/email-label/email-label.component';
 import { EnumerationLabelComponent } from './labels/enumeration-label/enumeration-label.component';
@@ -52,6 +55,8 @@ import { TranslatedLabelComponent } from './labels/translated-label/translated-l
 /** Radio */
 import { BigRadioButtonComponent } from './radio/big-radio-button/big-radio-button.component';
 /** Stepper */
+import { StepperBackDirective } from './stepper/stepper-back.directive';
+import { StepperNextDirective } from './stepper/stepper-next.directive';
 import { StepperNextButtonComponent } from './stepper/stepper-next-button/stepper-next-button.component';
 import { StepperBackButtonComponent } from './stepper/stepper-back-button/stepper-back-button.component';
 import { StepperButtonsComponent } from './stepper/stepper-buttons/stepper-buttons.component';
@@ -61,6 +66,7 @@ import { VerticalStepperHeaderButtonComponent } from './stepper/vertical-stepper
 import { RichTranslatePipe } from './pipes/rich-translate.pipe';
 /**  Other */
 import { CheckBoxComponent } from './check-box/check-box.component';
+import { IconComponent } from './icon/icon.component';
 /** Uncategorized */
 
 @NgModule({
@@ -72,9 +78,11 @@ import { CheckBoxComponent } from './check-box/check-box.component';
     DownloadButtonComponent,
     ExpandButtonComponent,
     FlatButtonComponent,
+    HelpIconButtonComponent,
     IconButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
+    StrokedButtonComponent,
     ToggleButtonComponent,
     ConfirmationDialogComponent,
     ErrorDialogComponent,
@@ -85,6 +93,7 @@ import { CheckBoxComponent } from './check-box/check-box.component';
     SelectFieldComponent,
     SlideToggleFieldComponent,
     TextFieldComponent,
+    CheckboxLabelComponent,
     DateLabelComponent,
     EmailLabelComponent,
     EnumerationLabelComponent,
@@ -102,7 +111,11 @@ import { CheckBoxComponent } from './check-box/check-box.component';
     VerticalStepperHeaderButtonComponent,
     RichTranslatePipe,
     CheckBoxComponent,
-    IconButtonComponent
+    IconButtonComponent,
+    StepperBackDirective,
+    StepperNextDirective,
+    HelpIconButtonComponent,
+    IconComponent
   ],
   imports: [
     CommonModule,
@@ -135,13 +148,16 @@ import { CheckBoxComponent } from './check-box/check-box.component';
     DownloadButtonComponent,
     ExpandButtonComponent,
     FlatButtonComponent,
+    HelpIconButtonComponent,
     IconButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
+    StrokedButtonComponent,
     ToggleButtonComponent,
     ConfirmationDialogComponent,
     ErrorDialogComponent,
     BirthNumberFieldComponent,
+    CheckboxLabelComponent,
     DateFieldComponent,
     EmailFieldComponent,
     PhoneNumberFieldComponent,
@@ -164,7 +180,8 @@ import { CheckBoxComponent } from './check-box/check-box.component';
     VerticalStepperComponent,
     VerticalStepperHeaderButtonComponent,
     RichTranslatePipe,
-    CheckBoxComponent
+    CheckBoxComponent,
+    IconComponent
   ],
 })
 export class CommonControlsModule {

@@ -1,6 +1,7 @@
 {
     "client": {
-        "title": "Titul před/za jménem:",
+        "titleBN": "Titul před jménem:",
+        "titleAN": "Titul za jménem:",
         "firstName": "Jméno:",
         "surname": "Přijmení:",
         "birthDate": "Datum narození:",
@@ -11,7 +12,7 @@
     },
     "address": {
         "streetName": "Ulice:",
-        "registrationNumber": "Číslo popisné / orientační:",
+        "registrationNumber": "Číslo popisné / orientační / evidenční:",
         "postcode": "PSČ:",
         "municipality": "Obec:"
     }

@@ -3,6 +3,6 @@ import { EmployeeInsuranceProduct } from './employee-insurance-product';
 
 describe('EmployeeInsuranceProduct', () => {
   it('should create an instance', () => {
-    expect(new EmployeeInsuranceProduct(0.1, new Money(10, 'CZK'), true)).toBeTruthy();
+    expect(new EmployeeInsuranceProduct('employee', 'emp', 0.1, new Money(10, 'CZK'), true)).toBeTruthy();
   });
 });

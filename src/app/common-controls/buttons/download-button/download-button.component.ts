@@ -14,6 +14,12 @@ export class DownloadButtonComponent extends RefButtonDirective implements OnIni
     this.hasContent = (value) ? true : false;
   }
 
+  constructor(ref: ElementRef) {
+    super();
+    const innerHtml = ref.nativeElement as HTMLElement;
+    this.hasContent = innerHtml ? innerHtml.childElementCount > 0 : false;
+  }
+
   protected OnConstruct(): { defaultIcon: string } {
     return { defaultIcon: 'get_app' };
   }

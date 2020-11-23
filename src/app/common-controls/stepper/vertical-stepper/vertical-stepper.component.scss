@@ -1,12 +1,12 @@
 @import "../../themes//green-theme.scss";
 
 .stepper-header {
-  background-color: mat-color($primary-palette);
+  @extend .panel-rounded-darker;
+  color: $bright-color;
+  width: 30%;
 }
 
-.rounded-box {
-  border-radius: 10px;
+.stepper-content {
+  @extend .panel-rounded-default;
+  width: 70%;
 }
-
-
-

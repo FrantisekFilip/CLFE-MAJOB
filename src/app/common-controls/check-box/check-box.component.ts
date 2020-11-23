@@ -1,26 +1,19 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BasicControlDirective } from '../basic-control.directive';
 
 @Component({
   selector: 'app-check-box',
   templateUrl: './check-box.component.html',
   styleUrls: ['./check-box.component.scss']
 })
-export class CheckBoxComponent implements OnInit {
+export class CheckBoxComponent extends BasicControlDirective implements OnInit {
   // TODO - replace with LabelPosition enum
-  @Input()
-  public labelPosition: 'before' | 'after' = 'before';
-
   @Input()
   public checked: boolean;
 
-  @Input()
-  public disabled: boolean;
-
   @Output()
   public readonly valueChange: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor() {
-  }
 
   ngOnInit(): void {
   }

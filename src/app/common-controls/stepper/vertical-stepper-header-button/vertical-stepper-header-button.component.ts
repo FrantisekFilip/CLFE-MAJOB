@@ -6,12 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./vertical-stepper-header-button.component.scss']
 })
 export class VerticalStepperHeaderButtonComponent implements OnInit {
-  get active(): boolean {
+  private _active = false;
+
+  public get active(): boolean {
     return this._active;
   }
 
   @Input()
-  set active(value: boolean) {
+  public set active(value: boolean) {
     this._active = value;
   }
 
@@ -20,8 +22,6 @@ export class VerticalStepperHeaderButtonComponent implements OnInit {
 
   @Output()
   public stepClick = new EventEmitter<void>();
-
-  private _active = false;
 
   constructor() {
   }

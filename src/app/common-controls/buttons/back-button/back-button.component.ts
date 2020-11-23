@@ -8,7 +8,6 @@ import { NavigationButtonDirective } from '../navigation-button.directive';
   styleUrls: ['./back-button.component.scss']
 })
 export class BackButtonComponent extends NavigationButtonDirective implements OnInit {
-
   constructor(router: Router) {
     super(router);
   }
