@@ -28,6 +28,10 @@
   overflow-wrap: break-word;
 }
 
+.text-field {
+  width: 90%;
+}
+
 .form-panel-shape {
   @extend .panel-rounded;
   @extend .padding-medium;
@@ -77,6 +81,10 @@
 .ul-reduced-large {
   @extend .padding-left-large;
   list-style-type: none;
+}
+
+.date-field-shape{
+  border-radius: $size-small;
 }
 
 @import "style-overrides.scss";

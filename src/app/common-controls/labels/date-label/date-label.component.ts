@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Moment } from 'moment';
 import { LabelDirective } from '../label.directive';
 
 @Component({
@@ -8,11 +9,11 @@ import { LabelDirective } from '../label.directive';
 })
 export class DateLabelComponent extends LabelDirective implements OnInit {
   @Input()
-  public value: Date;
+  public value: Moment;
 
   public get formatted(): string {
     if (this.value) {
-      return new Date(this.value).toDateString();
+      return this.value.toDate().toDateString();
     }
     else {
       return null;

@@ -1,11 +1,12 @@
-<div class="panel-rounded-default">
+<div>
   <div fxLayoutAlign="center center">
     <h1 mat-dialog-title>{{error}}</h1>
   </div>
   <div mat-dialog-content>
-
   </div>
   <div mat-dialog-actions fxLayoutAlign="center center">
-    <button mat-raised-button color="warn" (click)="close()">Ok</button>
+    <button mat-raised-button color="warn" (click)="close()">
+      <span translate>buttons.ok</span>
+    </button>
   </div>
 </div>

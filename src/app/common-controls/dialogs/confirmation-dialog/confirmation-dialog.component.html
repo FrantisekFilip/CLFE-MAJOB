@@ -6,8 +6,11 @@
 
   </div>
   <div mat-dialog-actions fxLayoutAlign="center center">
-    <button mat-raised-button color="warn" (click)="ok()">Ano</button>
-    <button mat-raised-button color="primary" (click)="no()">Zrušit</button>
-
+    <button mat-raised-button color="warn" (click)="ok()">
+      <span translate>labels.yes</span>
+    </button>
+    <button mat-raised-button color="primary" (click)="no()">
+      <span translate>labels.no</span>
+    </button>
   </div>
 </div>

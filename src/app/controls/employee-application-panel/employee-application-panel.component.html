@@ -3,16 +3,16 @@
     <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
 </section>
 <section class="panel-colors-lighter padding-vertical-small">
-    <ng-container *ngIf="!isCitizenActive()">
-        <app-add-section-button [action]="addOrRemoveCitizenSection">
+    <ng-container *ngIf="!isCitizenActive">
+        <app-add-section-button [action]="addOrRemoveCitizenSection" labelPosition="after">
             <span translate>steps.calculation.addCitizenInsurance</span>
         </app-add-section-button>
     </ng-container>
-    <ng-container *ngIf="isCitizenActive()">
+    <ng-container *ngIf="isCitizenActive">
         <div fxLayout="column" class="panel-rounded-bright padding-small">
             <span fxLayout="row" fxLayoutAlign="space-between center">
                 <app-help-icon-button>{{citizenInsuranceProductName}}</app-help-icon-button>
-                <app-remove-section-button [action]="addOrRemoveCitizenSection">
+                <app-remove-section-button [action]="addOrRemoveCitizenSection" labelPosition="after">
                     <span translate>steps.calculation.removeCitizenInsurance</span>
                 </app-remove-section-button>
             </span>

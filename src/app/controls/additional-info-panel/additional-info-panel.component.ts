@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { Moment } from 'moment';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
 import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
@@ -15,11 +16,11 @@ import { ApplicationDataService } from 'src/app/services/application-data.servic
 export class AdditionalInfoPanelComponent extends FormPanelDirective implements OnInit {
   private readonly _model: ApplicationModel;
 
-  public get commencementDate(): Date {
+  public get commencementDate(): Moment {
     return this._model.commencementDate;
   }
 
-  public set commencementDate(value: Date) {
+  public set commencementDate(value: Moment) {
     this._model.commencementDate = value;
   }
 

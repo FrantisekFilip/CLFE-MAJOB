@@ -24,6 +24,7 @@ export class AppComponent {
       translate.setDefaultLang(language);
       translate.use(language);
       assetsManager.addSvgIcon('download_icon', '../assets/icons/download_icon.svg');
+      assetsManager.addSvgIcon('document_icon', '../assets/icons/document_icon.svg');
 
       InstalmentFrequencyModel.yearlyCode = 'ins-yearly';
       enumerations.setModelValues(InstalmentFrequencyModel, [

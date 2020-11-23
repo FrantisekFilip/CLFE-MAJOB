@@ -1,16 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ButtonDirective } from '../button.directive';
 
 @Component({
   selector: 'app-big-button',
   templateUrl: './big-button.component.html',
   styleUrls: ['./big-button.component.scss']
 })
-export class BigButtonComponent implements OnInit {
-  @Input()
-  public image: string;
-
-  @Input()
-  public selected: boolean;
+export class BigButtonComponent extends ButtonDirective implements OnInit {
 
   ngOnInit(): void {
   }

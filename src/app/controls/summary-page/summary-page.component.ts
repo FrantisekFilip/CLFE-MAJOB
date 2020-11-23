@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Moment } from 'moment';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
 import { ContractDurationModel, InstalmentFrequencyModel } from 'src/app/bu-services/models/enumerations';
@@ -22,7 +23,7 @@ export class SummaryPageComponent implements OnInit {
     return this._model.products;
   }
 
-  public get commencementDate(): Date {
+  public get commencementDate(): Moment {
     return this._model.commencementDate;
   }
 

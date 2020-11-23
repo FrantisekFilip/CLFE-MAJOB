@@ -41,7 +41,8 @@
         </cdk-step>
         <cdk-step [stepControl]="paymentPage" [label]="'steps.payment.title' | translate">
             <div class="form-panel">
-                <app-payment-page [title]="'(4/5) ' + ('steps.payment.title' | translate)"></app-payment-page>
+                <app-payment-page [title]="'(4/5) ' + ('steps.payment.title' | translate)">
+                </app-payment-page>
                 <div fxLayout="row" fxLayoutAlign="center center" class="padding-small">
                     <app-stepper-back-button></app-stepper-back-button>
                 </div>
@@ -53,7 +54,7 @@
                 <div fxLayout="row" fxLayoutAlign="center center" class="padding-small">
                     <app-action-button [action]="close">
                         <span translate>steps.final.buttons.close</span>
-                    </app-action-button>                    
+                    </app-action-button>
                 </div>
             </div>
         </cdk-step>
