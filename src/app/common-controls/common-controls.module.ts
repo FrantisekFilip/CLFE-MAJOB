@@ -7,9 +7,11 @@ import { MatCommonModule, MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -17,6 +19,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FlexModule } from '@angular/flex-layout';
 import { CommonServicesModule } from 'src/app/common-services/common-services.module';
 /** Buttons */
+import { ActionButtonComponent } from './buttons/action-button/action-button.component';
 import { AddSectionButtonComponent } from './buttons/add-section-button/add-section-button.component';
 import { BackButtonComponent } from './buttons/back-button/back-button.component';
 import { BigButtonComponent } from './buttons/big-button/big-button.component';
@@ -26,6 +29,7 @@ import { ExpandButtonComponent } from './buttons/expand-button/expand-button.com
 import { FlatButtonComponent } from './buttons/flat-button/flat-button.component';
 import { HelpIconButtonComponent } from './buttons/help-icon-button/help-icon-button.component';
 import { IconButtonComponent } from './buttons/icon-button/icon-button.component';
+import { NavigationButtonComponent } from './buttons/navigation-button/navigation-button.component';
 import { NextButtonComponent } from './buttons/next-button/next-button.component';
 import { RemoveSectionButtonComponent } from './buttons/remove-section-button/remove-section-button.component';
 import { StrokedButtonComponent } from './buttons/stroked-button/stroked-button.component';
@@ -71,6 +75,7 @@ import { IconComponent } from './icon/icon.component';
 
 @NgModule({
   declarations: [
+    ActionButtonComponent,
     AddSectionButtonComponent,
     BackButtonComponent,
     BigButtonComponent,
@@ -80,6 +85,7 @@ import { IconComponent } from './icon/icon.component';
     FlatButtonComponent,
     HelpIconButtonComponent,
     IconButtonComponent,
+    NavigationButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
     StrokedButtonComponent,
@@ -128,9 +134,11 @@ import { IconComponent } from './icon/icon.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatIconModule,
     MatInputModule,
+    MatMomentDateModule,
     MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule,
@@ -141,6 +149,7 @@ import { IconComponent } from './icon/icon.component';
   exports: [
     TranslateModule,
     CommonServicesModule,
+    ActionButtonComponent,
     AddSectionButtonComponent,
     BackButtonComponent,
     BigButtonComponent,
@@ -150,6 +159,7 @@ import { IconComponent } from './icon/icon.component';
     FlatButtonComponent,
     HelpIconButtonComponent,
     IconButtonComponent,
+    NavigationButtonComponent,
     NextButtonComponent,
     RemoveSectionButtonComponent,
     StrokedButtonComponent,

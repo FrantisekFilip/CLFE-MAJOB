@@ -1,4 +1,4 @@
-import { Directive, Input, OnInit } from '@angular/core';
+import { Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { BaseModel } from 'src/app/common-services/models/base-model';
 import { BasicControlDirective } from '../basic-control.directive';
@@ -18,6 +18,9 @@ export abstract class FormFieldDirective extends BasicControlDirective implement
   public parentForm: FormGroup;
 
   public readonly fieldControl: FormControl;
+
+  @Output()
+  public valueChange = new EventEmitter();
 
   constructor() {
     super();

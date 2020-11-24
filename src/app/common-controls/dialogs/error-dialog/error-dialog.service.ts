@@ -12,6 +12,6 @@ export class ErrorDialogService {
   }
 
   displayError(error: string): void {
-    this.dialog.open(ErrorDialogComponent, { width: '500px', data: error });
+    this.dialog.open(ErrorDialogComponent, { width: '30rem', data: error });
   }
 }

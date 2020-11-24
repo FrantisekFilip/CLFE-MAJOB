@@ -8,6 +8,7 @@ import { CitizenInsuranceProduct } from 'src/app/products/services/citizen-insur
 import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
 import { ProductService } from 'src/app/products/services/product.service';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
+import { COMPANY_HOME } from 'src/app/bu-services/important-addresses';
 
 @Component({
   selector: 'app-application-wizard',
@@ -46,22 +47,25 @@ export class ApplicationWizardComponent implements OnInit {
 
   ngOnInit(): void {
     this.routes.queryParams.subscribe(param => {
-      const step = param[0];
+      let index = 0;
+      const step = param.step;
 
-      if (step === StepNames.addInfoStepName) {
-        this.selectedIndex = 1;
+      if (step) {
+        if (step === StepNames.addInfoStepName) {
+          index = 1;
+        }
+        else if (step === StepNames.summaryStepName) {
+          index = 2;
+        }
+        else if (step === StepNames.paymentStepName) {
+          index = 3;
+        }
+        else if (step === StepNames.finalStepName) {
+          index = 4;
+        }
       }
-      else if (step === StepNames.summaryStepName) {
-        this.selectedIndex = 2;
-      }
-      else if (step === StepNames.paymentStepName) {
-        this.selectedIndex = 3;
-      } else if (step === StepNames.finalStepName) {
-        this.selectedIndex = 4;
 
-      } else {
-        this.selectedIndex = 0;
-      }
+      this.selectedIndex = index;
     });
 
     this._productName = this.products.GetProductInfo(this.productCode)?.shortName;
@@ -98,5 +102,9 @@ export class ApplicationWizardComponent implements OnInit {
     }
 
     this.router.navigate([], { queryParams: { step: stepName } });
+  }
+
+  public close(): void {
+    window.location.href = COMPANY_HOME;
   }
 }

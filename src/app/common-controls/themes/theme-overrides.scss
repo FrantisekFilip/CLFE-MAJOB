@@ -10,8 +10,17 @@
   }
 }
 
+.mat-dialog-container {
+  background-color: $lighter-color;
+  color: $dark-color;
+}
+
 .mat-select-value {
   color: $dark-color;
+}
+
+.mat-expansion-panel-header.panel-rounded-default:hover {
+  @extend .panel-colors-default;
 }
 
 /*  .mat-slide-toggle {

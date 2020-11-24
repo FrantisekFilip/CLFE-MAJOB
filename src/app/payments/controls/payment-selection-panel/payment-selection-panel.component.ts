@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PaymentModel } from '../../models/payment-model';
+import { PaymentResultModel } from '../../models/payment-result-model';
+import { PaymentMethod } from '../../services/payment-method';
 
 @Component({
   selector: 'app-payment-selection-panel',
@@ -10,15 +12,20 @@ export class PaymentSelectionPanelComponent implements OnInit {
   @Input()
   public payment: PaymentModel;
 
-  @Input()
-  public isRetry: boolean;
+  @Output()
+  public readonly executedPayment: EventEmitter<PaymentResultModel> = new EventEmitter<PaymentResultModel>();
+
+  public get goPayRetry(): boolean {
+    const result = this.payment?.result;
+    return result && !result.success && result.paymentMethod.value === PaymentMethod.Express;
+  }
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public showRetryMessage(): boolean {
-    return this.isRetry;
+  public onExecutedPayment(result: PaymentResultModel): void {
+    this.executedPayment.emit(result);
   }
 }

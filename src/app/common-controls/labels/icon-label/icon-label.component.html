@@ -1,6 +1,7 @@
 <span>
     <div class="icon-text">
-        <app-icon [icon]="icon"></app-icon>
+        <app-icon *ngIf="labelAfterValue" [icon]="icon"></app-icon>
         <ng-content></ng-content>
+        <app-icon *ngIf="labelBeforeValue" [icon]="icon"></app-icon>
     </div>
 </span>

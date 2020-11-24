@@ -15,7 +15,9 @@
             <b><span translate>parameters.duration</span></b>
         </app-enumeration-label>
         <div fxLayout="row" fxLayoutAlign="start start">
-            <b><span class="form-field-label" translate>application.policyHolder</span></b>
+            <div class="form-field-label">
+                <b><span translate>application.policyHolder</span></b>
+            </div>
             <div class="form-field-value">
                 <app-address-info-panel [person]="policyHolder" [address]="mainAddress"></app-address-info-panel>
             </div>
@@ -23,8 +25,8 @@
         <span *ngIf="!hasInsuredPerson">
             <b><span translate>steps.summary.noOtherInsuredPerson</span></b>
         </span>
-        <app-text-label *ngIf="hasInsuredPerson" [value]="insurancePeriod">
-            <b><span translate>application.insuredPersonName</span></b>
+        <app-text-label *ngIf="hasInsuredPerson" [value]="insuredPersonName">
+            <b><span translate>application.insuredPerson</span></b>
         </app-text-label>
         <app-email-label [value]="email">
             <b><span translate>steps.summary.email</span></b>

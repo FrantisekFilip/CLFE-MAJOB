@@ -2,11 +2,13 @@
     <h2>{{title}}</h2>
     <div class="form-section-panel">
         <div fxLayout="row" fxLayoutAlign="start center">
-            <span style="width: 50%">
+            <div style="width: 50%;">
                 <b><span translate>parameters.commencementDate</span></b>
-            </span>
-            <app-date-field [value]="commencementDate" [parentForm]="panelControl">
-            </app-date-field>
+            </div>
+            <div style="width: 50%;">
+                <app-date-field [(value)]="commencementDate" [parentForm]="panelControl">
+                </app-date-field>
+            </div>
         </div>
         <br>
         <app-client-info-panel [header]="'application.policyHolder' | translate" [clientInfo]="policyHolder"
@@ -39,17 +41,26 @@
             <span translate>application.agreements.acceptance</span>
         </app-check-box>
         <div fxLayout="column">
-            <ul class="ul-reduced-format">
+            <ul class="ul-reduced-small">
                 <li>
                     <app-addinfo-terms-download [checked]="agreements.termsAndConditions">
                         <!--TODO - replace html label with a component -->
-                        <app-translated-label label="application.agreements.termsAndConditions"></app-translated-label>
+                        <span translate>application.agreements.termsAndConditions.title</span><br>
+                        <ul class="ul-reduced-tiny">
+                            <li><span translate>application.agreements.termsAndConditions.property</span></li>
+                            <li><span translate>application.agreements.termsAndConditions.citizen</span></li>
+                            <li><span translate>application.agreements.termsAndConditions.employee</span></li>
+                        </ul>
                     </app-addinfo-terms-download>
                 </li>
                 <li>
                     <app-addinfo-terms-download [checked]="agreements.productInfo">
                         <!-- TODO - replace html label with a component -->
-                        <app-translated-label label="application.agreements.product"></app-translated-label>
+                        <span translate>application.agreements.product.title</span><br>
+                        <ul class="ul-reduced-tiny">
+                            <li><span translate>application.agreements.product.citizen</span></li>
+                            <li><span translate>application.agreements.product.employee</span></li>
+                        </ul>
                     </app-addinfo-terms-download>
                 </li>
                 <li>

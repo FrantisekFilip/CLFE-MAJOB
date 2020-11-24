@@ -1,50 +1,51 @@
-<mat-card class="payment-page-panel">
-    <mat-card-header>
-        <mat-card-title>{{title}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div fxLayout="column" fxLayoutAlign="center left" *ngIf="paymentSucceeded()">
-            <h2 mat-subheader>Děkujeme Vám za sjednání a úhradu pojištění.</h2>
-            <h4 mat-subheader>Smluvní dokumentace ke stažení (také odeslána na Váš e-mail)</h4>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <app-icon-label icon="check" label="Návrh pojistné smlouvy"></app-icon-label>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <app-icon-label icon="check" label="Pojistné podmínky:"></app-icon-label>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <span>VPP Majetku a odpovědnosti občanů</span>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <span>DPP Pojištění odpovědnosti občanů</span>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <span>DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli</span>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <app-icon-label icon="check" label="Informační dokument k pojistnému produktu"></app-icon-label>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <span>Pojištění odpovědnosti občanů (IPID)</span>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <span>Pojištění odvědnosti zaměstnance za škodu způsboenou zaměstnavateli (IPID)</span>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <app-icon-label icon="check" label="GDPR - poučení o zpracování osobních údajů"></app-icon-label>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <app-icon-label icon="check" label="Předsmluvní informace"></app-icon-label>
-                <app-download-button label=""></app-download-button>
-            </div>
-            <p mat-line>
-                Smluvní dokumentaci jsme Vám též odeslali na uvedný e-mail. V případě, že by Vám e-mail
-                do několika minut nedorazil, tak nás prosímk kontaktujte na telefonním čísle či e-mailem
-                uvedeným níže, abychom Vám mohli dokumenty zaslat.
-            </p>
-        </div>
-    </mat-card-content>
-</mat-card>
+<section>
+    <h2>{{title}}</h2>
+    <div class="form-section-panel">
+        <h4 translate>steps.final.acknowledgement</h4>
+        <p translate>steps.final.documentation.title</p>
+        <app-addinfo-terms-download [checked]="proposal">
+            <span translate>steps.final.documentation.contract</span>
+        </app-addinfo-terms-download>
+        <app-checkbox-label labelPosition="after" [checked]="confirmation">
+            <span class="color-dark" translate>steps.final.documentation.confirmation</span>
+        </app-checkbox-label>
+        <app-checkbox-label labelPosition="after" [checked]="termsAndConditions">
+            <span class="color-dark" translate>application.agreements.termsAndConditions.title</span>
+        </app-checkbox-label>
+        <ul class="ul-reduced-large">
+            <li>
+                <app-final-docs-download><span translate>application.agreements.termsAndConditions.property</span>
+                </app-final-docs-download>
+            </li>
+            <li>
+                <app-final-docs-download><span translate>application.agreements.termsAndConditions.citizen</span>
+                </app-final-docs-download>
+            </li>
+            <li>
+                <app-final-docs-download><span translate>application.agreements.termsAndConditions.employee</span>
+                </app-final-docs-download>
+            </li>
+        </ul>
+        <app-checkbox-label labelPosition="after" [checked]="productInfo">
+            <span class="color-dark" translate>application.agreements.product.title</span>
+        </app-checkbox-label>
+        <ul class="ul-reduced-large">
+            <li>
+                <app-final-docs-download><span translate>application.agreements.product.citizen</span>
+                </app-final-docs-download>
+            </li>
+            <li>
+                <app-final-docs-download><span translate>application.agreements.product.employee</span>
+                </app-final-docs-download>
+            </li>
+        </ul>
+        <app-addinfo-terms-download [checked]="gdpr">
+            <span translate>application.agreements.gdpr</span>
+        </app-addinfo-terms-download>
+        <app-addinfo-terms-download [checked]="contractualInfo">
+            <span translate>application.agreements.contractualInfo</span>
+        </app-addinfo-terms-download>
+        <br>
+        <p mat-line class="color-dark" translate>steps.final.notification</p>
+    </div>
+</section>

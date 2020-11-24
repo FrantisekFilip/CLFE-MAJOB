@@ -51,6 +51,11 @@ export class TextFieldComponent extends FormFieldDirective implements OnInit {
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      this._value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 
   protected addValidators(): ValidatorFn[] {

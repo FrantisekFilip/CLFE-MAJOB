@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
+import { Moment } from 'moment';
 import { FormFieldDirective } from '../form-field.directive';
 
 @Component({
@@ -8,19 +9,15 @@ import { FormFieldDirective } from '../form-field.directive';
   styleUrls: ['./date-field.component.scss']
 })
 export class DateFieldComponent extends FormFieldDirective implements OnInit {
-  private _value: string;
+  private _value: Moment;
 
-  get value(): string {
+  public get value(): Moment {
     return this._value;
   }
 
   @Input()
-  set value(value: string) {
+  public set value(value: Moment) {
     this._value = value;
-
-    if (value) {
-      this.fieldControl.setValue(value);
-    }
   }
 
   protected OnConstruct(): { controlName: string, validators?: ValidatorFn[] } {
@@ -29,5 +26,10 @@ export class DateFieldComponent extends FormFieldDirective implements OnInit {
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      this._value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 }

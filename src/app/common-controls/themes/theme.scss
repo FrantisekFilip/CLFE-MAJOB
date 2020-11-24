@@ -148,7 +148,17 @@ h2 {
 }
 
 .date-field {
+  @extend .date-field-shape;
   background-color: $darker-color;
+  color: $bright-color;
+}
+
+.color-dark {
+  color: $dark-color;
+}
+
+.color-warn {
+  color: $warn-color;
 }
 
 @import "theme-overrides.scss";

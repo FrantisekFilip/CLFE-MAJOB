@@ -1,7 +1,8 @@
 @import "../../../styles";
+
 .primary-border {
-    border: 1px solid mat-color($primary-palette);
-    border-radius: 20px;
+    @extend .panel-rounded;
+    border: 1px solid $default-color;
 }
 
 .clickable {
@@ -10,4 +11,10 @@
 
 .not-clickable {
     cursor: unset !important;
+}
+
+.mat-expansion-panel {
+    @extend .panel-rounded;
+    color: $default-color;
+    border-color: $default-color !important;
 }

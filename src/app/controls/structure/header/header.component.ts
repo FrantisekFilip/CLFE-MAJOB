@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ConfirmationDialogService} from '../../../common-controls/dialogs/confirmation-dialog/confirmation-dialog.service';
-import {ErrorDialogService} from '../../../common-controls/dialogs/error-dialog/error-dialog.service';
+import { Component, OnInit } from '@angular/core';
+import { ConfirmationDialogService } from '../../../common-controls/dialogs/confirmation-dialog/confirmation-dialog.service';
+import { ErrorDialogService } from '../../../common-controls/dialogs/error-dialog/error-dialog.service';
 
 @Component({
   selector: 'app-header',
@@ -9,25 +9,23 @@ import {ErrorDialogService} from '../../../common-controls/dialogs/error-dialog/
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private confirmationDialogService: ConfirmationDialogService, private errirDialogService: ErrorDialogService) {
+  constructor(private confirmationDialogService: ConfirmationDialogService, private errorDialogService: ErrorDialogService) {
   }
 
   ngOnInit(): void {
   }
 
-  confirmationDialog(): void {
-    this.confirmationDialogService.confirmDialog('Opravdu si přejete blablabla...').subscribe(data => {
+  public confirmationDialog(): void {
+    this.confirmationDialogService.confirmDialog('Opravdu si přejete pokračovat?').subscribe(data => {
       if (data === true) {
         alert('ano');
-        //ano
       } else {
         alert('ne');
-        //ne
       }
     });
   }
 
-  errorDialog(): void {
-    this.errirDialogService.displayError('Custom error');
+  public errorDialog(): void {
+    this.errorDialogService.displayError('Nastala neznámá chyba!');
   }
 }

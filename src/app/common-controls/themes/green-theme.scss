@@ -4,7 +4,7 @@
 
 $primary-palette: mat-palette($mat-green, 600, 50, 700);
 $accent-palette: mat-palette($mat-grey, 600, 50, 800);
-$warn-palette: mat-palette($mat-red, 800);
+$warn-palette: mat-palette($mat-red, 600);
 
 $default-color: mat-color($primary-palette);
 $lighter-color: mat-color($primary-palette, lighter);
@@ -13,6 +13,7 @@ $bright-color: mat-color($accent-palette, lighter);
 $accent-color: mat-color($accent-palette);
 $dark-color: mat-color($accent-palette, darker);
 $action-color: mat-color($mat-blue, 600);
+$warn-color: mat-color($warn-palette);
 
 $theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
 

@@ -10,6 +10,8 @@ import { EmployeeInsuranceParametersModel } from './employee-insurance-parameter
 import { InstalmentsModel } from '../bu-services/models/instalments-model';
 import { InsurancePeriodModel } from '../bu-services/models/insurance-period-model';
 import { ContractDurationModel } from '../bu-services/models/enumerations';
+import { ContractDocsModel } from './contract-docs-model';
+import { Moment } from 'moment';
 
 export class ApplicationModel extends BaseModel {
     public citizenInsuranceParameters: CitizenInsuranceParametersModel;
@@ -23,7 +25,7 @@ export class ApplicationModel extends BaseModel {
         return products;
     }
 
-    public commencementDate: Date;
+    public commencementDate: Moment;
 
     public policyHolder: ClientInfoModel;
 
@@ -46,6 +48,8 @@ export class ApplicationModel extends BaseModel {
     public insurancePeriod: InsurancePeriodModel;
 
     public duration: ContractDurationModel;
+
+    public documents: ContractDocsModel;
 
     private static addProduct(products: ProductInfo[], parameters: ContractParametersModel): void {
         if (parameters && parameters.doApply) {

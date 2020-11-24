@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { CdkStepper } from '@angular/cdk/stepper';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 import { PaymentModel } from 'src/app/payments/models/payment-model';
+import { PaymentResultModel } from 'src/app/payments/models/payment-result-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
 
 @Component({
@@ -14,11 +16,19 @@ export class PaymentPageComponent implements OnInit {
 
   public payment: PaymentModel;
 
-  constructor(dataService: ApplicationDataService) {
-    dataService.recreatePayment();
-    this.payment = dataService.currentPayment;
+  constructor(private dataService: ApplicationDataService, @Optional() private stepper: CdkStepper) {
   }
 
   ngOnInit(): void {
+    this.dataService.recreatePayment();
+    this.payment = this.dataService.currentPayment;
+  }
+
+  public onPayment(result: PaymentResultModel): void {
+    this.payment.result = result;
+
+    if (result.success && this.stepper) {
+      this.stepper.next();
+    }
   }
 }
