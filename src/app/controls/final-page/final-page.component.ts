@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PaymentModel } from 'src/app/payments/models/payment-model';
+import { ApplicationModel } from 'src/app/models/application-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
 
 @Component({
@@ -8,14 +8,37 @@ import { ApplicationDataService } from 'src/app/services/application-data.servic
   styleUrls: ['./final-page.component.scss']
 })
 export class FinalPageComponent implements OnInit {
+  private readonly _model: ApplicationModel;
 
   @Input()
   public title: string;
 
-  public payment: PaymentModel;
+  public get proposal(): boolean {
+    return (this._model.documents?.proposal) ?? false;
+  }
+
+  public get confirmation(): boolean {
+    return (this._model.documents?.confirmation) ?? false;
+  }
+
+  public get termsAndConditions(): boolean {
+    return (this._model.agreements?.termsAndConditions) ?? false;
+  }
+
+  public get productInfo(): boolean {
+    return (this._model.agreements?.productInfo) ?? false;
+  }
+
+  public get gdpr(): boolean {
+    return (this._model.agreements?.gdpr) ?? false;
+  }
+
+  public get contractualInfo(): boolean {
+    return (this._model.agreements?.contractualInfo) ?? false;
+  }
 
   constructor(dataService: ApplicationDataService) {
-    this.payment = dataService.currentPayment;
+    this._model = dataService.application;
   }
 
   ngOnInit(): void {

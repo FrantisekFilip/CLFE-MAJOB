@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PaymentMethodModel } from '../../models/payment-method-model';
 import { PaymentModel } from '../../models/payment-model';
+import { PaymentResultModel } from '../../models/payment-result-model';
+import { PaymentMethod } from '../../services/payment-method';
 import { PaymentsService } from '../../services/payments.service';
 
 
@@ -16,15 +19,23 @@ export class DelayedPaymentButtonComponent implements OnInit {
     return this.payment === null;
   }
 
+  @Output()
+  public readonly executedPayment: EventEmitter<PaymentResultModel> = new EventEmitter<PaymentResultModel>();
+
   constructor(private readonly paymentsService: PaymentsService) {
   }
 
   ngOnInit(): void {
   }
 
-  public onClick(e): void {
-    if (!this.disabled) {
-      this.paymentsService.executeDelayedPayment(this.payment);
-    }
+  public onClick(): () => void {
+    return () => {
+      if (!this.disabled) {
+        const result = new PaymentResultModel();
+        result.paymentMethod = new PaymentMethodModel(PaymentMethod.Delayed);
+        result.success = this.paymentsService.executeDelayedPayment(this.payment);
+        this.executedPayment.emit(result);
+      }
+    };
   }
 }

@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ValidatorFn, Validators } from '@angular/forms';
-import { BaseFormFieldComponent } from '../base-form-field/base-form-field.component';
+import { FormFieldDirective } from '../form-field.directive';
 
 @Component({
   selector: 'app-text-field',
   templateUrl: './text-field.component.html',
   styleUrls: ['./text-field.component.scss']
 })
-export class TextFieldComponent extends BaseFormFieldComponent implements OnInit {
+export class TextFieldComponent extends FormFieldDirective implements OnInit {
   private _minLength: number;
   private _maxLength: number;
   private _value: string;
@@ -51,6 +51,11 @@ export class TextFieldComponent extends BaseFormFieldComponent implements OnInit
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      this._value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 
   protected addValidators(): ValidatorFn[] {

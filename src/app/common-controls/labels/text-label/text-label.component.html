@@ -1,3 +1,11 @@
-<span>
-    {{label}} {{value}}
-</span>
+<div fxLayout="row" fxLayoutAlign="start center">
+    <span *ngIf="labelAfterValue" class="form-field-value">
+        {{formatted}}
+    </span>
+    <div class="form-field-label">
+        <ng-content></ng-content>
+    </div>
+    <span *ngIf="labelBeforeValue" class="form-field-value">
+        {{formatted}}
+    </span>
+</div>

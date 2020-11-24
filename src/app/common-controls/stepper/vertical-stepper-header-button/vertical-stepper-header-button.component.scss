@@ -1,0 +1,48 @@
+@import "./../../themes/green-theme";
+
+$line-color: $bright-color;
+$circle-size: $size-unit * 3;
+$line-size: $size-unit/2;
+$active-circle-size: $circle-size + $circle-size/2;
+$active-circle-border-size: $circle-size/2;
+$active-circle-line-margin: $active-circle-border-size/2;
+
+button.transparent.clickable {
+  background-color: transparent;
+}
+
+.circle {
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  background-color: $line-color;
+  display: inline-block;
+  z-index: 10;
+}
+
+.circle.active {
+  width: $circle-size/2;
+  height: $circle-size/2;
+  border-radius: 50%;
+  background-color: $default-color;
+  border: $circle-size/2 solid $line-color;  
+  margin-left: -$active-circle-line-margin;
+  margin-right: $active-circle-line-margin;
+  z-index: 2;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.line {
+  border-left: $line-size solid $line-color;
+  margin-bottom: -4rem;
+  height: 4rem;
+  margin-left: -($circle-size/2 + $line-size/2);
+  z-index: 1;
+}
+
+.line-active {
+  margin-left: -($active-circle-size/2 + $line-size/2 + $active-circle-line-margin);
+}

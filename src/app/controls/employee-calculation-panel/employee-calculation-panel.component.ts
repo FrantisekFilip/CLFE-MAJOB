@@ -1,29 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { TerritorialScaleModel } from 'src/app/bu-services/models/enumerations';
-import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
 import { Money } from 'src/app/common-services/types/money';
 import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { EmployeeInsuranceParametersModel } from 'src/app/models/employee-insurance-parameters-model';
 import { AggregateIndemnityModel, EmployeeCoinsuranceModel } from 'src/app/models/enumerations';
-import { EmployeeInsuranceProduct } from 'src/app/products/employee-insurance-product';
+import { EmployeeInsuranceProduct } from 'src/app/products/services/employee-insurance-product';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/products/services/product.service';
 import { ApplicationModel } from 'src/app/models/application-model';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
 @Component({
   selector: 'app-employee-calculation-panel',
   templateUrl: './employee-calculation-panel.component.html',
   styleUrls: ['./employee-calculation-panel.component.scss']
 })
-export class EmployeeCalculationPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class EmployeeCalculationPanelComponent extends FormPanelDirective implements OnInit {
   private readonly _productInfo: EmployeeInsuranceProduct;
   private _model: ApplicationModel;
-
-  public get productName(): string {
-    return this._productInfo.name;
-  }
 
   public get parametersModel(): EmployeeInsuranceParametersModel {
     if (!this._model.employeeInsuranceParameters) {
@@ -55,12 +51,12 @@ export class EmployeeCalculationPanelComponent extends BaseFormPanelComponent im
     return this.parametersModel.entrustedThingsLossLimit;
   }
 
-  public get mainVehiclesChecked(): boolean {
-    return this.parametersModel.mainVehiclesChecked;
+  public get mainVehicleChecked(): boolean {
+    return this.parametersModel.mainVehicleChecked;
   }
 
-  public set mainVehiclesChecked(value: boolean) {
-    this.parametersModel.mainVehiclesChecked = value;
+  public set mainVehicleChecked(value: boolean) {
+    this.parametersModel.mainVehicleChecked = value;
     this.RecalculateYearlyInsurance();
   }
 
@@ -135,7 +131,7 @@ export class EmployeeCalculationPanelComponent extends BaseFormPanelComponent im
     this.yearlyInsurance = insurance;
     this._model.totalYearlyInsurance = MoneyModel.FromMoney(
       this.productService.calculateTotalYearlyInsurance(
-        [insurance?.value, this._model.employeeInsuranceParameters?.yearlyInsurance.value]));
+        [insurance?.value, this._model.citizenInsuranceParameters?.yearlyInsurance?.value]));
   }
 
   public onAggregateIndemnityChange(value: string): void {

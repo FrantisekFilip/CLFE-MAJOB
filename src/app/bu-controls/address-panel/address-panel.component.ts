@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
-import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 
 @Component({
   selector: 'app-address-panel',
   templateUrl: './address-panel.component.html',
   styleUrls: ['./address-panel.component.scss']
 })
-export class AddressPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class AddressPanelComponent extends FormPanelDirective implements OnInit {
   private _address: AddressModel;
 
   @Input()

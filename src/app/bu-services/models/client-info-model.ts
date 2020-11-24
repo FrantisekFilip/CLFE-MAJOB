@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+import { Moment } from 'moment';
 import { BaseModel } from 'src/app/common-services/models/base-model';
 import { BirthNumberModel } from 'src/app/common-services/models/birth-number-model';
 import { EmailModel } from 'src/app/common-services/models/email-model';
@@ -7,7 +9,7 @@ import { LocalizedMessage } from 'src/app/common-services/services/localized-mes
 
 export class ClientInfoModel extends BaseModel {
     private _birthNumber: BirthNumberModel;
-    private _birthDate: Date;
+    private _birthDate: Moment;
     private _phoneNumber: PhoneNumberModel;
     private _email: EmailModel;
 
@@ -15,7 +17,23 @@ export class ClientInfoModel extends BaseModel {
 
     public lastName: string;
 
-    public title: string;
+    public get name(): string {
+        const parts: string[] = [];
+
+        if (this.firstName) {
+            parts.push(this.firstName);
+        }
+
+        if (this.lastName) {
+            parts.push(this.lastName);
+        }
+
+        return parts.join(' ');
+    }
+
+    public titleAN: string;
+
+    public titleBN: string;
 
     public get birthNumber(): BirthNumberModel {
         return this._birthNumber;
@@ -26,11 +44,11 @@ export class ClientInfoModel extends BaseModel {
         this._birthNumber = value;
     }
 
-    public get birthDate(): Date {
+    public get birthDate(): Moment {
         return this._birthDate;
     }
 
-    public set birthDate(value: Date) {
+    public set birthDate(value: Moment) {
         this.invalidate();
         this._birthDate = value;
     }
@@ -53,11 +71,9 @@ export class ClientInfoModel extends BaseModel {
         this._email = value;
     }
 
-    private static validateBirthDate(value: Date): LocalizedMessage {
+    private static validateBirthDate(value: Moment): LocalizedMessage {
         if (value) {
-            const currentDate = new Date();
-
-            if (value > currentDate) {
+            if (moment().diff(value) < 0) {
                 return BaseModel.createErrorMessage('BIRTH_DATE_MUST_BE_IN_THE_PAST');
             }
         }

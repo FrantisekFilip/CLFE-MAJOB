@@ -1,20 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LabelComponent } from '../label/label.component';
+import { Moment } from 'moment';
+import { LabelDirective } from '../label.directive';
 
 @Component({
   selector: 'app-date-label',
   templateUrl: './date-label.component.html',
   styleUrls: ['./date-label.component.scss']
 })
-export class DateLabelComponent extends LabelComponent implements OnInit {
+export class DateLabelComponent extends LabelDirective implements OnInit {
   @Input()
-  public value: Date;
+  public value: Moment;
 
-  public get viewValue(): string {
-    return this.value?.toDateString();
+  public get formatted(): string {
+    if (this.value) {
+      return this.value.toDate().toDateString();
+    }
+    else {
+      return null;
+    }
   }
 
   ngOnInit(): void {
-    super.ngOnInit();
   }
 }

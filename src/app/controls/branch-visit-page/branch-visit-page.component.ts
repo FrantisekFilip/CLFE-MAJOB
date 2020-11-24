@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { COMPANY_HOME, CONTACTS } from 'src/app/bu-services/important-addresses';
 
 @Component({
   selector: 'app-branch-visit-page',
@@ -13,10 +14,10 @@ export class BranchVisitPageComponent implements OnInit {
   }
 
   public close(): void {
-    window.location.href = 'https://www.pvzp.cz/cs/';
+    window.location.href = COMPANY_HOME;
   }
 
-  public redirect(): void {
-    window.location.href = 'https://www.pvzp.cz/cs/kde-nas-najdete/obchodni-mista-pvzp/';
+  public contacts(): void {
+    window.open(CONTACTS, '_blank');
   }
 }

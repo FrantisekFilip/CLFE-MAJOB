@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
 import { EmailModel } from 'src/app/common-services/models/email-model';
-import { BaseFormFieldComponent } from '../base-form-field/base-form-field.component';
+import { FormFieldDirective } from '../form-field.directive';
 
 @Component({
   selector: 'app-email-field',
   templateUrl: './email-field.component.html',
   styleUrls: ['./email-field.component.scss']
 })
-export class EmailFieldComponent extends BaseFormFieldComponent implements OnInit {
+export class EmailFieldComponent extends FormFieldDirective implements OnInit {
   private _value: EmailModel;
 
   get value(): EmailModel {
@@ -30,5 +30,14 @@ export class EmailFieldComponent extends BaseFormFieldComponent implements OnIni
 
   public ngOnInit(): void {
     super.ngOnInit();
+
+    this.fieldControl.valueChanges.subscribe(data => {
+      if (!this._value) {
+        this._value = new EmailModel();
+      }
+
+      this._value.value = data;
+      this.valueChange.emit(this._value);
+    });
   }
 }

@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "yes": "Ano",
+        "no": "Ne",
+        "yesU": "ANO",
+        "noU": "NE",
+        "date": "Datum"
+    },
+    "buttons": {
+        "back": "Zpět",
+        "next": "Pokračovat",
+        "download": "Stáhnout",
+        "ok": "OK"
+    }
+}

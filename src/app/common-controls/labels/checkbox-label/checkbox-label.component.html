@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutAlign="left start">
+    <div *ngIf="labelBeforeValue" class="margin-right-tiny">
+        <ng-content></ng-content>
+    </div>
+    <app-icon *ngIf="checked" icon="done" class="margin-right-tiny"></app-icon>
+    <div *ngIf="!checked" class="color-warn">
+        <app-icon icon="close" class="margin-right-tiny"></app-icon>
+    </div>
+    <div *ngIf="labelAfterValue" class="margin-left-tiny">
+        <ng-content></ng-content>
+    </div>
+</div>

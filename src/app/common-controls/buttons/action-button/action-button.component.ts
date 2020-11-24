@@ -1,24 +1,18 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ButtonDirective } from '../button.directive';
 
 @Component({
   selector: 'app-action-button',
-  template: ``,
-  styles: [
-  ]
+  templateUrl: './action-button.component.html',
+  styleUrls: ['./action-button.component.scss']
 })
-export class ActionButtonComponent implements OnInit {
-
-  @Input()
-  public action: () => void;
-
-  @Output() newEvent = new EventEmitter();
-
-  constructor() { }
+export class ActionButtonComponent extends ButtonDirective implements OnInit {
 
   ngOnInit(): void {
+    super.ngOnInit();
   }
 
   onClick(e) {
-    this.newEvent.emit('emitted');
+
   }
 }

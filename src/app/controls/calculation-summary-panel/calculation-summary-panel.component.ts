@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { InstalmentFrequencyModel } from 'src/app/bu-services/models/enumerations';
-import { BaseFormPanelComponent } from 'src/app/common-controls/forms/base-form-panel/base-form-panel.component';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 import { MoneyModel } from 'src/app/common-services/models/money-model';
 import { EnumerationsService } from 'src/app/common-services/services/enumerations.service';
 import { ApplicationModel } from 'src/app/models/application-model';
-import { InstalmentsModel } from 'src/app/models/instalments-model';
+import { InstalmentsModel } from 'src/app/bu-services/models/instalments-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
   selector: 'app-calculation-summary-panel',
   templateUrl: './calculation-summary-panel.component.html',
   styleUrls: ['./calculation-summary-panel.component.scss']
 })
-export class CalculationSummaryPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class CalculationSummaryPanelComponent extends FormPanelDirective implements OnInit {
   private _model: ApplicationModel;
 
   public get parametersModel(): InstalmentsModel {

@@ -1,3 +1,4 @@
+import { ReturnStatement } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
@@ -8,35 +9,13 @@ import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
   styleUrls: ['./address-info-panel.component.scss']
 })
 export class AddressInfoPanelComponent implements OnInit {
-  private _person: ClientInfoModel;
-  private _personName: string;
   private _address: AddressModel;
-  private _streetAndNumber: string;
-
-  public get person(): ClientInfoModel {
-    return this._person;
-  }
 
   @Input()
-  public set person(value: ClientInfoModel) {
-    this._person = value;
-    const parts: string[] = [];
-
-    if (value) {
-      if (value.firstName) {
-        parts.push(value.firstName);
-      }
-
-      if (value.lastName) {
-        parts.push(value.lastName);
-      }
-    }
-
-    this._personName = parts.join(' ');
-  }
+  public person: ClientInfoModel;
 
   public get personName(): string {
-    return this._personName;
+    return this.person?.name;
   }
 
   public get address(): AddressModel {
@@ -46,23 +25,25 @@ export class AddressInfoPanelComponent implements OnInit {
   @Input()
   public set address(value: AddressModel) {
     this._address = value;
-    const parts: string[] = [];
-
-    if (value) {
-      if (value.streetName) {
-        parts.push(value.streetName);
-      }
-
-      if (value.registrationNumber) {
-        parts.push(value.registrationNumber.toString());
-      }
-    }
-
-    this._streetAndNumber = parts.join(' ');
   }
 
   public get streetAndNumber(): string {
-    return this._streetAndNumber;
+    if (this._address) {
+      const parts: string[] = [];
+
+      if (this._address.streetName) {
+        parts.push(this._address.streetName);
+      }
+
+      if (this._address.registrationNumber) {
+        parts.push(this._address.registrationNumber);
+      }
+
+      return parts.join(' ');
+    }
+    else {
+      return null;
+    }
   }
 
   public get municipality(): string {

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { Moment } from 'moment';
 import { AddressModel } from 'src/app/bu-services/models/address-model';
 import { ClientInfoModel } from 'src/app/bu-services/models/client-info-model';
-import { BaseFormPanelComponent } from 'src/app/common-controls//forms/base-form-panel/base-form-panel.component';
+import { FormPanelDirective } from 'src/app/common-controls/forms/form-panel.directive';
 import { AgreementsModel } from 'src/app/models/agreements-model';
 import { ApplicationModel } from 'src/app/models/application-model';
 import { ApplicationDataService } from 'src/app/services/application-data.service';
@@ -12,14 +13,14 @@ import { ApplicationDataService } from 'src/app/services/application-data.servic
   templateUrl: './additional-info-panel.component.html',
   styleUrls: ['./additional-info-panel.component.scss']
 })
-export class AdditionalInfoPanelComponent extends BaseFormPanelComponent implements OnInit {
+export class AdditionalInfoPanelComponent extends FormPanelDirective implements OnInit {
   private readonly _model: ApplicationModel;
 
-  public get commencementDate(): Date {
+  public get commencementDate(): Moment {
     return this._model.commencementDate;
   }
 
-  public set commencementDate(value: Date) {
+  public set commencementDate(value: Moment) {
     this._model.commencementDate = value;
   }
 
@@ -52,6 +53,11 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
         this._model.contactAddress = new AddressModel();
       }
     }
+    else {
+      if (this._model.contactAddress) {
+        this._model.contactAddress.doApply = false;
+      }
+    }
   }
 
   public get contactAddress(): AddressModel {
@@ -69,6 +75,11 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
       }
       else {
         this._model.insuredPerson = new ClientInfoModel();
+      }
+    }
+    else {
+      if (this._model.insuredPerson) {
+        this._model.insuredPerson.doApply = false;
       }
     }
   }
@@ -119,14 +130,6 @@ export class AdditionalInfoPanelComponent extends BaseFormPanelComponent impleme
 
   ngOnInit(): void {
     super.ngOnInit();
-  }
-
-  public showContactAddress(): boolean {
-    return this.hasContactAddress;
-  }
-
-  public showInsuredPerson(): boolean {
-    return this.hasInsuredPerson;
   }
 
   public onContactAddressCheckedChange(value: boolean): void {

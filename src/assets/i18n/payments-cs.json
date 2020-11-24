@@ -1,0 +1,11 @@
+{
+    "payments": {
+        "goPayRetryMessage": "Platba přes GoPay se nezdařila, prosím opakujte platbu, nebo zvolte Zaplatit převodem později.",
+        "express": {
+            "activate": "Zaplatit ihned platební kartou nebo bankovním převodem"
+        },
+        "delayed": {
+            "activate": "Zaplatit převodem později"
+        }
+    }
+}

@@ -1,25 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationButtonDirective } from '../navigation-button.directive';
 
 @Component({
   selector: 'app-navigation-button',
-  template: ` `,
-  styles: [
-  ]
+  templateUrl: './navigation-button.component.html',
+  styleUrls: ['./navigation-button.component.scss']
 })
-export class NavigationButtonComponent implements OnInit {
-  @Input()
-  public redirectTo: string;
+export class NavigationButtonComponent extends NavigationButtonDirective implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(router: Router) {
+    super(router);
   }
 
   ngOnInit(): void {
-  }
-
-  redirect(): void {
-    if (this.redirectTo) {
-      this.router.navigate([this.redirectTo]);
-    }
+    super.ngOnInit();
   }
 }

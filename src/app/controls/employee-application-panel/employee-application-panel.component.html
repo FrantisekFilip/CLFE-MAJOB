@@ -1,21 +1,25 @@
-<mat-card class="citizen-application-panel">
-    <mat-card-content class="primary-border p-2">
-        <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
-        <mat-divider></mat-divider>
-        <section>
-            <ng-container *ngIf="!isCitizenActive()">
-                <app-add-section-button [callback]="addOrRemoveCitizenSection"
-                    label="Přidat pojištění odpovědnosti občanů">
-                </app-add-section-button>
-            </ng-container>
-            <ng-container *ngIf="isCitizenActive()">
-                <app-remove-section-button [callback]="addOrRemoveCitizenSection" label="Odebrat">
+<section class="form-section-panel">
+    <app-help-icon-button>{{employeeInsuranceProductName}}</app-help-icon-button>
+    <app-employee-calculation-panel [parentForm]="panelControl"></app-employee-calculation-panel>
+</section>
+<section class="panel-colors-lighter padding-vertical-small">
+    <ng-container *ngIf="!isCitizenActive">
+        <app-add-section-button [action]="addOrRemoveCitizenSection" labelPosition="after">
+            <span translate>steps.calculation.addCitizenInsurance</span>
+        </app-add-section-button>
+    </ng-container>
+    <ng-container *ngIf="isCitizenActive">
+        <div fxLayout="column" class="panel-rounded-bright padding-small">
+            <span fxLayout="row" fxLayoutAlign="space-between center">
+                <app-help-icon-button>{{citizenInsuranceProductName}}</app-help-icon-button>
+                <app-remove-section-button [action]="addOrRemoveCitizenSection" labelPosition="after">
+                    <span translate>steps.calculation.removeCitizenInsurance</span>
                 </app-remove-section-button>
-                <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
-            </ng-container>
-        </section>
-        <section>
-            <app-calculation-summary-panel></app-calculation-summary-panel>
-        </section>
-    </mat-card-content>
-</mat-card>
+            </span>
+            <app-citizen-calculation-panel [parentForm]="panelControl"></app-citizen-calculation-panel>
+        </div>
+    </ng-container>
+</section>
+<section class="form-section-panel">
+    <app-calculation-summary-panel [parentForm]="panelControl"></app-calculation-summary-panel>
+</section>

@@ -1,74 +1,82 @@
-<mat-card class="additional-info-panel">
-    <mat-card-header>
-        <mat-card-title>{{title}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div fxLayout="column" fxLayoutAlign="center left">
-            <section>
-                <app-date-field [value]="commencementDate" label="Datum počátku pojištění:" [parentForm]="panelControl">
+<section>
+    <h2>{{title}}</h2>
+    <div class="form-section-panel">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div style="width: 50%;">
+                <b><span translate>parameters.commencementDate</span></b>
+            </div>
+            <div style="width: 50%;">
+                <app-date-field [(value)]="commencementDate" [parentForm]="panelControl">
                 </app-date-field>
-                <app-client-info-panel header="Pojistník" [clientInfo]="policyHolder" [parentForm]="panelControl"
-                    emailLabel="Kontaktní e-mail pro zaslání pojistných smluv:"></app-client-info-panel>
-                <app-active-address-panel header="Adresa bydliště v ČR" [address]="mainAddress"
-                    [parentForm]="panelControl">
-                </app-active-address-panel>
-            </section>
-            <section>
-                <app-checkbox labelPosition="before" [checked]="hasContactAddress"
-                    (valueChange)="onContactAddressCheckedChange($event)"
-                    label="Korespondenční adresa není shodná s adresou bydliště:">
-                </app-checkbox>
-                <ng-container *ngIf="showContactAddress()">
-                    <app-active-address-panel header="Adresa bydliště v ČR" [address]="contactAddress"
-                        [parentForm]="panelControl">
-                    </app-active-address-panel>
-                </ng-container>
-            </section>
-            <section>
-                <app-checkbox labelPosition="before" [checked]="hasInsuredPerson"
-                    (valueChange)="onInsuredPersonCheckedChange($event)"
-                    label="Pojistník není shodný s pojištěnou osobou:">
-                </app-checkbox>
-                <ng-container *ngIf="showInsuredPerson()">
-                    <app-client-info-panel header="Pojištěná osoba" [clientInfo]="insuredPerson"
-                        [parentForm]="panelControl" emailLabel="Kontaktní e-mail pro zaslání pojistných smluv:">
-                    </app-client-info-panel>
-                </ng-container>
-            </section>
-            <section>
-                <p> Upozornění: Podmínkou platnosti pojistné smlouvy je existence pojistného zájmu pojistníka na majetku
-                    či
-                    odpovědnosti jiné osoby v době uzavření pojistné smlouvy. Pojistník má pojistný zájem, osvědčí-li,
-                    že by mu
-                    bez jeho existence a uchování hrozila přímá majetková ztráta.
-                </p>
-                <div fxLayout="column">
-                    <div fxLayout="column">
-                        <app-checkbox labelPosition="after" [checked]="agreementsAccepted"
-                            label="Potvrzuji, že jsem se seznámil s informacemi potřebnými ke sjednání pojistné smlouvy:">
-                        </app-checkbox>
-                        <app-checkbox labelPosition="after" [checked]="agreements.termsAndConditions"
-                            aria-readonly="true" label="Pojistné podmínky:\n
-                            VPP Majetku a odpovědnosti občanů\n
-                            DPP Pojištění odpovědnosti občanů\n
-                            DPP Pojištění odvědnosti zaměstnance za škodu způsobenou zaměstnavateli">
-                        </app-checkbox>
-                        <app-checkbox labelPosition="after" [checked]="agreements.productInfo" [disabled]="true" label="Informační dokument k pojistnému produktu\n
-                            Pojištění odpovědnosti občanů (IPID)\n
-                            Pojištění odvědnosti zaměstnance za škodu způsboenou zaměstnavateli (IPID)\n">
-                        </app-checkbox>
-                        <app-checkbox labelPosition="after" [checked]="agreements.gdpr" [disabled]="true"
-                            label="GDPR - poučení o zpracování osobních údajů">
-                        </app-checkbox>
-                        <app-checkbox labelPosition="after" [checked]="agreements.contractualInfo" [disabled]="true"
-                            label="Předsmluvní informace">
-                        </app-checkbox>
-                    </div>
-                    <app-checkbox labelPosition="after" [checked]="agreementsAccepted" label="Souhlasím s tím, abych byl v záležitostech týkajících se tohoto pojištění kontaktován prostředky
-                        elektronické komunikace (např. e-mail, telefon atd.).">
-                    </app-checkbox>
-                </div>
-            </section>
+            </div>
         </div>
-    </mat-card-content>
-</mat-card>
+        <br>
+        <app-client-info-panel [header]="'application.policyHolder' | translate" [clientInfo]="policyHolder"
+            [parentForm]="panelControl" [emailLabel]="'application.contactEmail' | translate">
+        </app-client-info-panel>
+        <br>
+        <app-active-address-panel [header]="'steps.addInfo.addressTitle' | translate" [address]="mainAddress"
+            [parentForm]="panelControl">
+        </app-active-address-panel>
+        <app-slide-toggle-field labelPosition="before" [checked]="hasContactAddress"
+            (valueChange)="onContactAddressCheckedChange($event)" [parentForm]="panelControl">
+            <span translate>steps.addInfo.otherContactAddress</span>
+        </app-slide-toggle-field>
+        <ng-container *ngIf="hasContactAddress">
+            <app-active-address-panel [header]="'steps.addInfo.addressTitle' | translate" [address]="contactAddress"
+                [parentForm]="panelControl">
+            </app-active-address-panel>
+        </ng-container>
+        <app-slide-toggle-field labelPosition="before" [checked]="hasInsuredPerson"
+            (valueChange)="onInsuredPersonCheckedChange($event)" [parentForm]="panelControl">
+            <span translate>steps.addInfo.otherInsuredPerson</span>
+        </app-slide-toggle-field>
+        <ng-container *ngIf="hasInsuredPerson">
+            <app-client-info-panel [header]="'application.insuredPerson' | translate" [clientInfo]="insuredPerson"
+                [parentForm]="panelControl" [emailLabel]="'application.contactEmail' | translate">
+            </app-client-info-panel>
+        </ng-container>
+        <p translate>steps.addInfo.disclaimer</p>
+        <app-check-box labelPosition="after" [checked]="agreementsAccepted">
+            <span translate>application.agreements.acceptance</span>
+        </app-check-box>
+        <div fxLayout="column">
+            <ul class="ul-reduced-small">
+                <li>
+                    <app-addinfo-terms-download [checked]="agreements.termsAndConditions">
+                        <!--TODO - replace html label with a component -->
+                        <span translate>application.agreements.termsAndConditions.title</span><br>
+                        <ul class="ul-reduced-tiny">
+                            <li><span translate>application.agreements.termsAndConditions.property</span></li>
+                            <li><span translate>application.agreements.termsAndConditions.citizen</span></li>
+                            <li><span translate>application.agreements.termsAndConditions.employee</span></li>
+                        </ul>
+                    </app-addinfo-terms-download>
+                </li>
+                <li>
+                    <app-addinfo-terms-download [checked]="agreements.productInfo">
+                        <!-- TODO - replace html label with a component -->
+                        <span translate>application.agreements.product.title</span><br>
+                        <ul class="ul-reduced-tiny">
+                            <li><span translate>application.agreements.product.citizen</span></li>
+                            <li><span translate>application.agreements.product.employee</span></li>
+                        </ul>
+                    </app-addinfo-terms-download>
+                </li>
+                <li>
+                    <app-addinfo-terms-download [checked]="agreements.gdpr">
+                        <span translate>application.agreements.gdpr</span>
+                    </app-addinfo-terms-download>
+                </li>
+                <li>
+                    <app-addinfo-terms-download [checked]="agreements.contractualInfo">
+                        <span translate>application.agreements.contractualInfo</span>
+                    </app-addinfo-terms-download>
+                </li>
+            </ul>
+            <app-check-box labelPosition="after" [checked]="agreementsAccepted">
+                <span translate>application.agreements.eContact</span>
+            </app-check-box>
+        </div>
+    </div>
+</section>

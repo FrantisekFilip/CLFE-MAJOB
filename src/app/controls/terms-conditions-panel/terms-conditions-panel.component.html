@@ -1,65 +1,63 @@
-<mat-card>
-    <mat-card-content>
-        <mat-accordion>
-            <mat-expansion-panel (opened)="expanded = true" (closed)="expanded = false" hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <div fxLayout="row" fxLayoutAlign="space-between center">
-                            <span>
-                                <mat-icon>get_app</mat-icon>
-                                Dokumenty ke stažení
-                            </span>
-                            <span>
-                                <ng-container *ngIf="!isExpanded()">
-                                    <app-expand-button label="Rozbalit"></app-expand-button>
-                                </ng-container>
-                                <ng-container *ngIf="isExpanded()">
-                                    <app-collapse-button label="Sbalit"></app-collapse-button>
-                                </ng-container>
-                            </span>
-                        </div>
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <ng-content> </ng-content>
-                <div fxLayout="row" fxFlexAlign="center center">
-                    <div fxFlex="50">
-                        <div fxLayout="column" fxFlexAlign="center center">
-                            <h3 class="text-primary">Pojistné podmínky</h3>
-                            <span fxLayout="row" fxLayoutAlign="space-between center">
-                                <app-icon-label icon="article" label="VPP Majetku s odpovědností
-                        občanů"></app-icon-label>
-                                <app-download-button></app-download-button>
-                            </span>
-                            <span fxLayout="row" fxLayoutAlign="space-between center">
-                                <app-icon-label icon="article" label="DPP Pojištění odpovědností
-                        občanů"></app-icon-label>
-                                <app-download-button></app-download-button>
-                            </span>
-                            <span fxLayout="row" fxLayoutAlign="space-between center">
-                                <app-icon-label icon="article" label="DPP Pojištění odpovědností
-                        zaměstnance za škodu způsobenou zaměstnavateli"></app-icon-label>
-                                <app-download-button></app-download-button>
-                            </span>
-                        </div>
+<section class="padding-vertical-small">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="expanded = true" (closed)="expanded = false" class="primary-border" hideToggle>
+            <mat-expansion-panel-header #expansionPanelHeader (click)="expansionPanelHeader._toggle()"
+                class="panel-rounded-default">
+                <mat-panel-title>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+                        <span fxLayout="row" fxLayoutAlign="start center">
+                            <app-icon icon="download_icon" class="margin-right-smallest"></app-icon>
+                            <span translate>terms.documentsToDownload</span>
+                        </span>
+                        <ng-container *ngIf="!isExpanded()">
+                            <app-expand-button labelPosition="after" class="clickable"
+                                (click)="expansionPanelHeader._toggle()">
+                                <span translate>terms.buttons.expand</span>
+                            </app-expand-button>
+                        </ng-container>
+                        <ng-container *ngIf="isExpanded()">
+                            <app-collapse-button labelPosition="after" class="clickable"
+                                (click)="expansionPanelHeader._toggle()">
+                                <span translate>terms.buttons.collapse</span>
+                            </app-collapse-button>
+                        </ng-container>
                     </div>
-                    <mat-divider [vertical]="true"></mat-divider>
-                    <div class="ml-2" fxFlex="50">
-                        <div fxLayout="column" fxFlexAlign="center center">
-                            <h3 class="text-primary">Informační dokument k pojistnému produktu</h3>
-                            <span fxLayout="row" fxLayoutAlign="space-between center">
-                                <app-icon-label icon="article" label="Pojištění odpovědností občanů (IPID)">
-                                </app-icon-label>
-                                <app-download-button></app-download-button>
-                            </span>
-                            <span fxLayout="row" fxLayoutAlign="space-between center">
-                                <app-icon-label icon="article" label="Pojištění odpovědností zaměstnance za škodu způsobenou
-                        zaměstnavateli (IPID)"></app-icon-label>
-                                <app-download-button></app-download-button>
-                            </span>
-                        </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="row" fxFlexAlign="space-between start" class="margin-top-small">
+                <div fxFlex="50" class="margin-right-medium">
+                    <div fxLayout="column" fxFlexAlign="center center">
+                        <h3 translate>application.agreements.termsAndConditions.title</h3>
+                        <app-terms-download>
+                            <span translate>application.agreements.termsAndConditions.property</span>
+                        </app-terms-download>
+                        <app-terms-download>
+                            <span translate>application.agreements.termsAndConditions.citizen</span>
+                        </app-terms-download>
+                        <app-terms-download>
+                            <span translate>application.agreements.termsAndConditions.employee</span>
+                        </app-terms-download>
                     </div>
                 </div>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </mat-card-content>
-</mat-card>
+                <mat-divider [vertical]="true"></mat-divider>
+                <div fxFlex="50">
+                    <div fxLayout="column" fxFlexAlign="center center" class="margin-left-medium">
+                        <h3 translate>application.agreements.product.title</h3>
+                        <app-terms-download>
+                            <span translate>application.agreements.product.citizen</span>
+                        </app-terms-download>
+                        <app-terms-download>
+                            <span translate>application.agreements.product.employee</span>
+                        </app-terms-download>
+                        <app-terms-download>
+                            <span translate>application.agreements.contractualInfo</span>
+                        </app-terms-download>
+                        <app-terms-download>
+                            <span translate>application.agreements.gdpr</span>
+                        </app-terms-download>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</section>
