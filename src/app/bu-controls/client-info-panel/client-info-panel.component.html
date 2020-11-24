@@ -9,7 +9,7 @@
                 <span translate>client.titleAN</span>
             </app-text-field>
         </div>
-        <div style="width: 50%;">
+        <div fxLayout="column" fxLayoutAlign="start start" style="width: 50%;">
             <b><span translate>client.birthDate</span></b>
             <app-date-field [(value)]="clientInfo.birthDate" [parentForm]="panelControl">
             </app-date-field>
