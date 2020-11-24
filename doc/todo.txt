@@ -13,37 +13,41 @@ Zname problemy:
     -   Vyresit submit warningy z prohlizece
     -   FormFields - sjednotit base value pres generiku
     -   Konverze boolean na text
+    -   Zjistit dynamicky velikost stranky
+    -   Unit testy
+    -   Build - navazat spusteni unit testu
     -   Realizovat TODO
+    -   Nahradit style za tridy
 -   Ovladaci prvky
     -   Stepper - nahradit specialni tlacitka direktivami
     -   Stepper - chybi grafika vpravo dole
     -   Stepper - opravit grafiku - krouzek Active je moc tlusty
     -   RichTranslate - nahradit specialni label direktivou
     -   Odsazeni Help-icon labelu vs ostatni labely/fieldy
-    -   Dodelat "dokumenty ke stazeni"
-    -   Vypinani "dokumentu ke stazeni" na vybranych obrazovkach
-    -   Omezit maximalni delku Input Fieldu (aby se vesly 3 na radek)
     -   Stylovat pole pro vkladani datumu
     -   Panely ne vzdy zakulacuji rohy
     -   Odstranit ng-deep ze vsech css
-    -   Neprenasi se data z formularu do prehledovych obrazovek
     -   Predelat css tak, aby komponenty nemusely referencovat konkretni green-theme, ale theme
     -   Odebrat !important z css (krome marginu a paddingu)
-    -   Section button - prehodit + na zacatek
     -   LayoutGap do stylu
     -   Nahradit color-dark za styl (pokud se podari dostat barvy do konstant)
+    -   Action button nefunguje v hlavicce
     -   Download button spatne zarovnava
--   Dialogy
-    -   stylovat Error Dialogy
-    -   stylovat Potvrzovaci Dialogy
+    -   Toggle button neprebira akce z expand/collapse (kvuli primemu onclick na terms pres # promenou)
+    -   Formatovani vystupu pomoci pipe - mena, procenta, datum, rodne cislo, telefon, email
+    -   Dialogy - refaktorovat pridruzene sluzby
+    -   Tlacitka Expand / Collapse je potreba spravne podbarvit a zvetsit ikonku
+    -   Big Button  a radion button nereflektuje zmenu barevne palety
+    -   Section button nezalamuje text (a neprizpusobi vysku)
+    -   Expansion button nezalamuje text (a neprizpusobi vysku)
 -   Dokumenty ke stažení
-    -   Ikonka ma byt cerna
-    -   Tlacitko rozbalit / sbalit k prave stranek
+    -   Ikonka ma byt bílá
     -   Vybarveni tlacitek rozbalit / sbalit
     -   Rozbaleny hover probarvuje
-    -   Border - color nefunguje
+    -   Zaobleni hlavicky a rozbaleneho neodpovida
 -   Obr. - Kalkulace
     -   Odstranit vnejsi bily div, ktery kazi zakulaceni
+    -   Navazat na Zpet potvrzovaci dialog
 -   Obr. - Doplnujici informace
     -   Zarovnani radku pro vkladani titulu
 -   Obr. - Rekapitulace
@@ -51,5 +55,8 @@ Zname problemy:
 -   Obr. - Nepodarilo se sjednat (visit-branch)
     -   Tlacitko kontakt ma byt zelene
     -   Panel neni zaobleny
--   Obr. - Volba platebni metody
-    -   Nejsou aktivni tlacitka (docasne by mela routovat na success / fail)
+-   Obr. - Platba
+    -   Navazat na odeslani potvrzovaci dialog
+-   Dokumentace
+    -   Popis API
+    -   Vzornik

@@ -9,12 +9,12 @@ export class PaymentsService {
   constructor() { }
 
   public executeDelayedPayment(payment: PaymentModel): boolean {
-    alert('Delayed payment: ' + payment?.amount?.value.amount.toString());
+    // alert('Delayed payment: ' + payment?.amount?.value.amount.toString());
     return true;
   }
 
   public executeExpressPayment(payment: PaymentModel): boolean {
-    alert('Express payment: ' + payment?.amount?.value.amount.toString());
+    // alert('Express payment: ' + payment?.amount?.value.amount.toString());
     return false;
   }
 }

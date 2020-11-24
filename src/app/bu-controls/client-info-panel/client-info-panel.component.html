@@ -1,16 +1,16 @@
 <h3><b>{{header}}</b></h3>
 <div fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="start end">
+    <div fxLayout="row" fxLayoutAlign="start start">
         <div fxLayout="row" style="width: 50%;">
-            <app-text-field [(value)]="clientInfo.titleBN" [parentForm]="panelControl">
+            <app-text-field class="title-field" [(value)]="clientInfo.titleBN" [parentForm]="panelControl">
                 <span translate>client.titleBN</span>
             </app-text-field>
-            <app-text-field [(value)]="clientInfo.titleAN" [parentForm]="panelControl">
+            <app-text-field class="title-field" [(value)]="clientInfo.titleAN" [parentForm]="panelControl">
                 <span translate>client.titleAN</span>
             </app-text-field>
         </div>
-        <div>
-            <span translate>client.birthDate</span>
+        <div fxLayout="column" fxLayoutAlign="start start" style="width: 50%;">
+            <b><span translate>client.birthDate</span></b>
             <app-date-field [(value)]="clientInfo.birthDate" [parentForm]="panelControl">
             </app-date-field>
         </div>

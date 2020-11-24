@@ -4,7 +4,8 @@
         <div fxLayout="column" fxLayoutAlign="center left">
             <h3 translate>steps.payment.acknowledgement</h3>
             <p mat-line translate>steps.payment.notice</p>
-            <app-payment-selection-panel [payment]="payment"></app-payment-selection-panel>
+            <app-payment-selection-panel [payment]="payment" (executedPayment)="onPayment($event)">
+            </app-payment-selection-panel>
         </div>
     </div>
 </section>

@@ -19,13 +19,17 @@
 
 .form-toggle-field-label {
   margin: $size-tiny;
-  width: 80%;
+  width: 85%;
   overflow-wrap: break-word;
 }
 
 .form-field-value {
   @extend .padding-left-medium;
   overflow-wrap: break-word;
+}
+
+.text-field {
+  width: 90%;
 }
 
 .form-panel-shape {
@@ -77,6 +81,10 @@
 .ul-reduced-large {
   @extend .padding-left-large;
   list-style-type: none;
+}
+
+.date-field-shape{
+  border-radius: $size-small;
 }
 
 @import "style-overrides.scss";
