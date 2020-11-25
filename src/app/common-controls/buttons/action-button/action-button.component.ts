@@ -11,4 +11,8 @@ export class ActionButtonComponent extends ButtonDirective implements OnInit {
   ngOnInit(): void {
     super.ngOnInit();
   }
+
+  onClick(e) {
+
+  }
 }
