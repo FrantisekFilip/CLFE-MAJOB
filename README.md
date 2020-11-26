@@ -34,3 +34,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ``docker run --name clfe-majob-fe -p 8080:80 clfe-majob-fe``
 
+## Push to repo
+
+``docker tag clfe-majob-fe 192.168.1.215:10080/pvzp/uat/clfe-majob:20201125``
+``docker push 192.168.1.215:10080/pvzp/uat/clfe-majob:20201125``
+
